@@ -1,265 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <patch>
   <name>sfm-hihat</name>
-  <polyphony>1</polyphony>
-  <node>
-    <name>dahdsr_g+t_control0</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>dahdsr_g+t_control</plugin-label>
-    <library-name>dahdsr_2021.so</library-name>
-    <module-x>2081</module-x>
-    <module-y>1099</module-y>
-  </node>
-  <node>
-    <name>dahdsr_g+t_control1</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>dahdsr_g+t_control</plugin-label>
-    <library-name>dahdsr_2021.so</library-name>
-    <module-x>1584</module-x>
-    <module-y>886</module-y>
-  </node>
-  <node>
-    <name>dahdsr_g+t_control2</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>dahdsr_g+t_control</plugin-label>
-    <library-name>dahdsr_2021.so</library-name>
-    <module-x>1574</module-x>
-    <module-y>1503</module-y>
-  </node>
-  <node>
-    <name>midi_trigger_in0</name>
-    <polyphonic>false</polyphonic>
-    <type>Internal</type>
-    <plugin-label>midi_trigger_in</plugin-label>
-    <module-x>1413</module-x>
-    <module-y>1046</module-y>
-  </node>
-  <node>
-    <name>mixer0</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>mixer</plugin-label>
-    <library-name>cmt.so</library-name>
-    <module-x>2142</module-x>
-    <module-y>1293</module-y>
-  </node>
-  <node>
-    <name>mixer1</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>mixer</plugin-label>
-    <library-name>cmt.so</library-name>
-    <module-x>1513</module-x>
-    <module-y>1394</module-y>
-  </node>
-  <node>
-    <name>mixer2</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>mixer</plugin-label>
-    <library-name>cmt.so</library-name>
-    <module-x>1525</module-x>
-    <module-y>1266</module-y>
-  </node>
-  <node>
-    <name>output0</name>
-    <polyphonic>false</polyphonic>
-    <type>Internal</type>
-    <plugin-label>output</plugin-label>
-    <module-x>2396</module-x>
-    <module-y>1332</module-y>
-  </node>
-  <node>
-    <name>product_iaia_oa0</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>product_iaia_oa</plugin-label>
-    <library-name>product_1668.so</library-name>
-    <module-x>1873</module-x>
-    <module-y>1216</module-y>
-  </node>
-  <node>
-    <name>product_iaia_oa1</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>product_iaia_oa</plugin-label>
-    <library-name>product_1668.so</library-name>
-    <module-x>2261</module-x>
-    <module-y>1294</module-y>
-  </node>
-  <node>
-    <name>product_iaia_oa2</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>product_iaia_oa</plugin-label>
-    <library-name>product_1668.so</library-name>
-    <module-x>1971</module-x>
-    <module-y>1349</module-y>
-  </node>
-  <node>
-    <name>product_iaic_oa0</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>product_iaic_oa</plugin-label>
-    <library-name>product_1668.so</library-name>
-    <module-x>1731</module-x>
-    <module-y>1660</module-y>
-  </node>
-  <node>
-    <name>product_iaic_oa1</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>product_iaic_oa</plugin-label>
-    <library-name>product_1668.so</library-name>
-    <module-x>1094</module-x>
-    <module-y>1304</module-y>
-  </node>
-  <node>
-    <name>product_iaic_oa2</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>product_iaic_oa</plugin-label>
-    <library-name>product_1668.so</library-name>
-    <module-x>1041</module-x>
-    <module-y>1441</module-y>
-  </node>
-  <node>
-    <name>product_iaic_oa3</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>product_iaic_oa</plugin-label>
-    <library-name>product_1668.so</library-name>
-    <module-x>1700</module-x>
-    <module-y>1300</module-y>
-  </node>
+  <width>3200</width>
+  <height>2400</height>
   <node>
     <name>product_iaic_oa4</name>
-    <polyphonic>false</polyphonic>
+    <x>1810.000000</x>
+    <y>1017.000000</y>
     <type>LADSPA</type>
     <plugin-label>product_iaic_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1810</module-x>
-    <module-y>1017</module-y>
-  </node>
-  <node>
-    <name>square_fa_oa0</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>square_fa_oa</plugin-label>
-    <library-name>square_1643.so</library-name>
-    <module-x>1392</module-x>
-    <module-y>1200</module-y>
-  </node>
-  <node>
-    <name>square_fa_oa1</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>square_fa_oa</plugin-label>
-    <library-name>square_1643.so</library-name>
-    <module-x>1925</module-x>
-    <module-y>1460</module-y>
-  </node>
-  <node>
-    <name>square_fa_oa2</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>square_fa_oa</plugin-label>
-    <library-name>square_1643.so</library-name>
-    <module-x>1900</module-x>
-    <module-y>1500</module-y>
-  </node>
-  <node>
-    <name>square_fc_oa0</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>square_fc_oa</plugin-label>
-    <library-name>square_1643.so</library-name>
-    <module-x>957</module-x>
-    <module-y>1204</module-y>
-  </node>
-  <node>
-    <name>square_fc_oa1</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>square_fc_oa</plugin-label>
-    <library-name>square_1643.so</library-name>
-    <module-x>878</module-x>
-    <module-y>1442</module-y>
-  </node>
-  <node>
-    <name>square_fc_oa2</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>square_fc_oa</plugin-label>
-    <library-name>square_1643.so</library-name>
-    <module-x>950</module-x>
-    <module-y>1309</module-y>
-  </node>
-  <node>
-    <name>sum_iaic_oa0</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>sum_iaic_oa</plugin-label>
-    <library-name>sum_1665.so</library-name>
-    <module-x>1256</module-x>
-    <module-y>1182</module-y>
-  </node>
-  <node>
-    <name>sum_iaic_oa1</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>sum_iaic_oa</plugin-label>
-    <library-name>sum_1665.so</library-name>
-    <module-x>1262</module-x>
-    <module-y>1302</module-y>
-  </node>
-  <node>
-    <name>sum_iaic_oa2</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>sum_iaic_oa</plugin-label>
-    <library-name>sum_1665.so</library-name>
-    <module-x>1213</module-x>
-    <module-y>1444</module-y>
-  </node>
-  <node>
-    <name>sum_iaic_oa3</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>sum_iaic_oa</plugin-label>
-    <library-name>sum_1665.so</library-name>
-    <module-x>1813</module-x>
-    <module-y>1549</module-y>
   </node>
   <node>
     <name>sum_iaic_oa4</name>
-    <polyphonic>false</polyphonic>
+    <x>1855.000000</x>
+    <y>1129.000000</y>
     <type>LADSPA</type>
     <plugin-label>sum_iaic_oa</plugin-label>
     <library-name>sum_1665.so</library-name>
-    <module-x>1650</module-x>
-    <module-y>1250</module-y>
+  </node>
+  <node>
+    <name>sum_iaic_oa3</name>
+    <x>1813.000000</x>
+    <y>1549.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>sum_iaic_oa</plugin-label>
+    <library-name>sum_1665.so</library-name>
+  </node>
+  <node>
+    <name>product_iaic_oa3</name>
+    <x>1778.000000</x>
+    <y>1470.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>product_iaic_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+  </node>
+  <node>
+    <name>mixer2</name>
+    <x>1525.000000</x>
+    <y>1266.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>mixer</plugin-label>
+    <library-name>cmt.so</library-name>
+  </node>
+  <node>
+    <name>mixer1</name>
+    <x>1513.000000</x>
+    <y>1394.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>mixer</plugin-label>
+    <library-name>cmt.so</library-name>
+  </node>
+  <node>
+    <name>sum_iaic_oa2</name>
+    <x>1213.000000</x>
+    <y>1444.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>sum_iaic_oa</plugin-label>
+    <library-name>sum_1665.so</library-name>
+  </node>
+  <node>
+    <name>product_iaic_oa2</name>
+    <x>1041.000000</x>
+    <y>1441.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>product_iaic_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+  </node>
+  <node>
+    <name>sum_iaic_oa1</name>
+    <x>1262.000000</x>
+    <y>1302.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>sum_iaic_oa</plugin-label>
+    <library-name>sum_1665.so</library-name>
+  </node>
+  <node>
+    <name>product_iaic_oa1</name>
+    <x>1094.000000</x>
+    <y>1304.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>product_iaic_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+  </node>
+  <node>
+    <name>square_fc_oa2</name>
+    <x>950.000000</x>
+    <y>1309.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>square_fc_oa</plugin-label>
+    <library-name>square_1643.so</library-name>
+  </node>
+  <node>
+    <name>square_fa_oa2</name>
+    <x>1385.000000</x>
+    <y>1329.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>square_fa_oa</plugin-label>
+    <library-name>square_1643.so</library-name>
+  </node>
+  <node>
+    <name>square_fc_oa1</name>
+    <x>878.000000</x>
+    <y>1442.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>square_fc_oa</plugin-label>
+    <library-name>square_1643.so</library-name>
+  </node>
+  <node>
+    <name>square_fa_oa1</name>
+    <x>1362.000000</x>
+    <y>1460.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>square_fa_oa</plugin-label>
+    <library-name>square_1643.so</library-name>
+  </node>
+  <node>
+    <name>output0</name>
+    <x>2378.000000</x>
+    <y>1216.000000</y>
+    <type>Internal</type>
+    <plugin-label>output</plugin-label>
+  </node>
+  <node>
+    <name>midi_trigger_in0</name>
+    <x>1413.000000</x>
+    <y>1046.000000</y>
+    <type>Internal</type>
+    <plugin-label>midi_trigger_in</plugin-label>
+  </node>
+  <node>
+    <name>dahdsr_g+t_control0</name>
+    <x>2081.000000</x>
+    <y>1099.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>dahdsr_g+t_control</plugin-label>
+    <library-name>dahdsr_2021.so</library-name>
+  </node>
+  <node>
+    <name>dahdsr_g+t_control1</name>
+    <x>1584.000000</x>
+    <y>886.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>dahdsr_g+t_control</plugin-label>
+    <library-name>dahdsr_2021.so</library-name>
+  </node>
+  <node>
+    <name>dahdsr_g+t_control2</name>
+    <x>1574.000000</x>
+    <y>1503.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>dahdsr_g+t_control</plugin-label>
+    <library-name>dahdsr_2021.so</library-name>
+  </node>
+  <node>
+    <name>product_iaia_oa0</name>
+    <x>1873.000000</x>
+    <y>1216.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+  </node>
+  <node>
+    <name>product_iaia_oa1</name>
+    <x>2261.000000</x>
+    <y>1294.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+  </node>
+  <node>
+    <name>product_iaia_oa2</name>
+    <x>1971.000000</x>
+    <y>1349.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
   </node>
   <node>
     <name>vcf_bp20</name>
-    <polyphonic>false</polyphonic>
+    <x>1626.000000</x>
+    <y>1139.000000</y>
     <type>LADSPA</type>
     <plugin-label>vcf_bp2</plugin-label>
     <library-name>vcf_cv_in.so</library-name>
-    <module-x>1626</module-x>
-    <module-y>1139</module-y>
   </node>
   <node>
     <name>vcf_hp0</name>
-    <polyphonic>false</polyphonic>
+    <x>1798.000000</x>
+    <y>1296.000000</y>
     <type>LADSPA</type>
     <plugin-label>vcf_hp</plugin-label>
     <library-name>vcf_cv_in.so</library-name>
-    <module-x>1798</module-x>
-    <module-y>1296</module-y>
+  </node>
+  <node>
+    <name>mixer0</name>
+    <x>2142.000000</x>
+    <y>1293.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>mixer</plugin-label>
+    <library-name>cmt.so</library-name>
+  </node>
+  <node>
+    <name>square_fc_oa0</name>
+    <x>957.000000</x>
+    <y>1204.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>square_fc_oa</plugin-label>
+    <library-name>square_1643.so</library-name>
+  </node>
+  <node>
+    <name>square_fa_oa0</name>
+    <x>1392.000000</x>
+    <y>1200.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>square_fa_oa</plugin-label>
+    <library-name>square_1643.so</library-name>
+  </node>
+  <node>
+    <name>product_iaic_oa0</name>
+    <x>1094.000000</x>
+    <y>1184.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>product_iaic_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+  </node>
+  <node>
+    <name>sum_iaic_oa0</name>
+    <x>1256.000000</x>
+    <y>1182.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>sum_iaic_oa</plugin-label>
+    <library-name>sum_1665.so</library-name>
   </node>
   <connection>
     <source-node>sum_iaic_oa4</source-node>
@@ -418,6 +390,12 @@
     <destination-port>Second Input</destination-port>
   </connection>
   <connection>
+    <source-node>product_iaia_oa1</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>output0</destination-node>
+    <destination-port>out_1</destination-port>
+  </connection>
+  <connection>
     <source-node>midi_trigger_in0</source-node>
     <source-port>Gate</source-port>
     <destination-node>dahdsr_g+t_control1</destination-node>
@@ -453,213 +431,204 @@
     <destination-node>square_fa_oa0</destination-node>
     <destination-port>Frequency</destination-port>
   </connection>
-  <connection>
-    <source-node>product_iaia_oa1</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <preset>
-    <name>default</name>
-    <control>
-      <node-name>dahdsr_g+t_control0</node-name>
-      <port-name>Attack Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control0</node-name>
-      <port-name>Decay Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control0</node-name>
-      <port-name>Delay Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control0</node-name>
-      <port-name>Hold Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control0</node-name>
-      <port-name>Release Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control0</node-name>
-      <port-name>Sustain Level</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control1</node-name>
-      <port-name>Attack Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control1</node-name>
-      <port-name>Decay Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control1</node-name>
-      <port-name>Delay Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control1</node-name>
-      <port-name>Hold Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control1</node-name>
-      <port-name>Release Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control1</node-name>
-      <port-name>Sustain Level</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control2</node-name>
-      <port-name>Attack Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control2</node-name>
-      <port-name>Decay Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control2</node-name>
-      <port-name>Delay Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control2</node-name>
-      <port-name>Hold Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control2</node-name>
-      <port-name>Release Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control2</node-name>
-      <port-name>Sustain Level</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>midi_trigger_in0</node-name>
-      <port-name>Note Number</port-name>
-      <value>65.110001</value>
-    </control>
-    <control>
-      <node-name>product_iaic_oa0</node-name>
-      <port-name>Second Input</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>product_iaic_oa1</node-name>
-      <port-name>Second Input</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>product_iaic_oa2</node-name>
-      <port-name>Second Input</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>product_iaic_oa3</node-name>
-      <port-name>Second Input</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>product_iaic_oa4</node-name>
-      <port-name>Second Input</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>square_fc_oa0</node-name>
-      <port-name>Frequency</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>square_fc_oa1</node-name>
-      <port-name>Frequency</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>square_fc_oa2</node-name>
-      <port-name>Frequency</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>sum_iaic_oa0</node-name>
-      <port-name>Second Input</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>sum_iaic_oa1</node-name>
-      <port-name>Second Input</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>sum_iaic_oa2</node-name>
-      <port-name>Second Input</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>sum_iaic_oa3</node-name>
-      <port-name>Second Input</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>sum_iaic_oa4</node-name>
-      <port-name>Second Input</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>vcf_bp20</node-name>
-      <port-name>Frequency Offset</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>vcf_bp20</node-name>
-      <port-name>Frequency Pitch</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>vcf_bp20</node-name>
-      <port-name>Gain</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>vcf_bp20</node-name>
-      <port-name>Resonance Offset</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>vcf_hp0</node-name>
-      <port-name>Frequency Offset</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>vcf_hp0</node-name>
-      <port-name>Frequency Pitch</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>vcf_hp0</node-name>
-      <port-name>Gain</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>vcf_hp0</node-name>
-      <port-name>Resonance Offset</port-name>
-      <value>0.000000</value>
-    </control>
-  </preset>
+  <control>
+    <node-name>product_iaic_oa4</node-name>
+    <port-name>Second Input</port-name>
+    <value>499.989990</value>
+  </control>
+  <control>
+    <node-name>sum_iaic_oa4</node-name>
+    <port-name>Second Input</port-name>
+    <value>7999.990234</value>
+  </control>
+  <control>
+    <node-name>sum_iaic_oa3</node-name>
+    <port-name>Second Input</port-name>
+    <value>8999.990234</value>
+  </control>
+  <control>
+    <node-name>product_iaic_oa3</node-name>
+    <port-name>Second Input</port-name>
+    <value>0.847000</value>
+  </control>
+  <control>
+    <node-name>sum_iaic_oa2</node-name>
+    <port-name>Second Input</port-name>
+    <value>1482.589966</value>
+  </control>
+  <control>
+    <node-name>product_iaic_oa2</node-name>
+    <port-name>Second Input</port-name>
+    <value>2.986011</value>
+  </control>
+  <control>
+    <node-name>sum_iaic_oa1</node-name>
+    <port-name>Second Input</port-name>
+    <value>1048.949951</value>
+  </control>
+  <control>
+    <node-name>product_iaic_oa1</node-name>
+    <port-name>Second Input</port-name>
+    <value>2.986011</value>
+  </control>
+  <control>
+    <node-name>square_fc_oa2</node-name>
+    <port-name>Frequency</port-name>
+    <value>1109.489990</value>
+  </control>
+  <control>
+    <node-name>square_fc_oa1</node-name>
+    <port-name>Frequency</port-name>
+    <value>1174.949951</value>
+  </control>
+  <control>
+    <node-name>midi_trigger_in0</node-name>
+    <port-name>Note Number</port-name>
+    <value>60.110001</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control0</node-name>
+    <port-name>Delay Time (s)</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control0</node-name>
+    <port-name>Attack Time (s)</port-name>
+    <value>0.002000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control0</node-name>
+    <port-name>Hold Time (s)</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control0</node-name>
+    <port-name>Decay Time (s)</port-name>
+    <value>0.353000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control0</node-name>
+    <port-name>Sustain Level</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control0</node-name>
+    <port-name>Release Time (s)</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control1</node-name>
+    <port-name>Delay Time (s)</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control1</node-name>
+    <port-name>Attack Time (s)</port-name>
+    <value>0.001000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control1</node-name>
+    <port-name>Hold Time (s)</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control1</node-name>
+    <port-name>Decay Time (s)</port-name>
+    <value>0.910000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control1</node-name>
+    <port-name>Sustain Level</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control1</node-name>
+    <port-name>Release Time (s)</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control2</node-name>
+    <port-name>Delay Time (s)</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control2</node-name>
+    <port-name>Attack Time (s)</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control2</node-name>
+    <port-name>Hold Time (s)</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control2</node-name>
+    <port-name>Decay Time (s)</port-name>
+    <value>0.048000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control2</node-name>
+    <port-name>Sustain Level</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>dahdsr_g+t_control2</node-name>
+    <port-name>Release Time (s)</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>vcf_bp20</node-name>
+    <port-name>Gain</port-name>
+    <value>0.659000</value>
+  </control>
+  <control>
+    <node-name>vcf_bp20</node-name>
+    <port-name>Frequency Offset</port-name>
+    <value>20.000000</value>
+  </control>
+  <control>
+    <node-name>vcf_bp20</node-name>
+    <port-name>Frequency Pitch</port-name>
+    <value>0.182000</value>
+  </control>
+  <control>
+    <node-name>vcf_bp20</node-name>
+    <port-name>Resonance Offset</port-name>
+    <value>0.001000</value>
+  </control>
+  <control>
+    <node-name>vcf_hp0</node-name>
+    <port-name>Gain</port-name>
+    <value>0.990000</value>
+  </control>
+  <control>
+    <node-name>vcf_hp0</node-name>
+    <port-name>Frequency Offset</port-name>
+    <value>20.000000</value>
+  </control>
+  <control>
+    <node-name>vcf_hp0</node-name>
+    <port-name>Frequency Pitch</port-name>
+    <value>0.000000</value>
+  </control>
+  <control>
+    <node-name>vcf_hp0</node-name>
+    <port-name>Resonance Offset</port-name>
+    <value>0.101000</value>
+  </control>
+  <control>
+    <node-name>square_fc_oa0</node-name>
+    <port-name>Frequency</port-name>
+    <value>1044.869995</value>
+  </control>
+  <control>
+    <node-name>product_iaic_oa0</node-name>
+    <port-name>Second Input</port-name>
+    <value>2491.409912</value>
+  </control>
+  <control>
+    <node-name>sum_iaic_oa0</node-name>
+    <port-name>Second Input</port-name>
+    <value>1482.589966</value>
+  </control>
 </patch>
