@@ -4,6 +4,22 @@
   <width>3200</width>
   <height>2400</height>
   <node>
+    <name>sine_faac0</name>
+    <x>1759.000000</x>
+    <y>1132.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>sine_faac</plugin-label>
+    <library-name>cmt.so</library-name>
+  </node>
+  <node>
+    <name>difference_icma_oa0</name>
+    <x>1477.000000</x>
+    <y>1071.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>difference_icma_oa</plugin-label>
+    <library-name>difference_2030.so</library-name>
+  </node>
+  <node>
     <name>mixer1</name>
     <x>2121.000000</x>
     <y>1123.000000</y>
@@ -13,8 +29,8 @@
   </node>
   <node>
     <name>mixer0</name>
-    <x>1860.000000</x>
-    <y>1332.000000</y>
+    <x>1666.000000</x>
+    <y>1476.000000</y>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
@@ -36,49 +52,33 @@
     <library-name>cmt.so</library-name>
   </node>
   <node>
-    <name>wshape_sine0</name>
-    <x>1640.000000</x>
-    <y>1031.000000</y>
-    <type>LADSPA</type>
-    <plugin-label>wshape_sine</plugin-label>
-    <library-name>cmt.so</library-name>
-  </node>
-  <node>
-    <name>sawtooth_fa_oa0</name>
-    <x>1470.000000</x>
-    <y>1048.000000</y>
-    <type>LADSPA</type>
-    <plugin-label>sawtooth_fa_oa</plugin-label>
-    <library-name>sawtooth_1641.so</library-name>
-  </node>
-  <node>
     <name>product_iaia_oa1</name>
-    <x>1992.000000</x>
-    <y>1369.000000</y>
+    <x>2070.000000</x>
+    <y>1482.000000</y>
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
   </node>
   <node>
     <name>product_iaia_oa0</name>
-    <x>1622.000000</x>
-    <y>1164.000000</y>
+    <x>1980.000000</x>
+    <y>1082.000000</y>
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
   </node>
   <node>
     <name>dahdsr_g+t_control2</name>
-    <x>1231.000000</x>
-    <y>915.000000</y>
+    <x>1154.000000</x>
+    <y>974.000000</y>
     <type>LADSPA</type>
     <plugin-label>dahdsr_g+t_control</plugin-label>
     <library-name>dahdsr_2021.so</library-name>
   </node>
   <node>
     <name>dahdsr_g+t_control1</name>
-    <x>1913.000000</x>
-    <y>1199.000000</y>
+    <x>1868.000000</x>
+    <y>1292.000000</y>
     <type>LADSPA</type>
     <plugin-label>dahdsr_g+t_control</plugin-label>
     <library-name>dahdsr_2021.so</library-name>
@@ -106,13 +106,33 @@
     <plugin-label>midi_trigger_in</plugin-label>
   </node>
   <node>
-    <name>fmod_fcma_oa0</name>
-    <x>1303.000000</x>
-    <y>1019.000000</y>
+    <name>product_iaic_oa0</name>
+    <x>1394.000000</x>
+    <y>1154.000000</y>
     <type>LADSPA</type>
-    <plugin-label>fmod_fcma_oa</plugin-label>
-    <library-name>fmod_1656.so</library-name>
+    <plugin-label>product_iaic_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
   </node>
+  <node>
+    <name>sum_iaic_oa0</name>
+    <x>1388.000000</x>
+    <y>1195.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>sum_iaic_oa</plugin-label>
+    <library-name>sum_1665.so</library-name>
+  </node>
+  <connection>
+    <source-node>difference_icma_oa0</source-node>
+    <source-port>Difference Output</source-port>
+    <destination-node>sine_faac0</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>dahdsr_g+t_control2</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>difference_icma_oa0</destination-node>
+    <destination-port>Input to Subtract</destination-port>
+  </connection>
   <connection>
     <source-node>midi_trigger_in0</source-node>
     <source-port>Gate</source-port>
@@ -186,39 +206,49 @@
     <destination-port>First Input</destination-port>
   </connection>
   <connection>
-    <source-node>wshape_sine0</source-node>
+    <source-node>dahdsr_g+t_control2</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>product_iaic_oa0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaic_oa0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>difference_icma_oa0</destination-node>
+    <destination-port>Input to Subtract</destination-port>
+  </connection>
+  <connection>
+    <source-node>sine_faac0</source-node>
     <source-port>Output</source-port>
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>Second Input</destination-port>
   </connection>
   <connection>
-    <source-node>sawtooth_fa_oa0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>wshape_sine0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
     <source-node>dahdsr_g+t_control2</source-node>
     <source-port>Envelope Out</source-port>
-    <destination-node>sawtooth_fa_oa0</destination-node>
-    <destination-port>Frequency</destination-port>
+    <destination-node>sum_iaic_oa0</destination-node>
+    <destination-port>First Input</destination-port>
   </connection>
   <connection>
-    <source-node>dahdsr_g+t_control2</source-node>
-    <source-port>Envelope Out</source-port>
-    <destination-node>fmod_fcma_oa0</destination-node>
-    <destination-port>Modulation (Octaves)</destination-port>
+    <source-node>sum_iaic_oa0</source-node>
+    <source-port>Summed Output</source-port>
+    <destination-node>product_iaic_oa0</destination-node>
+    <destination-port>First Input</destination-port>
   </connection>
-  <connection>
-    <source-node>fmod_fcma_oa0</source-node>
-    <source-port>Modulated Frequency (Hz)</source-port>
-    <destination-node>sawtooth_fa_oa0</destination-node>
-    <destination-port>Frequency</destination-port>
-  </connection>
+  <control>
+    <node-name>sine_faac0</node-name>
+    <port-name>Amplitude</port-name>
+    <value>1.000000</value>
+  </control>
+  <control>
+    <node-name>difference_icma_oa0</node-name>
+    <port-name>Input</port-name>
+    <value>110.320000</value>
+  </control>
   <control>
     <node-name>lowpass_iir0</node-name>
     <port-name>Cutoff Frequency</port-name>
-    <value>583.760010</value>
+    <value>328.660004</value>
   </control>
   <control>
     <node-name>lowpass_iir0</node-name>
@@ -231,11 +261,6 @@
     <value>0.970000</value>
   </control>
   <control>
-    <node-name>wshape_sine0</node-name>
-    <port-name>Limiting Amplitude</port-name>
-    <value>0.650000</value>
-  </control>
-  <control>
     <node-name>dahdsr_g+t_control2</node-name>
     <port-name>Delay Time (s)</port-name>
     <value>0.000000</value>
@@ -243,7 +268,7 @@
   <control>
     <node-name>dahdsr_g+t_control2</node-name>
     <port-name>Attack Time (s)</port-name>
-    <value>0.110000</value>
+    <value>0.000000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control2</node-name>
@@ -253,7 +278,7 @@
   <control>
     <node-name>dahdsr_g+t_control2</node-name>
     <port-name>Decay Time (s)</port-name>
-    <value>0.000000</value>
+    <value>0.030000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control2</node-name>
@@ -283,7 +308,7 @@
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
     <port-name>Decay Time (s)</port-name>
-    <value>0.020000</value>
+    <value>0.010000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
@@ -313,7 +338,7 @@
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
     <port-name>Decay Time (s)</port-name>
-    <value>0.020000</value>
+    <value>0.030000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
@@ -331,8 +356,13 @@
     <value>60.110001</value>
   </control>
   <control>
-    <node-name>fmod_fcma_oa0</node-name>
-    <port-name>Frequency (Hz)</port-name>
-    <value>116.989998</value>
+    <node-name>product_iaic_oa0</node-name>
+    <port-name>Second Input</port-name>
+    <value>8.990000</value>
+  </control>
+  <control>
+    <node-name>sum_iaic_oa0</node-name>
+    <port-name>Second Input</port-name>
+    <value>6.030000</value>
   </control>
 </patch>
