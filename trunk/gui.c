@@ -16,6 +16,7 @@
 
 /* Smack, A Drum Synth. Currently very alpha. Written by Loki Davison. */
 
+#include <stdio.h>
 #include <gtk/gtk.h>
 #include <phat/phat.h>
 #include "lo/lo.h"
@@ -38,6 +39,17 @@ int main(int argc, char* argv[])
 
     /* setup OSC */
     lo_address addr = lo_address_new(NULL, "16180");
+    /* setup server thread to handle responses, does work now, om not multiclient. */
+    /*
+    lo_server_thread st = lo_server_thread_new("16188", error);
+    // debug method
+    lo_server_thread_add_method(st, NULL, NULL, generic_handler, NULL);
+    lo_server_thread_start(st);
+
+    if (lo_send(addr, "/register_client", "is", 42, lo_server_thread_get_url(st)) == -1) {
+	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
+	}*/
+
     
     /* main window */
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
@@ -221,5 +233,29 @@ int main(int argc, char* argv[])
     gtk_widget_show(window);
     gtk_main();
 
+    //lo_server_thread_free(st);
+    
     return 0;
 }
+
+void error(int num, const char *msg, const char *path)
+{
+    printf("liblo server error %d in path %s: %s\n", num, path, msg);
+}
+
+int generic_handler(const char *path, const char *types, lo_arg **argv,
+		    int argc, void *data, void *user_data)
+{
+    int i;
+
+    printf("path: <%s>\n", path);
+    for (i=0; i<argc; i++) {
+	printf("arg %d '%c' ", i, types[i]);
+	lo_arg_pp(types[i], argv[i]);
+	printf("\n");
+    }
+    printf("\n");
+
+    return 1;
+}
+

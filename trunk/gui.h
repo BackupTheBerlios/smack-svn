@@ -14,4 +14,7 @@ enum
     GUI_THRESHOLD = 20,         /* threshold used for sliderbuttons */
 };
 
+void error(int num, const char *msg, const char *path);
+int generic_handler(const char *path, const char *types, lo_arg **argv, 
+	int argc, void *data, void *user_data);
 #endif /* __GUI_H__ */
