@@ -128,7 +128,7 @@ class gui:Drum from Gtk:VBox
 	if (lo_send(addr, "/patch/set_control", "isssf", 42, gtk_object_get_data(GTK_OBJECT(widget), "drum_name"), gtk_object_get_data(GTK_OBJECT(widget), "node_name"), gtk_object_get_data(GTK_OBJECT(widget), "param_name"), phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget))) == -1) {
 	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
 	}
-	fprintf(stderr, "frobing the knobs %f \n", phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget)));
+	//fprintf(stderr, "frobing the knobs %f \n", phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget)));
 	return TRUE;
     }
 
@@ -141,7 +141,7 @@ class gui:Drum from Gtk:VBox
 	gchar   *command;
 	
 	
-	command = g_strconcat("om_patch_loader -u osc.udp://localhost:16180/ ", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "file_name"), NULL);
+	command = g_strconcat("om_patch_loader -u osc.udp://localhost:16180/ " PKGDATADIR, "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "file_name"), NULL);
 	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) /* load patch */
 	{
 	    if (!g_spawn_command_line_async(command, &error)){

@@ -42,9 +42,9 @@ AC_SUBST(PHAT_LIBS)
 AC_SUBST(LIBTOOL)
 
 
-
-CXXFLAGS="-O0 -g -ansi -pedantic -Wall -DNDEBUG"
+PIXDIR_UNQUOTED="\$(pkgdatadir)/pixmaps/" # for pixmap/Makefile.am
+CFLAGS="-O0 -g -Wall -DNDEBUG"
 
 # Write it!
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile pixmaps/Makefile om/Makefile om/smack808/Makefile om/smack909/Makefile om/smackfm/Makefile])
 AC_OUTPUT
