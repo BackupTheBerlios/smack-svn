@@ -27,16 +27,16 @@
   </node>
   <node>
     <name>dahdsr_g+t_control1</name>
-    <x>1953.000000</x>
-    <y>1227.000000</y>
+    <x>1947.000000</x>
+    <y>1170.000000</y>
     <type>LADSPA</type>
     <plugin-label>dahdsr_g+t_control</plugin-label>
     <library-name>dahdsr_2021.so</library-name>
   </node>
   <node>
     <name>dahdsr_g+t_control2</name>
-    <x>1854.000000</x>
-    <y>1576.000000</y>
+    <x>1492.000000</x>
+    <y>1256.000000</y>
     <type>LADSPA</type>
     <plugin-label>dahdsr_g+t_control</plugin-label>
     <library-name>dahdsr_2021.so</library-name>
@@ -75,16 +75,16 @@
   </node>
   <node>
     <name>product_iaia_oa2</name>
-    <x>2071.000000</x>
-    <y>1135.000000</y>
+    <x>2204.000000</x>
+    <y>1114.000000</y>
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
   </node>
   <node>
     <name>product_iaia_oa3</name>
-    <x>1565.000000</x>
-    <y>1285.000000</y>
+    <x>1964.000000</x>
+    <y>1452.000000</y>
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
@@ -115,27 +115,11 @@
   </node>
   <node>
     <name>lowpass_iir0</name>
-    <x>1472.000000</x>
-    <y>1450.000000</y>
+    <x>1487.000000</x>
+    <y>1461.000000</y>
     <type>LADSPA</type>
     <plugin-label>lowpass_iir</plugin-label>
     <library-name>lowpass_iir_1891.so</library-name>
-  </node>
-  <node>
-    <name>sawtooth_fa_oa0</name>
-    <x>1855.000000</x>
-    <y>1099.000000</y>
-    <type>LADSPA</type>
-    <plugin-label>sawtooth_fa_oa</plugin-label>
-    <library-name>sawtooth_1641.so</library-name>
-  </node>
-  <node>
-    <name>sawtooth_fa_oa1</name>
-    <x>1861.000000</x>
-    <y>1003.000000</y>
-    <type>LADSPA</type>
-    <plugin-label>sawtooth_fa_oa</plugin-label>
-    <library-name>sawtooth_1641.so</library-name>
   </node>
   <node>
     <name>fmod_fcma_oa0</name>
@@ -155,8 +139,8 @@
   </node>
   <node>
     <name>noise_source_white0</name>
-    <x>1447.000000</x>
-    <y>1365.000000</y>
+    <x>1259.000000</x>
+    <y>1488.000000</y>
     <type>LADSPA</type>
     <plugin-label>noise_source_white</plugin-label>
     <library-name>cmt.so</library-name>
@@ -170,21 +154,33 @@
     <library-name>cmt.so</library-name>
   </node>
   <node>
-    <name>sinusWavewrapper0</name>
-    <x>1852.000000</x>
-    <y>1185.000000</y>
+    <name>sine_faac0</name>
+    <x>1935.000000</x>
+    <y>996.000000</y>
     <type>LADSPA</type>
-    <plugin-label>sinusWavewrapper</plugin-label>
-    <library-name>sinus_wavewrapper_1198.so</library-name>
+    <plugin-label>sine_faac</plugin-label>
+    <library-name>cmt.so</library-name>
   </node>
   <node>
-    <name>sinusWavewrapper1</name>
-    <x>1767.000000</x>
-    <y>1191.000000</y>
+    <name>sine_faac1</name>
+    <x>1821.000000</x>
+    <y>1098.000000</y>
     <type>LADSPA</type>
-    <plugin-label>sinusWavewrapper</plugin-label>
-    <library-name>sinus_wavewrapper_1198.so</library-name>
+    <plugin-label>sine_faac</plugin-label>
+    <library-name>cmt.so</library-name>
   </node>
+  <connection>
+    <source-node>sine_faac1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa2</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>sine_faac0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
   <connection>
     <source-node>dahdsr_g+t_control4</source-node>
     <source-port>Envelope Out</source-port>
@@ -198,34 +194,10 @@
     <destination-port>Modulation (Octaves)</destination-port>
   </connection>
   <connection>
-    <source-node>fmod_fcma_oa1</source-node>
-    <source-port>Modulated Frequency (Hz)</source-port>
-    <destination-node>sawtooth_fa_oa1</destination-node>
-    <destination-port>Frequency</destination-port>
-  </connection>
-  <connection>
-    <source-node>fmod_fcma_oa0</source-node>
-    <source-port>Modulated Frequency (Hz)</source-port>
-    <destination-node>sawtooth_fa_oa0</destination-node>
-    <destination-port>Frequency</destination-port>
-  </connection>
-  <connection>
-    <source-node>sawtooth_fa_oa1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaia_oa0</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
     <source-node>dahdsr_g+t_control0</source-node>
     <source-port>Envelope Out</source-port>
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>Second Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>sawtooth_fa_oa0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaia_oa2</destination-node>
-    <destination-port>First Input</destination-port>
   </connection>
   <connection>
     <source-node>dahdsr_g+t_control1</source-node>
@@ -342,33 +314,21 @@
     <destination-port>Gate</destination-port>
   </connection>
   <connection>
-    <source-node>sawtooth_fa_oa1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>sinusWavewrapper1</destination-node>
-    <destination-port>Input</destination-port>
+    <source-node>fmod_fcma_oa0</source-node>
+    <source-port>Modulated Frequency (Hz)</source-port>
+    <destination-node>sine_faac1</destination-node>
+    <destination-port>Frequency</destination-port>
   </connection>
   <connection>
-    <source-node>sinusWavewrapper1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaia_oa0</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>sawtooth_fa_oa0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>sinusWavewrapper0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>sinusWavewrapper0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaia_oa2</destination-node>
-    <destination-port>First Input</destination-port>
+    <source-node>fmod_fcma_oa1</source-node>
+    <source-port>Modulated Frequency (Hz)</source-port>
+    <destination-node>sine_faac0</destination-node>
+    <destination-port>Frequency</destination-port>
   </connection>
   <control>
     <node-name>midi_trigger_in0</node-name>
     <port-name>Note Number</port-name>
-    <value>60.020000</value>
+    <value>60.063999</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
@@ -378,17 +338,17 @@
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
     <port-name>Attack Time (s)</port-name>
-    <value>0.000000</value>
+    <value>0.001000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
     <port-name>Hold Time (s)</port-name>
-    <value>0.010000</value>
+    <value>0.000000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
     <port-name>Decay Time (s)</port-name>
-    <value>0.020000</value>
+    <value>0.030000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
@@ -408,7 +368,7 @@
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
     <port-name>Attack Time (s)</port-name>
-    <value>0.000000</value>
+    <value>0.001000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
@@ -418,7 +378,7 @@
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
     <port-name>Decay Time (s)</port-name>
-    <value>0.020000</value>
+    <value>0.040000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
@@ -438,7 +398,7 @@
   <control>
     <node-name>dahdsr_g+t_control2</node-name>
     <port-name>Attack Time (s)</port-name>
-    <value>0.000000</value>
+    <value>0.001000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control2</node-name>
@@ -468,7 +428,7 @@
   <control>
     <node-name>dahdsr_g+t_control3</node-name>
     <port-name>Attack Time (s)</port-name>
-    <value>0.000000</value>
+    <value>0.002000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control3</node-name>
@@ -478,7 +438,7 @@
   <control>
     <node-name>dahdsr_g+t_control3</node-name>
     <port-name>Decay Time (s)</port-name>
-    <value>0.060000</value>
+    <value>0.053000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control3</node-name>
@@ -523,7 +483,7 @@
   <control>
     <node-name>highpass_iir0</node-name>
     <port-name>Cutoff Frequency</port-name>
-    <value>1789.650024</value>
+    <value>1800.895996</value>
   </control>
   <control>
     <node-name>highpass_iir0</node-name>
@@ -533,7 +493,7 @@
   <control>
     <node-name>lowpass_iir0</node-name>
     <port-name>Cutoff Frequency</port-name>
-    <value>8051.009766</value>
+    <value>8050.678223</value>
   </control>
   <control>
     <node-name>lowpass_iir0</node-name>
@@ -556,13 +516,13 @@
     <value>0.990000</value>
   </control>
   <control>
-    <node-name>sinusWavewrapper0</node-name>
-    <port-name>Wrap degree</port-name>
-    <value>1.000000</value>
+    <node-name>sine_faac0</node-name>
+    <port-name>Amplitude</port-name>
+    <value>0.875000</value>
   </control>
   <control>
-    <node-name>sinusWavewrapper1</node-name>
-    <port-name>Wrap degree</port-name>
-    <value>1.000000</value>
+    <node-name>sine_faac1</node-name>
+    <port-name>Amplitude</port-name>
+    <value>0.880000</value>
   </control>
 </patch>
