@@ -28,40 +28,40 @@
   </node>
   <node>
     <name>highpass_iir1</name>
-    <x>2365.000000</x>
-    <y>1320.000000</y>
+    <x>2302.000000</x>
+    <y>1290.000000</y>
     <type>LADSPA</type>
     <plugin-label>highpass_iir</plugin-label>
     <library-name>highpass_iir_1890.so</library-name>
   </node>
   <node>
     <name>highpass_iir0</name>
-    <x>2150.000000</x>
-    <y>1116.000000</y>
+    <x>2219.000000</x>
+    <y>1101.000000</y>
     <type>LADSPA</type>
     <plugin-label>highpass_iir</plugin-label>
     <library-name>highpass_iir_1890.so</library-name>
   </node>
   <node>
     <name>bandpass_a_iir0</name>
-    <x>1835.000000</x>
-    <y>1221.000000</y>
+    <x>1949.000000</x>
+    <y>1250.000000</y>
     <type>LADSPA</type>
     <plugin-label>bandpass_a_iir</plugin-label>
     <library-name>bandpass_a_iir_1893.so</library-name>
   </node>
   <node>
     <name>product_iaia_oa0</name>
-    <x>2054.000000</x>
-    <y>1020.000000</y>
+    <x>2071.000000</x>
+    <y>979.000000</y>
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
   </node>
   <node>
     <name>dahdsr_g+t_control0</name>
-    <x>1820.000000</x>
-    <y>963.000000</y>
+    <x>1843.000000</x>
+    <y>906.000000</y>
     <type>LADSPA</type>
     <plugin-label>dahdsr_g+t_control</plugin-label>
     <library-name>dahdsr_2021.so</library-name>
@@ -130,32 +130,32 @@
   </node>
   <node>
     <name>mixer0</name>
-    <x>1601.000000</x>
-    <y>1163.000000</y>
+    <x>1856.000000</x>
+    <y>1177.000000</y>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
   </node>
   <node>
     <name>mixer1</name>
-    <x>1741.000000</x>
-    <y>1200.000000</y>
+    <x>1752.000000</x>
+    <y>1270.000000</y>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
   </node>
   <node>
     <name>mixer2</name>
-    <x>1592.000000</x>
-    <y>1381.000000</y>
+    <x>1599.000000</x>
+    <y>1349.000000</y>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
   </node>
   <node>
     <name>mixer3</name>
-    <x>1593.000000</x>
-    <y>1302.000000</y>
+    <x>1600.000000</x>
+    <y>1231.000000</y>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
@@ -170,24 +170,36 @@
   </node>
   <node>
     <name>mixer5</name>
-    <x>2240.000000</x>
-    <y>1233.000000</y>
+    <x>2475.000000</x>
+    <y>1142.000000</y>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
   </node>
-  <connection>
-    <source-node>highpass_iir1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out_1</destination-port>
-  </connection>
-  <connection>
-    <source-node>highpass_iir0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out_1</destination-port>
-  </connection>
+  <node>
+    <name>amp_gcia_oa0</name>
+    <x>1673.000000</x>
+    <y>1194.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>amp_gcia_oa</plugin-label>
+    <library-name>amp_1654.so</library-name>
+  </node>
+  <node>
+    <name>amp_gcia_oa1</name>
+    <x>1720.000000</x>
+    <y>1376.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>amp_gcia_oa</plugin-label>
+    <library-name>amp_1654.so</library-name>
+  </node>
+  <node>
+    <name>amp_gcia_oa2</name>
+    <x>1689.000000</x>
+    <y>1061.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>amp_gcia_oa</plugin-label>
+    <library-name>amp_1654.so</library-name>
+  </node>
   <connection>
     <source-node>product_iaia_oa1</source-node>
     <source-port>Product Output</source-port>
@@ -235,42 +247,6 @@
     <source-port>Gate</source-port>
     <destination-node>dahdsr_g+t_control0</destination-node>
     <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fc_oa5</source-node>
-    <source-port>Output</source-port>
-    <destination-node>bandpass_a_iir0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fc_oa4</source-node>
-    <source-port>Output</source-port>
-    <destination-node>bandpass_a_iir0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fc_oa3</source-node>
-    <source-port>Output</source-port>
-    <destination-node>bandpass_a_iir0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fc_oa2</source-node>
-    <source-port>Output</source-port>
-    <destination-node>bandpass_a_iir0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fc_oa1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>bandpass_a_iir0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fc_oa0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>bandpass_a_iir0</destination-node>
-    <destination-port>Input</destination-port>
   </connection>
   <connection>
     <source-node>square_fc_oa0</source-node>
@@ -356,10 +332,46 @@
     <destination-node>bandpass_a_iir0</destination-node>
     <destination-port>Input</destination-port>
   </connection>
+  <connection>
+    <source-node>mixer3</source-node>
+    <source-port>Output</source-port>
+    <destination-node>amp_gcia_oa0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_gcia_oa0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>mixer1</destination-node>
+    <destination-port>Input 1</destination-port>
+  </connection>
+  <connection>
+    <source-node>mixer2</source-node>
+    <source-port>Output</source-port>
+    <destination-node>amp_gcia_oa1</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_gcia_oa1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>mixer1</destination-node>
+    <destination-port>Input 2</destination-port>
+  </connection>
+  <connection>
+    <source-node>mixer4</source-node>
+    <source-port>Output</source-port>
+    <destination-node>amp_gcia_oa2</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_gcia_oa2</source-node>
+    <source-port>Output</source-port>
+    <destination-node>mixer0</destination-node>
+    <destination-port>Input 1</destination-port>
+  </connection>
   <control>
     <node-name>midi_trigger_in1</node-name>
     <port-name>Note Number</port-name>
-    <value>77.000000</value>
+    <value>60.063999</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
@@ -369,17 +381,17 @@
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
     <port-name>Attack Time (s)</port-name>
-    <value>0.020000</value>
+    <value>0.005000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
     <port-name>Hold Time (s)</port-name>
-    <value>0.050000</value>
+    <value>0.000000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
     <port-name>Decay Time (s)</port-name>
-    <value>0.020000</value>
+    <value>0.130000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
@@ -389,22 +401,22 @@
   <control>
     <node-name>dahdsr_g+t_control1</node-name>
     <port-name>Release Time (s)</port-name>
-    <value>0.000000</value>
+    <value>0.541000</value>
   </control>
   <control>
     <node-name>highpass_iir1</node-name>
     <port-name>Cutoff Frequency</port-name>
-    <value>6937.879883</value>
+    <value>5317.979004</value>
   </control>
   <control>
     <node-name>highpass_iir1</node-name>
     <port-name>Stages(2 poles per stage)</port-name>
-    <value>2.000000</value>
+    <value>1.000000</value>
   </control>
   <control>
     <node-name>highpass_iir0</node-name>
     <port-name>Cutoff Frequency</port-name>
-    <value>606.950012</value>
+    <value>5191.465820</value>
   </control>
   <control>
     <node-name>highpass_iir0</node-name>
@@ -414,12 +426,12 @@
   <control>
     <node-name>bandpass_a_iir0</node-name>
     <port-name>Center Frequency (Hz)</port-name>
-    <value>6961.069824</value>
+    <value>9265.209961</value>
   </control>
   <control>
     <node-name>bandpass_a_iir0</node-name>
     <port-name>Bandwidth (Hz)</port-name>
-    <value>1339.390015</value>
+    <value>607.161987</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
@@ -429,7 +441,7 @@
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
     <port-name>Attack Time (s)</port-name>
-    <value>0.110000</value>
+    <value>0.005000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
@@ -439,7 +451,7 @@
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
     <port-name>Decay Time (s)</port-name>
-    <value>0.150000</value>
+    <value>0.130000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
@@ -449,41 +461,56 @@
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
     <port-name>Release Time (s)</port-name>
-    <value>0.000000</value>
+    <value>0.734000</value>
   </control>
   <control>
     <node-name>square_fc_oa5</node-name>
     <port-name>Frequency</port-name>
-    <value>8815.929688</value>
+    <value>6961.596191</value>
   </control>
   <control>
     <node-name>square_fc_oa4</node-name>
     <port-name>Frequency</port-name>
-    <value>8351.990234</value>
+    <value>9391.510742</value>
   </control>
   <control>
     <node-name>square_fc_oa3</node-name>
     <port-name>Frequency</port-name>
-    <value>8027.229980</value>
+    <value>7999.372070</value>
   </control>
   <control>
     <node-name>square_fc_oa2</node-name>
     <port-name>Frequency</port-name>
-    <value>7099.339844</value>
+    <value>9416.823242</value>
   </control>
   <control>
     <node-name>square_fc_oa1</node-name>
     <port-name>Frequency</port-name>
-    <value>6264.240234</value>
+    <value>8454.981445</value>
   </control>
   <control>
     <node-name>square_fc_oa0</node-name>
     <port-name>Frequency</port-name>
-    <value>6844.169922</value>
+    <value>9416.823242</value>
   </control>
   <control>
     <node-name>midi_trigger_in0</node-name>
     <port-name>Note Number</port-name>
-    <value>60.049999</value>
+    <value>61.048000</value>
+  </control>
+  <control>
+    <node-name>amp_gcia_oa0</node-name>
+    <port-name>Gain (dB)</port-name>
+    <value>-8.025000</value>
+  </control>
+  <control>
+    <node-name>amp_gcia_oa1</node-name>
+    <port-name>Gain (dB)</port-name>
+    <value>-5.109000</value>
+  </control>
+  <control>
+    <node-name>amp_gcia_oa2</node-name>
+    <port-name>Gain (dB)</port-name>
+    <value>-8.997000</value>
   </control>
 </patch>
