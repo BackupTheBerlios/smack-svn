@@ -168,9 +168,9 @@ runDahdsr_Control (LADSPA_Handle instance,
 /* start level */
 	LADSPA_Data start_level = * (plugin->start_level);
 /* attack level */
-	LADSPA_Data attack_level = * (plugin->start_level);
+	LADSPA_Data attack_level = * (plugin->attack_level);
 /* decay level */
-	LADSPA_Data decay_level = * (plugin->start_level);
+	LADSPA_Data decay_level = * (plugin->decay_level);
 
 /* Attack Time (s) */
 	LADSPA_Data attack = * (plugin->attack);
@@ -242,16 +242,22 @@ runDahdsr_Control (LADSPA_Handle instance,
 		{
 		case IDLE:
 			/* might need to fix this... */
-			//level = start_level;
-			level = 0.0f;
+			level = start_level;
+			//level = 0.0f;
 			break;
 		case ATTACK:
+			/* fix level adding prob */
+			if(samples == 0)
+			{
+			    level = start_level;
+			}			    
 			samples++;
 			elapsed = (LADSPA_Data) samples * att;
 			if (elapsed > 1.0f)
 			{
 				state = DECAY;
 				samples = 0;
+				fprintf(stderr, "finished attack, RC %f, level %f attack_level %f start %f\n", ReleaseCoeff_att, level, attack_level, start_level);
 			} else {
 				level += level * ReleaseCoeff_att;
 			}
@@ -261,6 +267,7 @@ runDahdsr_Control (LADSPA_Handle instance,
 			elapsed = (LADSPA_Data) samples * dec;
 			if (elapsed > 1.0f)
 			{
+				fprintf(stderr, "finished decay, RC %f , level %f decay_level %f start %f\n", ReleaseCoeff_dec, level, decay_level, start_level);
 				state = IDLE;
 				samples = 0;
 			}
