@@ -8,8 +8,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1668</module-x>
-    <module-y>1185</module-y>
+    <module-x>1878</module-x>
+    <module-y>1205</module-y>
   </node>
   <node>
     <name>adenv_1</name>
@@ -17,53 +17,44 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1680</module-x>
-    <module-y>798</module-y>
+    <module-x>1870</module-x>
+    <module-y>866</module-y>
   </node>
   <node>
-    <name>dahdsr_g+t_control2</name>
+    <name>adenv_2</name>
     <polyphonic>false</polyphonic>
     <type>LADSPA</type>
-    <plugin-label>dahdsr_g+t_control</plugin-label>
-    <library-name>dahdsr_2021.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <plugin-label>adenv</plugin-label>
+    <library-name>adenv.so</library-name>
+    <module-x>1309</module-x>
+    <module-y>1123</module-y>
   </node>
   <node>
-    <name>dahdsr_g+t_control3</name>
+    <name>adenv_3</name>
     <polyphonic>false</polyphonic>
     <type>LADSPA</type>
-    <plugin-label>dahdsr_g+t_control</plugin-label>
-    <library-name>dahdsr_2021.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <plugin-label>adenv</plugin-label>
+    <library-name>adenv.so</library-name>
+    <module-x>1058</module-x>
+    <module-y>1468</module-y>
   </node>
   <node>
-    <name>dahdsr_g+t_control4</name>
+    <name>adenv_lvl_0</name>
     <polyphonic>false</polyphonic>
     <type>LADSPA</type>
-    <plugin-label>dahdsr_g+t_control</plugin-label>
-    <library-name>dahdsr_2021.so</library-name>
-    <module-x>1409</module-x>
-    <module-y>976</module-y>
+    <plugin-label>adenv_lvl</plugin-label>
+    <library-name>adenv_lvl.so</library-name>
+    <module-x>1623</module-x>
+    <module-y>1097</module-y>
   </node>
   <node>
-    <name>fmod_fcma_oa0</name>
+    <name>adenv_lvl_1</name>
     <polyphonic>false</polyphonic>
     <type>LADSPA</type>
-    <plugin-label>fmod_fcma_oa</plugin-label>
-    <library-name>fmod_1656.so</library-name>
-    <module-x>1626</module-x>
-    <module-y>1095</module-y>
-  </node>
-  <node>
-    <name>fmod_fcma_oa1</name>
-    <polyphonic>false</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>fmod_fcma_oa</plugin-label>
-    <library-name>fmod_1656.so</library-name>
-    <module-x>1627</module-x>
-    <module-y>1002</module-y>
+    <plugin-label>adenv_lvl</plugin-label>
+    <library-name>adenv_lvl.so</library-name>
+    <module-x>1625</module-x>
+    <module-y>914</module-y>
   </node>
   <node>
     <name>highpass_iir0</name>
@@ -71,8 +62,8 @@
     <type>LADSPA</type>
     <plugin-label>highpass_iir</plugin-label>
     <library-name>highpass_iir_1890.so</library-name>
-    <module-x>1748</module-x>
-    <module-y>1443</module-y>
+    <module-x>1165</module-x>
+    <module-y>1352</module-y>
   </node>
   <node>
     <name>lowpass_iir0</name>
@@ -80,16 +71,16 @@
     <type>LADSPA</type>
     <plugin-label>lowpass_iir</plugin-label>
     <library-name>lowpass_iir_1891.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>1089</module-x>
+    <module-y>1192</module-y>
   </node>
   <node>
     <name>midi_trigger_in0</name>
     <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>midi_trigger_in</plugin-label>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>1109</module-x>
+    <module-y>952</module-y>
   </node>
   <node>
     <name>mixer0</name>
@@ -97,8 +88,8 @@
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>2151</module-x>
-    <module-y>1203</module-y>
+    <module-x>2177</module-x>
+    <module-y>1041</module-y>
   </node>
   <node>
     <name>mixer1</name>
@@ -106,8 +97,8 @@
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>1632</module-x>
+    <module-y>1408</module-y>
   </node>
   <node>
     <name>mixer2</name>
@@ -115,8 +106,8 @@
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>2242</module-x>
-    <module-y>1328</module-y>
+    <module-x>1987</module-x>
+    <module-y>1424</module-y>
   </node>
   <node>
     <name>noise_source_white0</name>
@@ -124,16 +115,16 @@
     <type>LADSPA</type>
     <plugin-label>noise_source_white</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>891</module-x>
+    <module-y>1207</module-y>
   </node>
   <node>
     <name>output0</name>
     <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>output</plugin-label>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>2157</module-x>
+    <module-y>1426</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
@@ -141,8 +132,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>2168</module-x>
-    <module-y>1002</module-y>
+    <module-x>2014</module-x>
+    <module-y>980</module-y>
   </node>
   <node>
     <name>product_iaia_oa1</name>
@@ -150,8 +141,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1758</module-x>
-    <module-y>1334</module-y>
+    <module-x>1489</module-x>
+    <module-y>1352</module-y>
   </node>
   <node>
     <name>product_iaia_oa2</name>
@@ -159,8 +150,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1989</module-x>
-    <module-y>1093</module-y>
+    <module-x>2004</module-x>
+    <module-y>1103</module-y>
   </node>
   <node>
     <name>product_iaia_oa3</name>
@@ -168,8 +159,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>1336</module-x>
+    <module-y>1506</module-y>
   </node>
   <node>
     <name>sine_faac0</name>
@@ -177,8 +168,8 @@
     <type>LADSPA</type>
     <plugin-label>sine_faac</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>1876</module-x>
+    <module-y>1012</module-y>
   </node>
   <node>
     <name>sine_faac1</name>
@@ -186,8 +177,8 @@
     <type>LADSPA</type>
     <plugin-label>sine_faac</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>1825</module-x>
-    <module-y>1098</module-y>
+    <module-x>1859</module-x>
+    <module-y>1093</module-y>
   </node>
   <connection>
     <source-node>sine_faac1</source-node>
@@ -200,18 +191,6 @@
     <source-port>Output</source-port>
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>dahdsr_g+t_control4</source-node>
-    <source-port>Envelope Out</source-port>
-    <destination-node>fmod_fcma_oa1</destination-node>
-    <destination-port>Modulation (Octaves)</destination-port>
-  </connection>
-  <connection>
-    <source-node>dahdsr_g+t_control4</source-node>
-    <source-port>Envelope Out</source-port>
-    <destination-node>fmod_fcma_oa0</destination-node>
-    <destination-port>Modulation (Octaves)</destination-port>
   </connection>
   <connection>
     <source-node>product_iaia_oa0</source-node>
@@ -244,18 +223,6 @@
     <destination-port>Input</destination-port>
   </connection>
   <connection>
-    <source-node>dahdsr_g+t_control2</source-node>
-    <source-port>Envelope Out</source-port>
-    <destination-node>product_iaia_oa1</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>dahdsr_g+t_control3</source-node>
-    <source-port>Envelope Out</source-port>
-    <destination-node>product_iaia_oa3</destination-node>
-    <destination-port>Second Input</destination-port>
-  </connection>
-  <connection>
     <source-node>highpass_iir0</source-node>
     <source-port>Output</source-port>
     <destination-node>product_iaia_oa3</destination-node>
@@ -284,36 +251,6 @@
     <source-port>Output</source-port>
     <destination-node>mixer2</destination-node>
     <destination-port>Input 2</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>dahdsr_g+t_control4</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>dahdsr_g+t_control2</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>dahdsr_g+t_control3</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>fmod_fcma_oa0</source-node>
-    <source-port>Modulated Frequency (Hz)</source-port>
-    <destination-node>sine_faac1</destination-node>
-    <destination-port>Frequency</destination-port>
-  </connection>
-  <connection>
-    <source-node>fmod_fcma_oa1</source-node>
-    <source-port>Modulated Frequency (Hz)</source-port>
-    <destination-node>sine_faac0</destination-node>
-    <destination-port>Frequency</destination-port>
   </connection>
   <connection>
     <source-node>adenv_0</source-node>
@@ -345,6 +282,54 @@
     <destination-node>output0</destination-node>
     <destination-port>out</destination-port>
   </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Gate</source-port>
+    <destination-node>adenv_lvl_1</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>adenv_lvl_1</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>sine_faac0</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>adenv_lvl_0</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>sine_faac1</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Gate</source-port>
+    <destination-node>adenv_lvl_0</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>adenv_3</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>product_iaia_oa3</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Gate</source-port>
+    <destination-node>adenv_3</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Gate</source-port>
+    <destination-node>adenv_2</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>adenv_2</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>product_iaia_oa1</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -355,7 +340,7 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.020000</value>
+      <value>0.065000</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
@@ -365,112 +350,82 @@
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.030000</value>
+      <value>0.054000</value>
     </control>
     <control>
-      <node-name>dahdsr_g+t_control2</node-name>
-      <port-name>Delay Time (s)</port-name>
-      <value>0.000000</value>
+      <node-name>adenv_2</node-name>
+      <port-name>Attack Time (s)</port-name>
+      <value>0.000200</value>
     </control>
     <control>
-      <node-name>dahdsr_g+t_control2</node-name>
+      <node-name>adenv_2</node-name>
+      <port-name>Decay Time (s)</port-name>
+      <value>0.025000</value>
+    </control>
+    <control>
+      <node-name>adenv_3</node-name>
+      <port-name>Attack Time (s)</port-name>
+      <value>0.000300</value>
+    </control>
+    <control>
+      <node-name>adenv_3</node-name>
+      <port-name>Decay Time (s)</port-name>
+      <value>0.032500</value>
+    </control>
+    <control>
+      <node-name>adenv_lvl_0</node-name>
+      <port-name>Initial Level</port-name>
+      <value>179.999802</value>
+    </control>
+    <control>
+      <node-name>adenv_lvl_0</node-name>
+      <port-name>Attack to Level</port-name>
+      <value>179.999802</value>
+    </control>
+    <control>
+      <node-name>adenv_lvl_0</node-name>
+      <port-name>Decay to Level</port-name>
+      <value>159.999802</value>
+    </control>
+    <control>
+      <node-name>adenv_lvl_0</node-name>
       <port-name>Attack Time (s)</port-name>
       <value>0.000000</value>
     </control>
     <control>
-      <node-name>dahdsr_g+t_control2</node-name>
-      <port-name>Hold Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control2</node-name>
+      <node-name>adenv_lvl_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.000000</value>
+      <value>0.800000</value>
     </control>
     <control>
-      <node-name>dahdsr_g+t_control2</node-name>
-      <port-name>Sustain Level</port-name>
-      <value>1.000000</value>
+      <node-name>adenv_lvl_1</node-name>
+      <port-name>Initial Level</port-name>
+      <value>329.999908</value>
     </control>
     <control>
-      <node-name>dahdsr_g+t_control2</node-name>
-      <port-name>Release Time (s)</port-name>
-      <value>0.000000</value>
+      <node-name>adenv_lvl_1</node-name>
+      <port-name>Attack to Level</port-name>
+      <value>329.999908</value>
     </control>
     <control>
-      <node-name>dahdsr_g+t_control3</node-name>
-      <port-name>Delay Time (s)</port-name>
-      <value>0.000000</value>
+      <node-name>adenv_lvl_1</node-name>
+      <port-name>Decay to Level</port-name>
+      <value>299.999908</value>
     </control>
     <control>
-      <node-name>dahdsr_g+t_control3</node-name>
+      <node-name>adenv_lvl_1</node-name>
       <port-name>Attack Time (s)</port-name>
       <value>0.000000</value>
     </control>
     <control>
-      <node-name>dahdsr_g+t_control3</node-name>
-      <port-name>Hold Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control3</node-name>
+      <node-name>adenv_lvl_1</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control3</node-name>
-      <port-name>Sustain Level</port-name>
-      <value>1.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control3</node-name>
-      <port-name>Release Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control4</node-name>
-      <port-name>Delay Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control4</node-name>
-      <port-name>Attack Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control4</node-name>
-      <port-name>Hold Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control4</node-name>
-      <port-name>Decay Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control4</node-name>
-      <port-name>Sustain Level</port-name>
-      <value>1.000000</value>
-    </control>
-    <control>
-      <node-name>dahdsr_g+t_control4</node-name>
-      <port-name>Release Time (s)</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>fmod_fcma_oa0</node-name>
-      <port-name>Frequency (Hz)</port-name>
-      <value>180.339996</value>
-    </control>
-    <control>
-      <node-name>fmod_fcma_oa1</node-name>
-      <port-name>Frequency (Hz)</port-name>
-      <value>330.549988</value>
+      <value>0.050000</value>
     </control>
     <control>
       <node-name>highpass_iir0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>36.119499</value>
+      <value>506.119507</value>
     </control>
     <control>
       <node-name>highpass_iir0</node-name>
@@ -480,7 +435,7 @@
     <control>
       <node-name>lowpass_iir0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>2422.969727</value>
+      <value>5422.969727</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
