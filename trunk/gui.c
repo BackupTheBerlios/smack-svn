@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
        
     /* cowbell */
-    drum = gui_drum_new_drum("Cowbell", "om/smack808/808cowbell.om", "808cowbell", 56, addr, "tune1", "triangle_fcsc_oa0", "Frequency", "tune2", "triangle_fcsc_oa1", "Frequency", "decay","/smack/cowbell/decay", "FIXME", NULL);
+    drum = gui_drum_new_drum("Cowbell", "om/smack808/808cowbell.om", "808cowbell", 56, addr, "tune1", "triangle_fcsc_oa0", "Frequency", "tune2", "triangle_fcsc_oa1", "Frequency", "decay", "dahdsr_g+t_control0", "Decay Time (s)", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
