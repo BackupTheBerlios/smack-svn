@@ -39,16 +39,16 @@ int main(int argc, char* argv[])
 
     /* setup OSC */
     lo_address addr = lo_address_new(NULL, "16180");
-    /* setup server thread to handle responses, does work now, om not multiclient. */
-    /*
+    /* setup server thread to handle responses */
+    
     lo_server_thread st = lo_server_thread_new("16188", error);
     // debug method
     lo_server_thread_add_method(st, NULL, NULL, generic_handler, NULL);
     lo_server_thread_start(st);
 
-    if (lo_send(addr, "/register_client", "is", 42, lo_server_thread_get_url(st)) == -1) {
+    if (lo_send(addr, "/engine/register_client", "is", 42, lo_server_thread_get_url(st)) == -1) {
 	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
-	}*/
+    }
 
     
     /* main window */
@@ -110,7 +110,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
        
     /* claves */
-    drum = gui_drum_new_drum("Claves", "om/smack808/808clave.om", "808claves", 75, addr, "tune", 50.0, 5000.0, "triangle_fcsc_oa0", "Frequency", "BPF", 50.0, 5000.0, "bandpass_a_iir0", "Center Frequency (Hz)", NULL);
+    drum = gui_drum_new_drum("Claves", "om/smack808/808clave.om", "808clave", 75, addr, "tune", 50.0, 5000.0, "triangle_fcsc_oa0", "Frequency", "BPF", 50.0, 5000.0, "bandpass_a_iir0", "Center Frequency (Hz)", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -233,7 +233,7 @@ int main(int argc, char* argv[])
     gtk_widget_show(window);
     gtk_main();
 
-    //lo_server_thread_free(st);
+    lo_server_thread_free(st);
     
     return 0;
 }

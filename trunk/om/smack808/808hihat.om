@@ -444,7 +444,7 @@
     <control>
       <node-name>midi_trigger_in0</node-name>
       <port-name>Note Number</port-name>
-      <value>61.048000</value>
+      <value>42.048000</value>
     </control>
     <control>
       <node-name>midi_trigger_in1</node-name>

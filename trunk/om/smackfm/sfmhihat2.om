@@ -244,7 +244,7 @@
   <control>
     <node-name>midi_trigger_in0</node-name>
     <port-name>Note Number</port-name>
-    <value>60.110001</value>
+    <value>49.110001</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control0</node-name>

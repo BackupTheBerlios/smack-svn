@@ -188,7 +188,7 @@
     <control>
       <node-name>midi_trigger_in0</node-name>
       <port-name>Note Number</port-name>
-      <value>60.000000</value>
+      <value>35.000000</value>
     </control>
     <control>
       <node-name>sine_fcac0</node-name>

@@ -261,7 +261,7 @@
     <control>
       <node-name>midi_trigger_in0</node-name>
       <port-name>Note Number</port-name>
-      <value>60.000000</value>
+      <value>38.000000</value>
     </control>
     <control>
       <node-name>noise_source_white0</node-name>

@@ -109,7 +109,7 @@
     <control>
       <node-name>midi_trigger_in0</node-name>
       <port-name>Note Number</port-name>
-      <value>65.000000</value>
+      <value>75.000000</value>
     </control>
     <control>
       <node-name>triangle_fcsc_oa0</node-name>

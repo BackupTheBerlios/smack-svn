@@ -44,9 +44,10 @@ class gui:Drum from Gtk:VBox
 	addr = address;
 	GtkWidget* widget = (GtkWidget *)GET_NEW;
 	GtkWidget* hbox;
-	GtkWidget* slider;
+	GtkWidget* sliders[10];
 	GtkWidget* label;
 	GtkWidget* check;
+	int i = 0;
 	double lower, upper;
 	char* name;
 
@@ -93,18 +94,18 @@ class gui:Drum from Gtk:VBox
 
 	    
 	    /* loop over each param creating a slider for it */  
-	    slider = phat_fan_slider_pix_new_with_range((lower+upper)/2, lower, upper, 0.1);
-	    gtk_box_pack_start(GTK_BOX(widget), slider, FALSE, FALSE, 0); 
-	    gtk_widget_show(slider);
+	    sliders[i] = phat_fan_slider_pix_new_with_range((lower+upper)/2, lower, upper, 0.1);
+	    gtk_box_pack_start(GTK_BOX(widget), sliders[i], FALSE, FALSE, 0); 
+	    gtk_widget_show(sliders[i]);
 
 	    	    
-	    gtk_object_set_data(GTK_OBJECT(slider), "drum_name", drumname);
-	    gtk_object_set_data(GTK_OBJECT(slider), "node_name", va_arg(ap, char*));
-	    gtk_object_set_data(GTK_OBJECT(slider), "param_name", va_arg(ap, char*)); 
+	    gtk_object_set_data(GTK_OBJECT(sliders[i]), "drum_name", drumname);
+	    gtk_object_set_data(GTK_OBJECT(sliders[i]), "node_name", va_arg(ap, char*));
+	    gtk_object_set_data(GTK_OBJECT(sliders[i]), "param_name", va_arg(ap, char*)); 
 	     
 	    /* connect change parm to osc */
-	    g_signal_connect (G_OBJECT (slider), "value-changed", G_CALLBACK (gui_drum_osc_cb), NULL);
-	    
+	    g_signal_connect (G_OBJECT (sliders[i]), "value-changed", G_CALLBACK (gui_drum_osc_cb), NULL);
+	    i++;
 	}
 	
 	  
