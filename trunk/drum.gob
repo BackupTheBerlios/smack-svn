@@ -37,7 +37,7 @@ class gui:Drum from Gtk:VBox
 
     public
     GtkWidget *
-    new_drum (const char* title, char* drumname, int note, lo_address address, ...)
+    new_drum (const char* title, char* filename, char* drumname, int note, lo_address address, ...)
     {
 	va_list ap;
 	va_start(ap, address);
@@ -49,7 +49,7 @@ class gui:Drum from Gtk:VBox
 	GtkWidget* check;
 	char* name;
 
-	gtk_box_set_spacing(GTK_BOX(widget), 2);
+	gtk_box_set_spacing(GTK_BOX(widget), 0);
 	hbox = gtk_hbox_new(FALSE, GUI_SPACING);
 	gtk_widget_show(hbox);	
 	/* the name of this drum, goes at the top */
@@ -60,7 +60,7 @@ class gui:Drum from Gtk:VBox
 	check = gtk_check_button_new();
 	gtk_box_pack_start(GTK_BOX(hbox), check, FALSE, FALSE, 0);
 	gtk_widget_show(check);
-	g_signal_connect (G_OBJECT (check), "toggled", G_CALLBACK (gui_drum_load_cb), NULL);
+	g_signal_connect (G_OBJECT (check), "toggled", G_CALLBACK (gui_drum_load_cb), filename);
 	gtk_box_pack_start(GTK_BOX(widget), hbox, FALSE, FALSE, 10);
 
 	/* midi note selector 
@@ -78,23 +78,22 @@ class gui:Drum from Gtk:VBox
 	gtk_box_pack_start(GTK_BOX(widget), label, FALSE, FALSE, 0);
 	gtk_widget_show(label); */
 	    
-	slider = phat_fan_slider_pix_new_with_range(1, 0.0, 1.0, .1);
-	gtk_box_pack_start(GTK_BOX(widget), slider, FALSE, FALSE, 0); 
-	gtk_widget_show(slider);
-
-   
 	while((name = va_arg(ap, char*)) != NULL)
 	{
-	    	
-	    /* loop over each param creating a slider for it */
+	    
 	    label = gtk_label_new(name);  
 	    gtk_box_pack_start(GTK_BOX(widget), label, FALSE, FALSE, 0);
+	    gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
 	    gtk_widget_show(label);
+
+
 	    
+	    /* loop over each param creating a slider for it */  
 	    slider = phat_fan_slider_pix_new_with_range(.5, 0.0, 1.0, .1);
 	    gtk_box_pack_start(GTK_BOX(widget), slider, FALSE, FALSE, 0); 
 	    gtk_widget_show(slider);
-	    
+
+	    	    
 	    gtk_object_set_data(GTK_OBJECT(slider), "drum_name", drumname);
 	    gtk_object_set_data(GTK_OBJECT(slider), "param_name", va_arg(ap, char*));
 	    gtk_object_set_data(GTK_OBJECT(slider), "param_num", GINT_TO_POINTER(va_arg(ap, int))); 
@@ -105,7 +104,7 @@ class gui:Drum from Gtk:VBox
 	}
 	
 	  
-	  gtk_widget_set_size_request(widget, 65, -1);
+	  gtk_widget_set_size_request(widget, 85, -1);
 
 	return widget;
     }
@@ -120,9 +119,48 @@ class gui:Drum from Gtk:VBox
 	return TRUE;
     }
 
+    /* load the patch by calling om_patch_loader, currently dodgy for some reason... */
     private gint
     load_cb(GtkWidget* widget, gpointer data)
     {
+	GError   *error = NULL;
+	gchar   **argv;
+	fprintf(stderr, "filename is right? %s \n", (gchar*) data);
+	
+	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) /* load patch */
+	{
+	    /* call patch_loader to load the patch DODGY */
+	    argv = g_new(gchar *, 4);
+	    argv[0] = "/usr/bin/om_patch_loader";                /* program to call                 */
+	    argv[1] = (gchar*) data; /* get filename */
+	    //argv[1] = "/home/loki/Documents/svn/trunk/om/smack808/808cowbell.om";
+	    argv[2] = "-u osc.udp://localhost:19383/ ";  /* FIXME */
+	    argv[3] = NULL;                  /* end of argument list */
+
+	    if (!g_spawn_async_with_pipes(
+		NULL,            /* use current working directory                             */
+		argv,            /* the program we want to run and parameters for it          */
+		NULL,            /* use the environment variables that are set for the parent */
+		(GSpawnFlags) G_SPAWN_SEARCH_PATH,   /* look for wget in $PATH                */
+		NULL,            /* don't need a child setup function either                  */
+		NULL,            /* and therefore no child setup func data argument           */
+		NULL,                               
+		NULL,            /* don't need standard input (=> will be /dev/null)          */
+		NULL,      /* where to put wget's stdout file descriptor                */
+		NULL,      /* where to put wget's stderr file descriptor                */
+		&error))
+	    {
+		g_warning("g_spawn_async_with_pipes() failed: %s\n", error->message);
+		g_error_free(error);
+		error = NULL;
+		return 0;
+	    }
+	} 
+	 else
+	{
+	    //if (lo_send(addr, "/destroy_patch", "is", 
+	}    
+	    
 	return TRUE;
     }
 
