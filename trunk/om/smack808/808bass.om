@@ -4,42 +4,67 @@
   <polyphony>1</polyphony>
   <node>
     <name>adenv_0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
     <module-x>1630</module-x>
     <module-y>1144</module-y>
+    <port>
+      <name>Attack Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Decay Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
   </node>
   <node>
     <name>adenv_1</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
     <module-x>1637</module-x>
     <module-y>920</module-y>
+    <port>
+      <name>Attack Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Decay Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
   </node>
   <node>
     <name>lowpass_iir0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>lowpass_iir</plugin-label>
     <library-name>lowpass_iir_1891.so</library-name>
     <module-x>1991</module-x>
     <module-y>1271</module-y>
+    <port>
+      <name>Cutoff Frequency</name>
+      <user-min>4.410000</user-min>
+      <user-max>845.000000</user-max>
+    </port>
   </node>
   <node>
     <name>midi_trigger_in0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>Internal</type>
-    <plugin-label>midi_trigger_in</plugin-label>
+    <plugin-label>trigger_in</plugin-label>
     <module-x>1411</module-x>
     <module-y>1041</module-y>
   </node>
   <node>
     <name>mixer0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
@@ -48,15 +73,15 @@
   </node>
   <node>
     <name>output0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>Internal</type>
-    <plugin-label>output</plugin-label>
+    <plugin-label>audio_output</plugin-label>
     <module-x>2156</module-x>
     <module-y>1324</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
@@ -65,7 +90,7 @@
   </node>
   <node>
     <name>product_iaia_oa1</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
@@ -74,12 +99,22 @@
   </node>
   <node>
     <name>sine_fcac0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>sine_fcac</plugin-label>
     <library-name>cmt.so</library-name>
     <module-x>1479</module-x>
     <module-y>1320</module-y>
+    <port>
+      <name>Frequency</name>
+      <user-min>0.000000</user-min>
+      <user-max>450.000000</user-max>
+    </port>
+    <port>
+      <name>Amplitude</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.500000</user-max>
+    </port>
   </node>
   <connection>
     <source-node>product_iaia_oa1</source-node>
@@ -151,22 +186,22 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.387300</value>
+      <value>0.588982</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000000</value>
+      <value>0.000100</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.000000</value>
+      <value>0.000100</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>667.773193</value>
+      <value>399.981720</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
@@ -181,12 +216,12 @@
     <control>
       <node-name>sine_fcac0</node-name>
       <port-name>Frequency</port-name>
-      <value>440.000000</value>
+      <value>95.624977</value>
     </control>
     <control>
       <node-name>sine_fcac0</node-name>
       <port-name>Amplitude</port-name>
-      <value>1.000000</value>
+      <value>0.974935</value>
     </control>
   </preset>
 </patch>

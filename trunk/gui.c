@@ -14,14 +14,26 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-/* Smack, A Drum Synth. Currently very alpha. Written by Loki Davison. */
+/* Smack, A Drum Synth. Written by Loki Davison. */
+
+#ifdef HAVE_CONFIG_H
+#       include "config.h"
+#endif
+/* Check for configure's getopt check result.  */
+#ifndef HAVE_GETOPT_LONG
+#       include "getopt.h"
+#else
+#       include <getopt.h>
+#endif
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <gtk/gtk.h>
 #include <phat/phat.h>
 #include "lo/lo.h"
 #include "gui-drum.h"
 #include "gui.h"
+#include "cmdline.h"
 
 int main(int argc, char* argv[])
 {
@@ -35,14 +47,40 @@ int main(int argc, char* argv[])
     GtkWidget* sep;
     GtkWidget* drum;
     GHashTable* sliders;
+    struct gengetopt_args_info args_info;
+    lo_address addr;
         
     gtk_init(&argc, &argv);
 
-    /* setup OSC */
-    lo_address addr = lo_address_new(NULL, "16180");
+    /* let's call our cmdline parser */
+    if (cmdline_parser (argc, argv, &args_info) != 0)
+	    exit(1) ;
+   
+    if (args_info.help_given)
+    {
+      	printf ("\n");
+      	cmdline_parser_print_help ();
+    }
+
+    if (args_info.version_given)
+    {
+    	cmdline_parser_print_version ();
+    }
+
+
+    if (args_info.port_given)
+    {
+	/* setup OSC */
+	addr = lo_address_new(NULL, args_info.port_arg);
+    }
+    else
+    {
+	fprintf(stderr, "should specify port, using default 16180...might not work \n");
+	addr = lo_address_new(NULL, "16180");
+    }
+	
     sliders = g_hash_table_new(g_str_hash, g_str_equal); 
     /* setup server thread to handle responses */
-    
     lo_server_thread st = lo_server_thread_new("16188", error);
     // debug method
     lo_server_thread_add_method(st, NULL, NULL, generic_handler, NULL);
@@ -254,7 +292,7 @@ void error(int num, const char *msg, const char *path)
 int generic_handler(const char *path, const char *types, lo_arg **argv,
 		    int argc, void *data, void *user_data)
 {
-    /*
+    
     int i;
 
     printf("path: <%s>\n", path);
@@ -264,7 +302,7 @@ int generic_handler(const char *path, const char *types, lo_arg **argv,
 	printf("\n");
     }
     printf("\n");
-*/
+
     return 1;
 }
 
@@ -282,7 +320,7 @@ int param_handler(const char *path, const char *types, lo_arg **argv,
 	if(phat_fan_slider_get_value((PhatFanSlider *)slider) != 0)
 	{
 	    phat_fan_slider_set_value((PhatFanSlider *)slider, argv[1]->f);
-	    //fprintf(stderr, "got value for slider %s \n", key);
+	    fprintf(stderr, "\n \n #### \n got value for slider %s %f\n ### \n", key, argv[1]->f);
 	}
     }
     return 0;
