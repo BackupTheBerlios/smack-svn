@@ -12,9 +12,9 @@ requires 2.0.0
 %{
 #include "gui-drum.h"
 #include "gui.h"
+#include "phat-fan-slider-pix.h"
 #include <stdio.h>
 #include <glib.h>
-#include <phat/phat.h>
 #include <stdarg.h>
 
 lo_address addr;
@@ -69,7 +69,7 @@ class gui:Drum from Gtk:VBox
 	gtk_box_pack_start(GTK_BOX(widget), label, FALSE, FALSE, 0);
 	gtk_widget_show(label);
 	    
-	slider = phat_hfan_slider_new_with_range(1, 0.0, 1.0, .1);
+	slider = phat_fan_slider_pix_new_with_range(1, 0.0, 1.0, .1);
 	gtk_box_pack_start(GTK_BOX(widget), slider, FALSE, FALSE, 0); 
 	gtk_widget_show(slider);
 
@@ -82,7 +82,7 @@ class gui:Drum from Gtk:VBox
 	    gtk_box_pack_start(GTK_BOX(widget), label, FALSE, FALSE, 0);
 	    gtk_widget_show(label);
 	    
-	    slider = phat_hfan_slider_new_with_range(.5, 0.0, 1.0, .1);
+	    slider = phat_fan_slider_pix_new_with_range(.5, 0.0, 1.0, .1);
 	    gtk_box_pack_start(GTK_BOX(widget), slider, FALSE, FALSE, 0); 
 	    gtk_widget_show(slider);
 	    
@@ -100,7 +100,7 @@ class gui:Drum from Gtk:VBox
     private gint
     osc_cb(GtkWidget* widget, gpointer data)
     {
-	if (lo_send(addr, data, "f", phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget))) == -1) {
+	if (lo_send(addr, "/patch/set_control", "ssif", "808cowbell", data, 0, phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget))) == -1) {
 	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
 	} 
 	fprintf(stderr, "frobing the knobs %s\n", (char*)data);

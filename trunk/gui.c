@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
     gtk_init(&argc, &argv);
 
     /* setup OSC */
-    lo_address addr = lo_address_new(NULL, NULL);
+    lo_address addr = lo_address_new(NULL, "19383");
     
     /* main window */
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
@@ -89,42 +89,12 @@ int main(int argc, char* argv[])
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
-     /*seperator*/
-    sep = gtk_vseparator_new();
-    gtk_widget_show(sep);
-    gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
-    
-    /* tom  */
-    drum = gui_drum_new_drum("Tom", 3, addr, "tune", "/smack/tom/tune", "noise", "/smack/snare/noise", NULL);
-    gtk_widget_show(drum);
-    gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
      /*seperator*/
     sep = gtk_vseparator_new();
     gtk_widget_show(sep);
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
-    
-    /* conga */
-    drum = gui_drum_new_drum("Conga", 4, addr, "tune", "/smack/conga/tune", "noise", "/smack/conga/noise", NULL);
-    gtk_widget_show(drum);
-    gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
-
-     /*seperator*/
-    sep = gtk_vseparator_new();
-    gtk_widget_show(sep);
-    gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
-
-    /* rimshot */
-    drum = gui_drum_new_drum("Rimshot", 5, addr, "tune", "/smack/rim/tune", "HPF", "/smack/rim/hpf", NULL);
-    gtk_widget_show(drum);
-    gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
-
-     /*seperator*/
-    sep = gtk_vseparator_new();
-    gtk_widget_show(sep);
-    gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
-
-    
+       
     /* claves */
     drum = gui_drum_new_drum("Claves", 6, addr, "tune", "/s/clave/tune", "BPF", "/s/clave/BPF", NULL);
     gtk_widget_show(drum);
@@ -134,20 +104,9 @@ int main(int argc, char* argv[])
     sep = gtk_vseparator_new();
     gtk_widget_show(sep);
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
-    
-    /* clap */
-    drum = gui_drum_new_drum("Clap", 7, addr, "tone", "/s/clap/tone", "snappy", "/s/clap/snappy", "reverb", "/s/clap/reverb", NULL);
-    gtk_widget_show(drum);
-    gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
-
-     /*seperator*/
-    sep = gtk_vseparator_new();
-    gtk_widget_show(sep);
-    gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
-
-    
+       
     /* cowbell */
-    drum = gui_drum_new_drum("Cowbell", 8, addr, "tune1", "/smack/cowbell/tune1", "tune2", "/smack/cowbell/tune2", "decay","/smack/cowbell/decay", NULL);
+    drum = gui_drum_new_drum("Cowbell", 8, addr, "tune1", "triangle_fcsc_oa0", "tune2", "triangle_fcsc_oa1", "decay","/smack/cowbell/decay", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 

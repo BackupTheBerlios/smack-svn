@@ -1,11 +1,14 @@
 CFLAGS=`pkg-config --cflags gtk+-2.0 liblo phat` -g -Wall -Werror
 LIBS=`pkg-config --libs gtk+-2.0 liblo phat`
-OFILES=gui.o gui-drum.o
+OFILES=gui.o gui-drum.o phat-fan-slider-pix.o
 gui: $(OFILES)
 	gcc -o gui $(OFILES) $(LIBS)
 
-gui-drum.o: gui-drum.c gui-drum.h
+gui-drum.o: gui-drum.c gui-drum.h phat-fan-slider-pix.h
 	gcc -c gui-drum.c $(CFLAGS)
+
+phat-fan-slider-pix.o: phat-fan-slider-pix.c phat-fan-slider-pix.h
+	gcc -c phat-fan-slider-pix.c $(CFLAGS)
 
 gui.o: gui.c gui.h gui-drum.h
 	gcc -c gui.c $(CFLAGS)

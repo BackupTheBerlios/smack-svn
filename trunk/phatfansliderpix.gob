@@ -1,0 +1,396 @@
+/*
+ * Extends the phat fanslider widget to give it pixmaped themes.  
+ */
+requires 2.0.0
+%h{
+#include <phat/phatfanslider.h>
+%}
+
+
+
+%{
+#include <stdio.h>
+#include <glib.h>
+
+enum
+{
+     FAN_RISE = 3,
+     FAN_RUN = 1,
+     SLIDER_WIDTH = 16,
+     SLIDER_LENGTH = 32,
+     THRESHOLD = 4,
+};
+
+%}
+
+class Phat:Fan:Slider:Pix from Phat:Fan:Slider 
+{
+     public GdkPixbuf*     filled;
+     public GdkPixbuf*     empty;
+     public GdkPixbuf*     edge;
+
+    class_init (class)
+    {
+	GtkWidgetClass* widget_class = (GtkWidgetClass*) class;
+	widget_class->expose_event = phat_fan_slider_pix_expose;
+
+    }
+         
+    init (self)
+    {
+	gchar* tempname;
+	GtkSettings* settings;
+	settings = gtk_settings_get_default();
+        
+     /* load images, is there anyway i can get it to share this between every instance
+      * and just have a local version of the composite image..  */
+     
+	if((tempname = gtk_rc_find_pixmap_in_path(settings, NULL, "slider_full.png")))
+	{
+	    self->filled = gdk_pixbuf_new_from_file(tempname, NULL);
+	} 
+	else
+	{
+	    self->filled = gdk_pixbuf_new_from_file("/usr/share/phat/slider_full.png", NULL);
+	}
+
+	if((tempname = gtk_rc_find_pixmap_in_path(settings, NULL, "slider_empty.png")))
+	{
+	    self->empty = gdk_pixbuf_new_from_file(tempname, NULL);
+	} 
+	else
+	{
+	    self->empty = gdk_pixbuf_new_from_file("/usr/share/phat/slider_empty.png", NULL);
+	}
+
+	/* edge not currently used */
+     
+	if((tempname = gtk_rc_find_pixmap_in_path(settings, NULL, "slider_edge.png")))
+	{
+	    self->edge = gdk_pixbuf_new_from_file(tempname, NULL);
+	} 
+	else
+	{
+	    self->edge = gdk_pixbuf_new_from_file("/usr/share/phat/slider_edge.png", NULL);
+	}
+	g_free(tempname);
+
+    }
+
+    public GtkWidget* new (GtkAdjustment* adjustment)
+    {
+	PhatFanSliderPix* slider;
+
+	g_assert (adjustment->lower < adjustment->upper);
+	g_assert ((adjustment->value >= adjustment->lower)
+	       && (adjustment->value <= adjustment->upper));
+
+	slider = g_object_new (PHAT_TYPE_FAN_SLIDER_PIX, NULL);
+
+	PHAT_FAN_SLIDER (slider)->orientation = GTK_ORIENTATION_HORIZONTAL;
+
+	phat_fan_slider_set_adjustment (PHAT_FAN_SLIDER (slider), adjustment);
+
+	return (GtkWidget*) slider;
+
+    }
+
+    public GtkWidget* new_with_range (double value, double lower,
+					    double upper, double step)
+    {
+	GtkAdjustment* adj;
+
+	adj = (GtkAdjustment*) gtk_adjustment_new (value, lower, upper, step, step, 0);
+     
+	return phat_fan_slider_pix_new (adj);
+    }
+
+    private void calc_layout (PhatFanSlider* slider,
+					int* x, int* y, int* w, int* h)
+    {
+
+	GtkWidget* widget = GTK_WIDGET (slider);
+	int focus_width, focus_pad;
+	int pad;
+	  
+        gtk_widget_style_get (widget,
+			   "focus-line-width", &focus_width,
+			   "focus-padding", &focus_pad,
+			   NULL);
+
+	pad = focus_width + focus_pad;
+
+	if (slider->orientation == GTK_ORIENTATION_VERTICAL)
+	{
+	    *x = widget->allocation.x + (widget->allocation.width - SLIDER_WIDTH) / 2;
+	    *y = widget->allocation.y + pad;
+	    *w = SLIDER_WIDTH;
+	    *h = widget->allocation.height - 2*pad;
+	}
+	else
+	{
+	    *x = widget->allocation.x + pad;
+	    *y = widget->allocation.y + (widget->allocation.height - SLIDER_WIDTH) / 2;
+	    *w = widget->allocation.width - 2*pad;
+	    *h = SLIDER_WIDTH;
+	}
+    }
+
+        
+    public gboolean expose(GtkWidget* widget, GdkEventExpose* event)
+    {
+     PhatFanSlider* slider;
+     PhatFanSliderPix* pix;
+     int x, y;
+     int w, h;
+     int fx, fy;		/* "filled" coordinates */
+     int fw, fh;
+     GdkPixbuf* scaled;
+     
+     
+     g_return_val_if_fail (widget != NULL, FALSE);
+     g_return_val_if_fail (PHAT_IS_FAN_SLIDER (widget), FALSE);
+     g_return_val_if_fail (event != NULL, FALSE);
+
+
+     //debug ("expose\n");
+     if (event->count > 0)
+	  return FALSE;
+
+     slider = (PhatFanSlider*) widget;
+     pix =  (PhatFanSliderPix*) widget;
+     scaled = gdk_pixbuf_copy(pix->empty);
+              
+     phat_fan_slider_pix_calc_layout (slider, &x, &y, &w, &h);
+     
+     if (slider->orientation == GTK_ORIENTATION_VERTICAL)
+     {
+	  if (slider->center_val >= 0)
+	  {
+	       fw = w;
+	       fh = ABS (slider->val - slider->center_val) * h;
+	       fx = x;
+	       fy = y + h - (slider->center_val * h);
+
+	       if ((slider->val > slider->center_val && !slider->inverted)
+		   || (slider->val < slider->center_val && slider->inverted))
+	       {
+		    fy -= fh;
+	       }
+
+	  }
+	  else
+	  {
+	       fw = w;
+	       fh = slider->val * h;
+	       fx = x;
+	       fy = (slider->inverted)? y: y + h - fh;
+	  }
+     }
+     else /* horizontal */
+     {
+	  if (slider->center_val >= 0)
+	  {
+	       fw = ABS (slider->val - slider->center_val) * w;
+	       fh = h;
+	       fx = x + (slider->center_val * w);
+	       fy = y;
+
+	       if ((slider->val < slider->center_val && !slider->inverted)
+		   || (slider->val > slider->center_val && slider->inverted))
+	       {
+		    fx -= fw;
+	       }
+	  }
+	  else
+	  {
+	       fw = slider->val * w;
+	       fh = h;
+	       fx = (slider->inverted)? x + w - fw: x;
+	       fy = y;
+	  }
+     }
+     
+     /* Should there just be a different function for pixmaped and non-pixmaped or what? Rc file? param?
+      * currently just has non-pixmaped commented out. */
+
+     
+     if (!GTK_WIDGET_SENSITIVE (widget))
+     {
+	 /*
+	  gdk_draw_rectangle (widget->window,
+			      widget->style->dark_gc[GTK_STATE_INSENSITIVE],
+			      TRUE,
+			      x, y,
+			      w, h);
+
+	  gdk_draw_rectangle (widget->window,
+			      widget->style->fg_gc[GTK_STATE_INSENSITIVE],
+			      TRUE,
+			      fx, fy,
+			      fw, fh); */
+
+	  goto skiplines;	/* skip drawing the extra marker lines */
+     }
+     else
+     {
+	  gdk_pixbuf_composite(pix->filled, scaled, 0, 0, fw+1, fh, 0, 0, 1, 1, GDK_INTERP_BILINEAR, 255);
+	  scaled = gdk_pixbuf_scale_simple (scaled, w, h, GDK_INTERP_BILINEAR);
+	  gdk_draw_pixbuf(widget->window,NULL, scaled, 0, 0, x, y, -1, -1, GDK_RGB_DITHER_NONE, 0, 0);
+	  /*    
+	  gdk_draw_rectangle (widget->window,
+			      widget->style->dark_gc[GTK_STATE_NORMAL],
+			      TRUE,
+			      x, y,
+			      w, h);
+
+	  gdk_draw_rectangle (widget->window,
+			      widget->style->base_gc[GTK_STATE_SELECTED],
+			      TRUE,
+			      fx, fy,
+			      fw, fh);
+	  */
+	  
+     }
+
+     if (slider->orientation == GTK_ORIENTATION_VERTICAL)
+     {
+	  int line_y;
+	  
+	  if (slider->center_val >= 0)
+	  {
+	       line_y = fy;
+
+	       if ((slider->val > slider->center_val && slider->inverted)
+		   || (slider->val < slider->center_val && !slider->inverted))
+	       {
+		    line_y += fh;
+	       }
+	       
+	       line_y = CLAMP (line_y, y, y + h-1);
+
+	       gdk_draw_line (widget->window,
+			      widget->style->fg_gc[GTK_STATE_NORMAL],
+			      x,
+			      line_y,
+			      x + w - 1,
+			      line_y);
+
+	       line_y = (1 - slider->center_val) * h + y;
+	       
+	       gdk_draw_line (widget->window,
+			      widget->style->base_gc[GTK_STATE_NORMAL],
+			      x,
+			      line_y,
+			      x + w - 1,
+			      line_y);
+	  }
+	  else
+	  {
+	       line_y = fy;
+
+	       if (slider->inverted)
+		    line_y += fh;
+
+	       line_y = CLAMP (line_y, y, y + h-1);
+	  
+	       gdk_draw_line (widget->window,
+			      widget->style->fg_gc[GTK_STATE_NORMAL],
+			      x,
+			      line_y,
+			      x + w - 1,
+			      line_y);
+	  }
+     }
+     else
+     {
+	  int line_x;
+	  
+	  if (slider->center_val >= 0)
+	  {
+	       line_x = fx;
+
+	       if ((slider->val < slider->center_val && slider->inverted)
+		   || (slider->val > slider->center_val && !slider->inverted))
+	       {
+		    line_x += fw;
+	       }
+	       
+	       line_x = CLAMP (line_x, x, x + w-1);
+	       
+	       gdk_draw_line (widget->window,
+			      widget->style->fg_gc[GTK_STATE_NORMAL],
+			      line_x,
+			      y,
+			      line_x,
+			      y + h - 1);
+
+	       line_x =  slider->center_val * w + x;
+
+	       gdk_draw_line (widget->window,
+			      widget->style->base_gc[GTK_STATE_NORMAL],
+			      line_x,
+			      y,
+			      line_x,
+			      y + h - 1);
+	  }
+	  else
+	  {
+	       line_x = fx;
+
+	       if (!slider->inverted)
+		    line_x += fw;
+	       
+	       line_x = CLAMP (line_x, x, x + w-1);
+	
+	       /* we can have this when i work out the bitmask thingy */
+	       
+	       /*gdk_draw_pixbuf(widget->window,widget->style->fg_gc[GTK_STATE_NORMAL], slider->edge, 0, 0, line_x, y, -1, -1, GDK_RGB_DITHER_MAX, 0, 0);*/	       
+	  }
+     }
+
+skiplines:
+     /*
+     gtk_paint_shadow (widget->style,
+		       widget->window,
+		       GTK_STATE_NORMAL,
+		       GTK_SHADOW_IN,
+		       NULL, widget, NULL,
+		       x, y,
+		       w, h);*/
+
+     if (GTK_WIDGET_HAS_FOCUS (widget))
+     {
+	  int focus_width, focus_pad;
+	  int pad;
+	  
+	  gtk_widget_style_get (widget,
+				"focus-line-width", &focus_width,
+				"focus-padding", &focus_pad,
+				NULL);
+
+	  pad = focus_width + focus_pad;
+
+	  x -= pad;
+	  y -= pad;
+	  w += 2*pad;
+	  h += 2*pad;
+
+	  gtk_paint_focus (widget->style, widget->window, GTK_WIDGET_STATE (widget),
+			   NULL, widget, NULL,
+			   x, y, w, h);
+     }
+
+     if (GTK_WIDGET_VISIBLE (slider->fan_window))
+	  gtk_widget_queue_draw (slider->fan_window);
+     
+     return FALSE;
+  }
+
+}
+
+
+
+
+
+
