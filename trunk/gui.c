@@ -14,7 +14,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-/* Temp GUI ideas for Smack. */
+/* Smack, A Drum Synth. Currently very alpha. Written by Loki Davison. */
 
 #include <gtk/gtk.h>
 #include <phat/phat.h>
@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
     gtk_widget_show(box);
 
     /* bass drum, each drum is a widget, with a null terminated list of name / param pairs */
-    drum = gui_drum_new_drum("Bass", "om/smack808/808bass.om", "808bass", 35, addr, "tune", "/smack/bass/tune", 0, "tone", "/smack/bass/tone", 0, "decay","/smack/bass/decay", 0, NULL);
+    drum = gui_drum_new_drum("Bass", "om/smack808/808bass.om", "808bass", 35, addr, "tune", "sine_fcac0", "Frequency", "tone", "lowpass_iir0", "Cutoff Frequency", "decay","dahdsr_g+t_control0", "Decay Time (s)", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
     
     /* snare drum */
-    drum = gui_drum_new_drum("Snare", "om/smack808/808snare.om", "808snare", 38, addr, "snappy", "/smack/snare/snappy", 0, "tone", "/smack/snare/tone", 0, "decay","/smack/snare/decay", 0, "hpf", "/smack/snare/hpf", 0, NULL);
+    drum = gui_drum_new_drum("Snare", "om/smack808/808snare.om", "808snare", 38, addr, "snappy", "noise_source_white0", "Amplitude", "tone", "sine_fcac1", "Frequency", "decay","dahdsr_g+t_control1", "Decay Time (s)", "hpf", "highpass_iir0", "Cutoff Frequency", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
        
     /* claves */
-    drum = gui_drum_new_drum("Claves", "om/smack808/808clave.om", "808claves", 75, addr, "tune", "/s/clave/tune", 0, "BPF", "/s/clave/BPF", 0, NULL);
+    drum = gui_drum_new_drum("Claves", "om/smack808/808clave.om", "808claves", 75, addr, "tune", "triangle_fcsc_oa0", "Frequency", "BPF", "bandpass_a_iir0", "Center Frequency (Hz)", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
        
     /* cowbell */
-    drum = gui_drum_new_drum("Cowbell", "om/smack808/808cowbell.om", "808cowbell", 56, addr, "tune1", "triangle_fcsc_oa0", "Frequency", "tune2", "triangle_fcsc_oa1", "Frequency", "decay","/smack/cowbell/decay", "fix", NULL);
+    drum = gui_drum_new_drum("Cowbell", "om/smack808/808cowbell.om", "808cowbell", 56, addr, "tune1", "triangle_fcsc_oa0", "Frequency", "tune2", "triangle_fcsc_oa1", "Frequency", "decay","/smack/cowbell/decay", "FIXME", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
