@@ -51,7 +51,7 @@ class Phat:Fan:Slider:Pix from Phat:Fan:Slider
 	} 
 	else
 	{
-	    self->filled = gdk_pixbuf_new_from_file("/usr/share/phat/slider_full.png", NULL);
+	    self->filled = gdk_pixbuf_new_from_file("pixmaps/slider_full.png", NULL);
 	}
 
 	if((tempname = gtk_rc_find_pixmap_in_path(settings, NULL, "slider_empty.png")))
@@ -60,7 +60,7 @@ class Phat:Fan:Slider:Pix from Phat:Fan:Slider
 	} 
 	else
 	{
-	    self->empty = gdk_pixbuf_new_from_file("/usr/share/phat/slider_empty.png", NULL);
+	    self->empty = gdk_pixbuf_new_from_file("pixmaps/slider_empty.png", NULL);
 	}
 
 	/* edge not currently used */
@@ -71,7 +71,7 @@ class Phat:Fan:Slider:Pix from Phat:Fan:Slider
 	} 
 	else
 	{
-	    self->edge = gdk_pixbuf_new_from_file("/usr/share/phat/slider_edge.png", NULL);
+	    self->edge = gdk_pixbuf_new_from_file("pixmaps/slider_edge.png", NULL);
 	}
 	g_free(tempname);
 

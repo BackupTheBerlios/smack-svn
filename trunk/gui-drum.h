@@ -52,6 +52,7 @@ struct _guiDrumClass {
 GType	gui_drum_get_type	(void);
 GtkWidget * 	gui_drum_new	(void);
 GtkWidget * 	gui_drum_new_drum	(const char * title,
+					char * drumname,
 					int note,
 					lo_address address,
 					...);
