@@ -60,6 +60,7 @@ class gui:Drum from Gtk:VBox
 	check = gtk_check_button_new();
 	gtk_box_pack_start(GTK_BOX(hbox), check, FALSE, FALSE, 0);
 	gtk_widget_show(check);
+	gtk_object_set_data(GTK_OBJECT(check), "drum_name", drumname);
 	g_signal_connect (G_OBJECT (check), "toggled", G_CALLBACK (gui_drum_load_cb), filename);
 	gtk_box_pack_start(GTK_BOX(widget), hbox, FALSE, FALSE, 10);
 
@@ -89,14 +90,14 @@ class gui:Drum from Gtk:VBox
 
 	    
 	    /* loop over each param creating a slider for it */  
-	    slider = phat_fan_slider_pix_new_with_range(.5, 0.0, 1.0, .1);
+	    slider = phat_fan_slider_pix_new_with_range(400, 0.0, 1000.0, 0.1);
 	    gtk_box_pack_start(GTK_BOX(widget), slider, FALSE, FALSE, 0); 
 	    gtk_widget_show(slider);
 
 	    	    
 	    gtk_object_set_data(GTK_OBJECT(slider), "drum_name", drumname);
-	    gtk_object_set_data(GTK_OBJECT(slider), "param_name", va_arg(ap, char*));
-	    gtk_object_set_data(GTK_OBJECT(slider), "param_num", GINT_TO_POINTER(va_arg(ap, int))); 
+	    gtk_object_set_data(GTK_OBJECT(slider), "node_name", va_arg(ap, char*));
+	    gtk_object_set_data(GTK_OBJECT(slider), "param_name", va_arg(ap, char*)); 
 	     
 	    /* connect change parm to osc */
 	    g_signal_connect (G_OBJECT (slider), "value-changed", G_CALLBACK (gui_drum_osc_cb), NULL);
@@ -112,14 +113,14 @@ class gui:Drum from Gtk:VBox
     private gint
     osc_cb(GtkWidget* widget, gpointer data)
     {
-	if (lo_send(addr, "/patch/set_control", "ssif", gtk_object_get_data(GTK_OBJECT(widget), "drum_name"), gtk_object_get_data(GTK_OBJECT(widget), "param_name"), gtk_object_get_data(GTK_OBJECT(widget), "param_num"), phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget))) == -1) {
+	if (lo_send(addr, "/patch/set_control", "isssf", 42, gtk_object_get_data(GTK_OBJECT(widget), "drum_name"), gtk_object_get_data(GTK_OBJECT(widget), "node_name"), gtk_object_get_data(GTK_OBJECT(widget), "param_name"), phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget))) == -1) {
 	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
 	}
 	fprintf(stderr, "frobing the knobs %s \n", (char*) gtk_object_get_data(GTK_OBJECT(widget), "drum_name"));
 	return TRUE;
     }
 
-    /* load the patch by calling om_patch_loader, currently dodgy for some reason... */
+    /* load the patch by calling om_patch_loader or if loaded unload it. */
     private gint
     load_cb(GtkWidget* widget, gpointer data)
     {
@@ -135,10 +136,16 @@ class gui:Drum from Gtk:VBox
 		error = NULL;
 		return 0;
 	    }
+
+	    /*then load params */
+	    
 	} 
 	 else
 	{
-	    //if (lo_send(addr, "/destroy_patch", "is", 
+	    if (lo_send(addr, "/destroy_patch", "is", 42, gtk_object_get_data(GTK_OBJECT(widget), "drum_name"))
+		        == -1){
+		printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
+	    }
 	}    
 	
 	g_free(command);	 

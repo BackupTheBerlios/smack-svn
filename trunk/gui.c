@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
     gtk_widget_show(box);
 
     /* bass drum, each drum is a widget, with a null terminated list of name / param pairs */
-    drum = gui_drum_new_drum("Bass", "om/smack808/808bass.om", "808bass", 1, addr, "tune", "/smack/bass/tune", 0, "tone", "/smack/bass/tone", 0, "decay","/smack/bass/decay", 0, NULL);
+    drum = gui_drum_new_drum("Bass", "om/smack808/808bass.om", "808bass", 35, addr, "tune", "/smack/bass/tune", 0, "tone", "/smack/bass/tone", 0, "decay","/smack/bass/decay", 0, NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
     
     /* snare drum */
-    drum = gui_drum_new_drum("Snare", "om/smack808/808snare.om", "808snare", 2, addr, "snappy", "/smack/snare/snappy", 0, "tone", "/smack/snare/tone", 0, "decay","/smack/snare/decay", 0, "hpf", "/smack/snare/hpf", 0, NULL);
+    drum = gui_drum_new_drum("Snare", "om/smack808/808snare.om", "808snare", 38, addr, "snappy", "/smack/snare/snappy", 0, "tone", "/smack/snare/tone", 0, "decay","/smack/snare/decay", 0, "hpf", "/smack/snare/hpf", 0, NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
        
     /* claves */
-    drum = gui_drum_new_drum("Claves", "om/smack808/808clave.om", "808claves", 6, addr, "tune", "/s/clave/tune", 0, "BPF", "/s/clave/BPF", 0, NULL);
+    drum = gui_drum_new_drum("Claves", "om/smack808/808clave.om", "808claves", 75, addr, "tune", "/s/clave/tune", 0, "BPF", "/s/clave/BPF", 0, NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
        
     /* cowbell */
-    drum = gui_drum_new_drum("Cowbell", "om/smack808/808cowbell.om", "808cowbell", 8, addr, "tune1", "triangle_fcsc_oa0", 0, "tune2", "triangle_fcsc_oa1", 0, "decay","/smack/cowbell/decay", 0, NULL);
+    drum = gui_drum_new_drum("Cowbell", "om/smack808/808cowbell.om", "808cowbell", 56, addr, "tune1", "triangle_fcsc_oa0", "Frequency", "tune2", "triangle_fcsc_oa1", "Frequency", "decay","/smack/cowbell/decay", "fix", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -119,7 +119,7 @@ int main(int argc, char* argv[])
 
     
     /* hihat */
-    drum = gui_drum_new_drum("Hihat", "om/smack808/808hihat.om", "808hihat", 9, addr, "tune", "/s/hh/tune", 0, "CH decay", "/s/hh/chdecay", 0, "OH decay", "/s/hh/ohdecay", 0, NULL);
+    drum = gui_drum_new_drum("Hihat", "om/smack808/808hihat.om", "808hihat", 42, addr, "tune", "/s/hh/tune", 0, "CH decay", "/s/hh/chdecay", 0, "OH decay", "/s/hh/ohdecay", 0, NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -157,7 +157,7 @@ int main(int argc, char* argv[])
     gtk_widget_show(box); 
 
     /* bass drum */
-    drum = gui_drum_new_drum("Bass", "om/smack909/909bass.om", "909bass", 1, addr, "tune", "/smack/bass/tune", 0, "tone", "/smack/bass/tone", 0, "decay","/smack/bass/decay", 0, NULL);
+    drum = gui_drum_new_drum("Bass", "om/smack909/909bass.om", "909bass", 36, addr, "tune", "/smack/bass/tune", 0, "tone", "/smack/bass/tone", 0, "decay","/smack/bass/decay", 0, NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -167,7 +167,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
     
     /* snare drum */
-    drum = gui_drum_new_drum("Snare", "om/smack909/909snare.om", "909snare", 2, addr, "snappy", "/smack/snare/snappy", 0, "tone", "/smack/snare/tone", 0, "decay","/smack/snare/decay", 0, "hpf", "/smack/snare/hpf", 0, NULL);
+    drum = gui_drum_new_drum("Snare", "om/smack909/909snare.om", "909snare", 40, addr, "snappy", "/smack/snare/snappy", 0, "tone", "/smack/snare/tone", 0, "decay","/smack/snare/decay", 0, "hpf", "/smack/snare/hpf", 0, NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0); 
 
@@ -201,7 +201,7 @@ int main(int argc, char* argv[])
     gtk_widget_show(box); 
 
     /* hihat low quality*/
-    drum = gui_drum_new_drum("Hihat", "om/smackfm/sfmhihat2.om.om", "sfmhihat2", 1, addr, "tune", "/smack/bass/tune", 0, "tone", "/smack/bass/tone", 0, "decay","/smack/bass/decay", 0, NULL);
+    drum = gui_drum_new_drum("Hihat", "om/smackfm/sfmhihat2.om.om", "sfmhihat2", 49, addr, "tune", "/smack/bass/tune", 0, "tone", "/smack/bass/tone", 0, "decay","/smack/bass/decay", 0, NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -211,7 +211,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
     
     /* hihat hight quality*/
-    drum = gui_drum_new_drum("Hihat+", "om/smackfm/sfmhihatbig.om", "sfmhihatbig", 2, addr, "tone", "/smack/snare/tone", 0, "decay","/smack/snare/decay", 0, "hpf", "/smack/snare/hpf", 0, NULL);
+    drum = gui_drum_new_drum("Hihat+", "om/smackfm/sfmhihatbig.om", "sfmhihatbig", 51, addr, "tone", "/smack/snare/tone", 0, "decay","/smack/snare/decay", 0, "hpf", "/smack/snare/hpf", 0, NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0); 
 
