@@ -112,18 +112,6 @@
     <destination-port>Second Input</destination-port>
   </connection>
   <connection>
-    <source-node>product_iaia_oa1</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>mixer0</destination-node>
-    <destination-port>Input 1</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>product_iaia_oa1</destination-node>
-    <destination-port>Second Input</destination-port>
-  </connection>
-  <connection>
     <source-node>lowpass_iir0</source-node>
     <source-port>Output</source-port>
     <destination-node>output0</destination-node>
@@ -158,27 +146,27 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000500</value>
+      <value>0.000200</value>
     </control>
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.050000</value>
+      <value>0.387300</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000100</value>
+      <value>0.000000</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.001000</value>
+      <value>0.000000</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>300.778992</value>
+      <value>667.773193</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
@@ -188,17 +176,17 @@
     <control>
       <node-name>midi_trigger_in0</node-name>
       <port-name>Note Number</port-name>
-      <value>35.000000</value>
-    </control>
-    <control>
-      <node-name>sine_fcac0</node-name>
-      <port-name>Amplitude</port-name>
-      <value>0.990000</value>
+      <value>60.000000</value>
     </control>
     <control>
       <node-name>sine_fcac0</node-name>
       <port-name>Frequency</port-name>
-      <value>130.488007</value>
+      <value>440.000000</value>
+    </control>
+    <control>
+      <node-name>sine_fcac0</node-name>
+      <port-name>Amplitude</port-name>
+      <value>1.000000</value>
     </control>
   </preset>
 </patch>

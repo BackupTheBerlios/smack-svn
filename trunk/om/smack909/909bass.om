@@ -8,8 +8,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1831</module-x>
-    <module-y>956</module-y>
+    <module-x>1848.500000</module-x>
+    <module-y>1022.718750</module-y>
   </node>
   <node>
     <name>adenv_1</name>
@@ -17,8 +17,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1966</module-x>
-    <module-y>1411</module-y>
+    <module-x>1955.062500</module-x>
+    <module-y>1426.312500</module-y>
   </node>
   <node>
     <name>adenv_lvl_0</name>
@@ -43,8 +43,8 @@
     <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>midi_trigger_in</plugin-label>
-    <module-x>1495</module-x>
-    <module-y>1260</module-y>
+    <module-x>1441.906250</module-x>
+    <module-y>1221.531250</module-y>
   </node>
   <node>
     <name>mixer0</name>
@@ -61,8 +61,8 @@
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>2119</module-x>
-    <module-y>1255</module-y>
+    <module-x>2327.774902</module-x>
+    <module-y>1248.306274</module-y>
   </node>
   <node>
     <name>noise_source_white0</name>
@@ -78,8 +78,8 @@
     <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>output</plugin-label>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>2423.224854</module-x>
+    <module-y>1331.349976</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
@@ -87,8 +87,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>2138.399902</module-x>
+    <module-y>1085.400024</module-y>
   </node>
   <node>
     <name>product_iaia_oa1</name>
@@ -105,8 +105,8 @@
     <type>LADSPA</type>
     <plugin-label>sine_faac</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>2013.799927</module-x>
+    <module-y>1129.599976</module-y>
   </node>
   <connection>
     <source-node>sine_faac0</source-node>
@@ -196,47 +196,47 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.100000</value>
+      <value>0.400000</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000300</value>
+      <value>0.000000</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.023000</value>
+      <value>0.000000</value>
     </control>
     <control>
       <node-name>adenv_lvl_0</node-name>
       <port-name>Initial Level</port-name>
-      <value>140.999695</value>
+      <value>187.176880</value>
     </control>
     <control>
       <node-name>adenv_lvl_0</node-name>
       <port-name>Attack to Level</port-name>
-      <value>290.999603</value>
+      <value>215.506271</value>
     </control>
     <control>
       <node-name>adenv_lvl_0</node-name>
       <port-name>Decay to Level</port-name>
-      <value>60.999599</value>
+      <value>34.015854</value>
     </control>
     <control>
       <node-name>adenv_lvl_0</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000500</value>
+      <value>0.000400</value>
     </control>
     <control>
       <node-name>adenv_lvl_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.002000</value>
+      <value>0.290294</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>1222.969727</value>
+      <value>2422.969727</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
@@ -246,7 +246,7 @@
     <control>
       <node-name>midi_trigger_in0</node-name>
       <port-name>Note Number</port-name>
-      <value>36.000000</value>
+      <value>60.000000</value>
     </control>
     <control>
       <node-name>noise_source_white0</node-name>

@@ -205,13 +205,13 @@ runDahdsr_Control (LADSPA_Handle instance,
 	 */
 	/* check params don't cause div by zero */
 	if(start_level == 0){
-	    start_level=0.001;
+	    start_level=0.0000001;
 	}
 	if(attack_level == 0){
-	    attack_level=0.001;
+	    attack_level=0.0000001;
 	}	
 	if(decay_level == 0){
-	    decay_level=0.001;
+	    decay_level=0.0000001;
 	}		
 	LADSPA_Data ReleaseCoeff_att = (log(attack_level) - log(start_level)) / (attack * srate);
 	LADSPA_Data ReleaseCoeff_dec = (log(decay_level) - log(attack_level)) / (decay * srate);
@@ -242,7 +242,7 @@ runDahdsr_Control (LADSPA_Handle instance,
 		{
 		case IDLE:
 			/* might need to fix this... */
-			level = start_level;
+			level = decay_level;
 			//level = 0.0f;
 			break;
 		case ATTACK:
@@ -257,7 +257,7 @@ runDahdsr_Control (LADSPA_Handle instance,
 			{
 				state = DECAY;
 				samples = 0;
-				fprintf(stderr, "finished attack, RC %f, level %f attack_level %f start %f\n", ReleaseCoeff_att, level, attack_level, start_level);
+				//fprintf(stderr, "finished attack, RC %f, level %f attack_level %f start %f\n", ReleaseCoeff_att, level, attack_level, start_level);
 			} else {
 				level += level * ReleaseCoeff_att;
 			}
@@ -267,7 +267,7 @@ runDahdsr_Control (LADSPA_Handle instance,
 			elapsed = (LADSPA_Data) samples * dec;
 			if (elapsed > 1.0f)
 			{
-				fprintf(stderr, "finished decay, RC %f , level %f decay_level %f start %f\n", ReleaseCoeff_dec, level, decay_level, start_level);
+				//fprintf(stderr, "finished decay, RC %f , level %f decay_level %f start %f\n", ReleaseCoeff_dec, level, decay_level, start_level);
 				state = IDLE;
 				samples = 0;
 			}

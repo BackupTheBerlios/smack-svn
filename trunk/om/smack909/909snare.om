@@ -26,8 +26,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1309</module-x>
-    <module-y>1123</module-y>
+    <module-x>1404.344849</module-x>
+    <module-y>1155.586182</module-y>
   </node>
   <node>
     <name>adenv_3</name>
@@ -35,8 +35,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1058</module-x>
-    <module-y>1468</module-y>
+    <module-x>1158.172363</module-x>
+    <module-y>1454.724121</module-y>
   </node>
   <node>
     <name>adenv_lvl_0</name>
@@ -44,8 +44,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv_lvl</plugin-label>
     <library-name>adenv_lvl.so</library-name>
-    <module-x>1623</module-x>
-    <module-y>1097</module-y>
+    <module-x>1627.827637</module-x>
+    <module-y>1153.724121</module-y>
   </node>
   <node>
     <name>adenv_lvl_1</name>
@@ -53,8 +53,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv_lvl</plugin-label>
     <library-name>adenv_lvl.so</library-name>
-    <module-x>1625</module-x>
-    <module-y>914</module-y>
+    <module-x>1614.137939</module-x>
+    <module-y>882.620667</module-y>
   </node>
   <node>
     <name>highpass_iir0</name>
@@ -62,8 +62,8 @@
     <type>LADSPA</type>
     <plugin-label>highpass_iir</plugin-label>
     <library-name>highpass_iir_1890.so</library-name>
-    <module-x>1165</module-x>
-    <module-y>1352</module-y>
+    <module-x>1262.758667</module-x>
+    <module-y>1354.413818</module-y>
   </node>
   <node>
     <name>lowpass_iir0</name>
@@ -71,16 +71,16 @@
     <type>LADSPA</type>
     <plugin-label>lowpass_iir</plugin-label>
     <library-name>lowpass_iir_1891.so</library-name>
-    <module-x>1089</module-x>
-    <module-y>1192</module-y>
+    <module-x>1091.413818</module-x>
+    <module-y>1178.724121</module-y>
   </node>
   <node>
     <name>midi_trigger_in0</name>
     <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>midi_trigger_in</plugin-label>
-    <module-x>1109</module-x>
-    <module-y>952</module-y>
+    <module-x>1286.413818</module-x>
+    <module-y>962.862061</module-y>
   </node>
   <node>
     <name>mixer0</name>
@@ -159,8 +159,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1336</module-x>
-    <module-y>1506</module-y>
+    <module-x>1389.103394</module-x>
+    <module-y>1495.137939</module-y>
   </node>
   <node>
     <name>sine_faac0</name>
@@ -177,8 +177,8 @@
     <type>LADSPA</type>
     <plugin-label>sine_faac</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>1859</module-x>
-    <module-y>1093</module-y>
+    <module-x>1873.482788</module-x>
+    <module-y>1106.275879</module-y>
   </node>
   <connection>
     <source-node>sine_faac1</source-node>
@@ -340,7 +340,7 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.065000</value>
+      <value>0.203683</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
@@ -350,7 +350,7 @@
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.054000</value>
+      <value>0.100987</value>
     </control>
     <control>
       <node-name>adenv_2</node-name>
@@ -360,72 +360,72 @@
     <control>
       <node-name>adenv_2</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.025000</value>
+      <value>0.094641</value>
     </control>
     <control>
       <node-name>adenv_3</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000300</value>
+      <value>0.000100</value>
     </control>
     <control>
       <node-name>adenv_3</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.032500</value>
+      <value>0.134870</value>
     </control>
     <control>
       <node-name>adenv_lvl_0</node-name>
       <port-name>Initial Level</port-name>
-      <value>179.999802</value>
+      <value>179.999695</value>
     </control>
     <control>
       <node-name>adenv_lvl_0</node-name>
       <port-name>Attack to Level</port-name>
-      <value>179.999802</value>
+      <value>169.911423</value>
     </control>
     <control>
       <node-name>adenv_lvl_0</node-name>
       <port-name>Decay to Level</port-name>
-      <value>159.999802</value>
+      <value>159.090851</value>
     </control>
     <control>
       <node-name>adenv_lvl_0</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000000</value>
+      <value>0.000100</value>
     </control>
     <control>
       <node-name>adenv_lvl_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.800000</value>
+      <value>0.113625</value>
     </control>
     <control>
       <node-name>adenv_lvl_1</node-name>
       <port-name>Initial Level</port-name>
-      <value>329.999908</value>
+      <value>329.999817</value>
     </control>
     <control>
       <node-name>adenv_lvl_1</node-name>
       <port-name>Attack to Level</port-name>
-      <value>329.999908</value>
+      <value>325.599823</value>
     </control>
     <control>
       <node-name>adenv_lvl_1</node-name>
       <port-name>Decay to Level</port-name>
-      <value>299.999908</value>
+      <value>269.333160</value>
     </control>
     <control>
       <node-name>adenv_lvl_1</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000000</value>
+      <value>0.000100</value>
     </control>
     <control>
       <node-name>adenv_lvl_1</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.050000</value>
+      <value>0.146652</value>
     </control>
     <control>
       <node-name>highpass_iir0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>506.119507</value>
+      <value>3553.133301</value>
     </control>
     <control>
       <node-name>highpass_iir0</node-name>
@@ -435,7 +435,7 @@
     <control>
       <node-name>lowpass_iir0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>5422.969727</value>
+      <value>6543.630859</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
@@ -445,7 +445,7 @@
     <control>
       <node-name>midi_trigger_in0</node-name>
       <port-name>Note Number</port-name>
-      <value>40.000000</value>
+      <value>60.000000</value>
     </control>
     <control>
       <node-name>noise_source_white0</node-name>
