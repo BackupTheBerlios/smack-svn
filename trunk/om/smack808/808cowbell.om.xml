@@ -4,34 +4,28 @@
   <width>3200</width>
   <height>2400</height>
   <node>
-    <name>output0</name>
-    <x>1656.000000</x>
-    <y>1242.000000</y>
-    <type>Internal</type>
-    <plugin-label>output</plugin-label>
-  </node>
-  <node>
-    <name>midi_trigger_in0</name>
-    <x>1405.000000</x>
-    <y>1346.000000</y>
-    <type>Internal</type>
-    <plugin-label>midi_trigger_in</plugin-label>
-  </node>
-  <node>
-    <name>dahdsr_g+t_control0</name>
-    <x>1363.000000</x>
-    <y>1098.000000</y>
+    <name>mixer0</name>
+    <x>1703.000000</x>
+    <y>1320.000000</y>
     <type>LADSPA</type>
-    <plugin-label>dahdsr_g+t_control</plugin-label>
-    <library-name>dahdsr_2021.so</library-name>
+    <plugin-label>mixer</plugin-label>
+    <library-name>cmt.so</library-name>
   </node>
   <node>
-    <name>triangle_fcsc_oa0</name>
-    <x>1321.000000</x>
-    <y>1396.000000</y>
+    <name>bandpass_a_iir0</name>
+    <x>1995.000000</x>
+    <y>1265.000000</y>
     <type>LADSPA</type>
-    <plugin-label>triangle_fcsc_oa</plugin-label>
-    <library-name>triangle_1649.so</library-name>
+    <plugin-label>bandpass_a_iir</plugin-label>
+    <library-name>bandpass_a_iir_1893.so</library-name>
+  </node>
+  <node>
+    <name>product_iaia_oa0</name>
+    <x>1938.000000</x>
+    <y>1130.000000</y>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
   </node>
   <node>
     <name>triangle_fcsc_oa1</name>
@@ -42,58 +36,40 @@
     <library-name>triangle_1649.so</library-name>
   </node>
   <node>
-    <name>product_iaia_oa0</name>
-    <x>1872.000000</x>
-    <y>1285.000000</y>
+    <name>triangle_fcsc_oa0</name>
+    <x>1321.000000</x>
+    <y>1396.000000</y>
     <type>LADSPA</type>
-    <plugin-label>product_iaia_oa</plugin-label>
-    <library-name>product_1668.so</library-name>
+    <plugin-label>triangle_fcsc_oa</plugin-label>
+    <library-name>triangle_1649.so</library-name>
   </node>
   <node>
-    <name>bandpass_a_iir0</name>
-    <x>1724.000000</x>
-    <y>1344.000000</y>
+    <name>dahdsr_g+t_control0</name>
+    <x>1655.000000</x>
+    <y>1012.000000</y>
     <type>LADSPA</type>
-    <plugin-label>bandpass_a_iir</plugin-label>
-    <library-name>bandpass_a_iir_1893.so</library-name>
+    <plugin-label>dahdsr_g+t_control</plugin-label>
+    <library-name>dahdsr_2021.so</library-name>
   </node>
   <node>
-    <name>mixer0</name>
-    <x>1896.000000</x>
-    <y>1335.000000</y>
-    <type>LADSPA</type>
-    <plugin-label>mixer</plugin-label>
-    <library-name>cmt.so</library-name>
+    <name>midi_trigger_in0</name>
+    <x>1456.000000</x>
+    <y>1035.000000</y>
+    <type>Internal</type>
+    <plugin-label>midi_trigger_in</plugin-label>
+  </node>
+  <node>
+    <name>output0</name>
+    <x>2138.000000</x>
+    <y>1362.000000</y>
+    <type>Internal</type>
+    <plugin-label>output</plugin-label>
   </node>
   <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>dahdsr_g+t_control0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>triangle_fcsc_oa1</source-node>
+    <source-node>bandpass_a_iir0</source-node>
     <source-port>Output</source-port>
-    <destination-node>mixer0</destination-node>
-    <destination-port>Input 1</destination-port>
-  </connection>
-  <connection>
-    <source-node>triangle_fcsc_oa0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>mixer0</destination-node>
-    <destination-port>Input 2</destination-port>
-  </connection>
-  <connection>
-    <source-node>mixer0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaia_oa0</destination-node>
-    <destination-port>Second Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>dahdsr_g+t_control0</source-node>
-    <source-port>Envelope Out</source-port>
-    <destination-node>product_iaia_oa0</destination-node>
-    <destination-port>First Input</destination-port>
+    <destination-node>output0</destination-node>
+    <destination-port>out_1</destination-port>
   </connection>
   <connection>
     <source-node>product_iaia_oa0</source-node>
@@ -102,15 +78,64 @@
     <destination-port>Input</destination-port>
   </connection>
   <connection>
-    <source-node>bandpass_a_iir0</source-node>
+    <source-node>dahdsr_g+t_control0</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>product_iaia_oa0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>mixer0</source-node>
     <source-port>Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out_1</destination-port>
+    <destination-node>product_iaia_oa0</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>triangle_fcsc_oa0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>mixer0</destination-node>
+    <destination-port>Input 2</destination-port>
+  </connection>
+  <connection>
+    <source-node>triangle_fcsc_oa1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>mixer0</destination-node>
+    <destination-port>Input 1</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Gate</source-port>
+    <destination-node>dahdsr_g+t_control0</destination-node>
+    <destination-port>Gate</destination-port>
   </connection>
   <control>
-    <node-name>midi_trigger_in0</node-name>
-    <port-name>Note Number</port-name>
-    <value>70.120003</value>
+    <node-name>bandpass_a_iir0</node-name>
+    <port-name>Center Frequency (Hz)</port-name>
+    <value>1279.459961</value>
+  </control>
+  <control>
+    <node-name>bandpass_a_iir0</node-name>
+    <port-name>Bandwidth (Hz)</port-name>
+    <value>1477.489990</value>
+  </control>
+  <control>
+    <node-name>triangle_fcsc_oa1</node-name>
+    <port-name>Frequency</port-name>
+    <value>580.929993</value>
+  </control>
+  <control>
+    <node-name>triangle_fcsc_oa1</node-name>
+    <port-name>Slope</port-name>
+    <value>0.500000</value>
+  </control>
+  <control>
+    <node-name>triangle_fcsc_oa0</node-name>
+    <port-name>Frequency</port-name>
+    <value>836.099976</value>
+  </control>
+  <control>
+    <node-name>triangle_fcsc_oa0</node-name>
+    <port-name>Slope</port-name>
+    <value>0.500000</value>
   </control>
   <control>
     <node-name>dahdsr_g+t_control0</node-name>
@@ -143,33 +168,8 @@
     <value>0.080000</value>
   </control>
   <control>
-    <node-name>triangle_fcsc_oa0</node-name>
-    <port-name>Frequency</port-name>
-    <value>836.099976</value>
-  </control>
-  <control>
-    <node-name>triangle_fcsc_oa0</node-name>
-    <port-name>Slope</port-name>
-    <value>0.500000</value>
-  </control>
-  <control>
-    <node-name>triangle_fcsc_oa1</node-name>
-    <port-name>Frequency</port-name>
-    <value>580.929993</value>
-  </control>
-  <control>
-    <node-name>triangle_fcsc_oa1</node-name>
-    <port-name>Slope</port-name>
-    <value>0.500000</value>
-  </control>
-  <control>
-    <node-name>bandpass_a_iir0</node-name>
-    <port-name>Center Frequency (Hz)</port-name>
-    <value>2647.689941</value>
-  </control>
-  <control>
-    <node-name>bandpass_a_iir0</node-name>
-    <port-name>Bandwidth (Hz)</port-name>
-    <value>295.831787</value>
+    <node-name>midi_trigger_in0</node-name>
+    <port-name>Note Number</port-name>
+    <value>70.120003</value>
   </control>
 </patch>
