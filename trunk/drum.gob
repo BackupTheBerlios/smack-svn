@@ -124,32 +124,12 @@ class gui:Drum from Gtk:VBox
     load_cb(GtkWidget* widget, gpointer data)
     {
 	GError   *error = NULL;
-	gchar   **argv;
+	gchar   *command;
 	fprintf(stderr, "filename is right? %s \n", (gchar*) data);
-	
+	command = g_strconcat("om_patch_loader -u osc.udp://localhost:19383/ ", (gchar*) data, NULL);
 	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) /* load patch */
 	{
-	    /* call patch_loader to load the patch DODGY */
-	    argv = g_new(gchar *, 4);
-	    argv[0] = "/usr/bin/om_patch_loader";                /* program to call                 */
-	    argv[1] = (gchar*) data; /* get filename */
-	    //argv[1] = "/home/loki/Documents/svn/trunk/om/smack808/808cowbell.om";
-	    argv[2] = "-u osc.udp://localhost:19383/ ";  /* FIXME */
-	    argv[3] = NULL;                  /* end of argument list */
-
-	    if (!g_spawn_async_with_pipes(
-		NULL,            /* use current working directory                             */
-		argv,            /* the program we want to run and parameters for it          */
-		NULL,            /* use the environment variables that are set for the parent */
-		(GSpawnFlags) G_SPAWN_SEARCH_PATH,   /* look for wget in $PATH                */
-		NULL,            /* don't need a child setup function either                  */
-		NULL,            /* and therefore no child setup func data argument           */
-		NULL,                               
-		NULL,            /* don't need standard input (=> will be /dev/null)          */
-		NULL,      /* where to put wget's stdout file descriptor                */
-		NULL,      /* where to put wget's stderr file descriptor                */
-		&error))
-	    {
+	    if (!g_spawn_command_line_async(command, &error)){
 		g_warning("g_spawn_async_with_pipes() failed: %s\n", error->message);
 		g_error_free(error);
 		error = NULL;
@@ -160,7 +140,8 @@ class gui:Drum from Gtk:VBox
 	{
 	    //if (lo_send(addr, "/destroy_patch", "is", 
 	}    
-	    
+	
+	g_free(command);	 
 	return TRUE;
     }
 
