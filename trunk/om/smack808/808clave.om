@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <patch>
-  <name>808cowbell</name>
+  <name>808clave</name>
   <polyphony>1</polyphony>
   <node>
     <name>adenv_0</name>
@@ -17,24 +17,24 @@
     <type>LADSPA</type>
     <plugin-label>bandpass_a_iir</plugin-label>
     <library-name>bandpass_a_iir_1893.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>1657</module-x>
+    <module-y>1328</module-y>
   </node>
   <node>
     <name>midi_trigger_in0</name>
     <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>midi_trigger_in</plugin-label>
-    <module-x>1445</module-x>
-    <module-y>1200</module-y>
+    <module-x>1476</module-x>
+    <module-y>1097</module-y>
   </node>
   <node>
     <name>output0</name>
     <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>output</plugin-label>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>2015</module-x>
+    <module-y>1306</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
@@ -42,8 +42,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>1857</module-x>
+    <module-y>1276</module-y>
   </node>
   <node>
     <name>triangle_fcsc_oa0</name>
@@ -51,8 +51,8 @@
     <type>LADSPA</type>
     <plugin-label>triangle_fcsc_oa</plugin-label>
     <library-name>triangle_1649.so</library-name>
-    <module-x>0</module-x>
-    <module-y>0</module-y>
+    <module-x>1470</module-x>
+    <module-y>1315</module-y>
   </node>
   <connection>
     <source-node>bandpass_a_iir0</source-node>
@@ -89,32 +89,32 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.010000</value>
+      <value>0.000200</value>
     </control>
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.020000</value>
+      <value>0.030000</value>
     </control>
     <control>
       <node-name>bandpass_a_iir0</node-name>
       <port-name>Center Frequency (Hz)</port-name>
-      <value>36.119499</value>
+      <value>300.119507</value>
     </control>
     <control>
       <node-name>bandpass_a_iir0</node-name>
       <port-name>Bandwidth (Hz)</port-name>
-      <value>295.831787</value>
+      <value>350.000000</value>
     </control>
     <control>
       <node-name>midi_trigger_in0</node-name>
       <port-name>Note Number</port-name>
-      <value>60.000000</value>
+      <value>65.000000</value>
     </control>
     <control>
       <node-name>triangle_fcsc_oa0</node-name>
       <port-name>Frequency</port-name>
-      <value>440.000000</value>
+      <value>340.000000</value>
     </control>
     <control>
       <node-name>triangle_fcsc_oa0</node-name>
