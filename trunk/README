@@ -1,0 +1,5 @@
+This is the 808/909/fm prototype patches for smack. They are patches for the Om modular synth. You need the latest cvs version of Om, swh-plugins, blop-plugins and cmt-plugins to use them. Patches currently don't have decent presets, play with the knobs. Some patches esp 909 are heavy on cpu, i'm working on it. 
+
+This is more likely to explode than not, but it work here for me ;-) Feel free to email me with improvements, new drums,etc. 
+
+Loki

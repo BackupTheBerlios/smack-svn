@@ -1,0 +1,116 @@
+/*
+ *  Smack gui, the gui is made up of these seperate drum entries, pass null terminated name/param pairs. 
+ */
+requires 2.0.0
+%h{
+#include <gtk/gtkvbox.h>
+#include "lo/lo.h"
+%}
+
+
+
+%{
+#include "gui-drum.h"
+#include "gui.h"
+#include <stdio.h>
+#include <glib.h>
+#include <phat/phat.h>
+#include <stdarg.h>
+
+lo_address addr;
+%}
+
+class gui:Drum from Gtk:VBox 
+{
+         
+    init (self)
+    {	  
+
+    }
+
+    /* this isn't to be used directly*/
+    public GtkWidget* new (void)
+    {
+	return (GtkWidget *)GET_NEW;
+    }
+
+    public
+    GtkWidget *
+    new_drum (const char* title, int note, lo_address address, ...)
+    {
+	va_list ap;
+	va_start(ap, address);
+	addr = address;	  
+	GtkWidget* widget = (GtkWidget *)GET_NEW;
+	GtkWidget* slider;
+	GtkWidget* label;
+	/*GtkWidget* button;*/
+	char* name;
+
+	gtk_box_set_spacing(GTK_BOX(widget), 2);  
+	/* the name of this drum, goes at the top */
+	label = gtk_label_new(title);
+        gtk_label_set_markup(GTK_LABEL(label), g_strconcat("<b>", title, "</b>", NULL));	
+	gtk_box_pack_start(GTK_BOX(widget), label, FALSE, FALSE, 10);
+	gtk_widget_show(label);
+
+	/* midi note selector 
+	label = gtk_label_new("Note");
+        gtk_box_pack_start(GTK_BOX(widget), label, FALSE, FALSE, 0);
+	gtk_widget_show(label);
+
+	button = phat_slider_button_new_with_range(note, 0, 127, 1, "%.0f");
+	phat_slider_button_set_threshold(PHAT_SLIDER_BUTTON(button), GUI_THRESHOLD);
+	gtk_box_pack_start(GTK_BOX(widget), button, FALSE, FALSE, 0);
+	gtk_widget_show(button); */
+
+	/* velocity sensitivity */
+	label = gtk_label_new("Vel. Sens.");  
+	gtk_box_pack_start(GTK_BOX(widget), label, FALSE, FALSE, 0);
+	gtk_widget_show(label);
+	    
+	slider = phat_hfan_slider_new_with_range(1, 0.0, 1.0, .1);
+	gtk_box_pack_start(GTK_BOX(widget), slider, FALSE, FALSE, 0); 
+	gtk_widget_show(slider);
+
+   
+	while((name = va_arg(ap, char*)) != NULL)
+	{
+	    	
+	    /* loop over each param creating a slider for it */
+	    label = gtk_label_new(name);  
+	    gtk_box_pack_start(GTK_BOX(widget), label, FALSE, FALSE, 0);
+	    gtk_widget_show(label);
+	    
+	    slider = phat_hfan_slider_new_with_range(.5, 0.0, 1.0, .1);
+	    gtk_box_pack_start(GTK_BOX(widget), slider, FALSE, FALSE, 0); 
+	    gtk_widget_show(slider);
+	    
+	    /* connect change parm to osc */
+	    g_signal_connect (G_OBJECT (slider), "value-changed", G_CALLBACK (gui_drum_osc_cb), va_arg(ap, char*));
+	    
+	}
+	
+	  
+	  gtk_widget_set_size_request(widget, 65, -1);
+
+	return widget;
+    }
+
+    private gint
+    osc_cb(GtkWidget* widget, gpointer data)
+    {
+	if (lo_send(addr, data, "f", phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget))) == -1) {
+	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
+	} 
+	fprintf(stderr, "frobing the knobs %s\n", (char*)data);
+	return TRUE;
+    }
+
+}
+
+
+
+
+
+
