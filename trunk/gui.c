@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
     lo_server_thread_add_method(st, "/om/new_port", "ssifff", param_handler, sliders);
     lo_server_thread_start(st);
 
-    if (lo_send(addr, "/engine/register_client", "is", 42, lo_server_thread_get_url(st)) == -1) {
+    if (lo_send(addr, "/om/engine/register_client", "is", 42, lo_server_thread_get_url(st)) == -1) {
 	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
     }
 

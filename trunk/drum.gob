@@ -125,10 +125,14 @@ class gui:Drum from Gtk:VBox
     private gint
     osc_cb(GtkWidget* widget, gpointer data)
     {
-	if (lo_send(addr, "/patch/set_control", "isssf", 42, gtk_object_get_data(GTK_OBJECT(widget), "drum_name"), gtk_object_get_data(GTK_OBJECT(widget), "node_name"), gtk_object_get_data(GTK_OBJECT(widget), "param_name"), phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget))) == -1) {
+	gchar   *command;
+		
+	command = g_strconcat("/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "drum_name"), "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "node_name"), "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "param_name"), NULL);
+	if (lo_send(addr, "/om/synth/set_port_value", "isf", 42, command,phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget))) == -1) {
 	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
 	}
 	//fprintf(stderr, "frobing the knobs %f \n", phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget)));
+	g_free(command);	
 	return TRUE;
     }
 
@@ -154,7 +158,7 @@ class gui:Drum from Gtk:VBox
 	} 
 	 else
 	{
-	    if (lo_send(addr, "/destroy_patch", "is", 42, gtk_object_get_data(GTK_OBJECT(widget), "drum_name"))
+	    if (lo_send(addr, "/om/synth/destroy_patch", "is", 42, gtk_object_get_data(GTK_OBJECT(widget), "drum_name"))
 		        == -1){
 		printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
 	    }
