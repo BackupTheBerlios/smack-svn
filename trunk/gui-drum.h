@@ -55,6 +55,7 @@ GtkWidget * 	gui_drum_new_drum	(const char * title,
 					char * filename,
 					char * drumname,
 					int note,
+					GHashTable * sliders,
 					lo_address address,
 					...);
 
