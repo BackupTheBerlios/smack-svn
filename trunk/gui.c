@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
     lo_server_thread st = lo_server_thread_new("16188", error);
     // debug method
     lo_server_thread_add_method(st, NULL, NULL, generic_handler, NULL);
-    lo_server_thread_add_method(st, "/om/new_port", "ssifff", param_handler, sliders);
+    lo_server_thread_add_method(st, "/om/control_change", "sf", param_handler, sliders);
     lo_server_thread_start(st);
 
     if (lo_send(addr, "/om/engine/register_client", "is", 42, lo_server_thread_get_url(st)) == -1) {
@@ -135,7 +135,7 @@ int main(int argc, char* argv[])
 
     
     /* hihat */
-    drum = gui_drum_new_drum("Hihat", "om/smack808/808hihat.om", "808hihat", 42, sliders, addr, "Tune",  800.0, 20000.0, "/s/hh/tune", 0, "CH decay", 0.0, 4.0, "/s/hh/chdecay", 0, "OH decay", 0.0, 4.0, "/s/hh/ohdecay", 0, NULL);
+    drum = gui_drum_new_drum("Hihat", "om/smack808/808hihat.om", "808hihat", 42, sliders, addr, "Tune",  600.0, 20000.0, "bandpass_a_iir0", "Center Frequency (Hz)", "CH decay", 0.0, 4.0, "adenv_0", "Decay Time (s)", "OH decay", 0.0, 4.0, "adenv_1", "Decay Time (s)", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -230,7 +230,7 @@ int main(int argc, char* argv[])
     gtk_widget_show(sep);
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
     
-    /* hihat hight quality*/
+    /* hihat high quality*/
     drum = gui_drum_new_drum("Hihat+", "om/smackfm/sfmhihatbig.om", "sfmhihatbig", 51, sliders, addr, "Tone",  2000.0, 20000.0, "/smack/snare/tone", 0, "Decay", 0.0, 4.0, "/smack/snare/decay", 0, "HPF",  2000.0, 20000.0, "/smack/snare/hpf", 0, NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0); 
@@ -254,16 +254,17 @@ void error(int num, const char *msg, const char *path)
 int generic_handler(const char *path, const char *types, lo_arg **argv,
 		    int argc, void *data, void *user_data)
 {
-    //int i;
+    /*
+    int i;
 
-    //printf("path: <%s>\n", path);
-    //for (i=0; i<argc; i++) {
-	//printf("arg %d '%c' ", i, types[i]);
-	//lo_arg_pp(types[i], argv[i]);
-	//printf("\n");
-    //}
-    //printf("\n");
-
+    printf("path: <%s>\n", path);
+    for (i=0; i<argc; i++) {
+	printf("arg %d '%c' ", i, types[i]);
+	lo_arg_pp(types[i], argv[i]);
+	printf("\n");
+    }
+    printf("\n");
+*/
     return 1;
 }
 
@@ -273,12 +274,16 @@ int param_handler(const char *path, const char *types, lo_arg **argv,
     gchar* key;
     GtkWidget* slider;
     //fprintf(stderr, "IN HERE!!! \n");
-    key = g_strconcat(&argv[0]->s, &argv[1]->s, NULL);
+    //key = g_strconcat(&argv[0]->s, &argv[1]->s, NULL);
+    key = &argv[0]->s;
     //fprintf(stderr, "key is %s \n", key);
     if((slider = g_hash_table_lookup((GHashTable*) user_data, key)) != NULL)
     {
-	phat_fan_slider_set_value((PhatFanSlider *)slider, argv[3]->f);
-	fprintf(stderr, "got value for slider %s \n", key);
+	if(phat_fan_slider_get_value((PhatFanSlider *)slider) != 0)
+	{
+	    phat_fan_slider_set_value((PhatFanSlider *)slider, argv[1]->f);
+	    //fprintf(stderr, "got value for slider %s \n", key);
+	}
     }
     return 0;
 }

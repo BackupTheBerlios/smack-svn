@@ -96,16 +96,17 @@ class gui:Drum from Gtk:VBox
 
 	    
 	    /* loop over each param creating a slider for it */  
-	    slider = phat_fan_slider_pix_new_with_range((lower+upper)/2, lower, upper, 0.1);
+	    slider = phat_fan_slider_pix_new_with_range(0, lower, upper, 0.1);
 	    gtk_box_pack_start(GTK_BOX(widget), slider, FALSE, FALSE, 0); 
 	    gtk_widget_show(slider);
 
 	    	    
 	    gtk_object_set_data(GTK_OBJECT(slider), "drum_name", drumname);
 	    gtk_object_set_data(GTK_OBJECT(slider), "node_name", va_arg(ap, char*));
-	    gtk_object_set_data(GTK_OBJECT(slider), "param_name", va_arg(ap, char*)); 
-	    
-	    key=g_strconcat(drumname, "/", gtk_object_get_data(GTK_OBJECT(slider), "node_name"), gtk_object_get_data(GTK_OBJECT(slider), "param_name"), NULL);
+	    gtk_object_set_data(GTK_OBJECT(slider), "param_name", va_arg(ap, char*));
+	   	    
+	    key=g_strconcat("/", drumname, "/", gtk_object_get_data(GTK_OBJECT(slider), "node_name"), "/", gtk_object_get_data(GTK_OBJECT(slider), "param_name"), NULL);
+	    gtk_object_set_data(GTK_OBJECT(slider), "key", key);
 	    fprintf(stderr, "add the keys is %s \n", key);  
 	    g_hash_table_insert (sliders, key, slider); 
 	    /* connect change parm to osc */
@@ -125,14 +126,9 @@ class gui:Drum from Gtk:VBox
     private gint
     osc_cb(GtkWidget* widget, gpointer data)
     {
-	gchar   *command;
-		
-	command = g_strconcat("/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "drum_name"), "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "node_name"), "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "param_name"), NULL);
-	if (lo_send(addr, "/om/synth/set_port_value", "isf", 42, command,phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget))) == -1) {
+	if (lo_send(addr, "/om/synth/set_port_value", "isf", 42, (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "key"), phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget))) == -1) {
 	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
 	}
-	//fprintf(stderr, "frobing the knobs %f \n", phat_fan_slider_get_value(PHAT_FAN_SLIDER (widget)));
-	g_free(command);	
 	return TRUE;
     }
 
