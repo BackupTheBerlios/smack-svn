@@ -292,7 +292,7 @@ runDahdsr_Control (LADSPA_Handle instance,
 void
 _init (void)
 {
-	static const unsigned long ids[] = {85};
+	static const unsigned long ids[] = {2662};
 	static const char * labels[] = {"adenv_lvl"};
 	static const char * names[] = {G_NOP("Percussive AD Envelope with levels")};
 	char ** port_names;
