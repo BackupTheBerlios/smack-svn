@@ -41,6 +41,20 @@
     </port>
   </node>
   <node>
+    <name>amp_mono_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>amp_mono</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>2212.000000</module-x>
+    <module-y>1279.000000</module-y>
+    <port>
+      <name>Gain</name>
+      <user-min>0.000000</user-min>
+      <user-max>4.000000</user-max>
+    </port>
+  </node>
+  <node>
     <name>lowpass_iir0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -48,11 +62,6 @@
     <library-name>lowpass_iir_1891.so</library-name>
     <module-x>1991</module-x>
     <module-y>1271</module-y>
-    <port>
-      <name>Cutoff Frequency</name>
-      <user-min>4.410000</user-min>
-      <user-max>845.000000</user-max>
-    </port>
   </node>
   <node>
     <name>midi_trigger_in0</name>
@@ -76,8 +85,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2156</module-x>
-    <module-y>1324</module-y>
+    <module-x>2373.000000</module-x>
+    <module-y>1316.000000</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
@@ -108,13 +117,22 @@
     <port>
       <name>Frequency</name>
       <user-min>0.000000</user-min>
-      <user-max>450.000000</user-max>
+      <user-max>400.000000</user-max>
     </port>
     <port>
       <name>Amplitude</name>
       <user-min>0.000000</user-min>
-      <user-max>1.500000</user-max>
+      <user-max>1.000000</user-max>
     </port>
+  </node>
+  <node>
+    <name>syncpulse_fcpcga_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>syncpulse_fcpcga_oa</plugin-label>
+    <library-name>sync_pulse_2023.so</library-name>
+    <module-x>1388.000000</module-x>
+    <module-y>1145.000000</module-y>
   </node>
   <connection>
     <source-node>product_iaia_oa1</source-node>
@@ -147,12 +165,6 @@
     <destination-port>Second Input</destination-port>
   </connection>
   <connection>
-    <source-node>lowpass_iir0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <connection>
     <source-node>midi_trigger_in0</source-node>
     <source-port>Gate</source-port>
     <destination-node>adenv_0</destination-node>
@@ -176,6 +188,18 @@
     <destination-node>product_iaia_oa1</destination-node>
     <destination-port>First Input</destination-port>
   </connection>
+  <connection>
+    <source-node>lowpass_iir0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>output0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -186,22 +210,27 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.588982</value>
+      <value>0.657522</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000100</value>
+      <value>0.000000</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.000100</value>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>amp_mono_0</node-name>
+      <port-name>Gain</port-name>
+      <value>1.006597</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>399.981720</value>
+      <value>665.877563</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
@@ -216,12 +245,22 @@
     <control>
       <node-name>sine_fcac0</node-name>
       <port-name>Frequency</port-name>
-      <value>95.624977</value>
+      <value>148.760300</value>
     </control>
     <control>
       <node-name>sine_fcac0</node-name>
       <port-name>Amplitude</port-name>
-      <value>0.974935</value>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>syncpulse_fcpcga_oa_0</node-name>
+      <port-name>Frequency</port-name>
+      <value>16.000000</value>
+    </control>
+    <control>
+      <node-name>syncpulse_fcpcga_oa_0</node-name>
+      <port-name>Pulse Width</port-name>
+      <value>0.500000</value>
     </control>
   </preset>
 </patch>

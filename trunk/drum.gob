@@ -11,6 +11,12 @@ requires 2.0.0
 
 
 %{
+#ifndef HAVE_GETOPT_LONG
+#       include "getopt.h"
+#else
+#       include <getopt.h>
+#endif
+
 #include "gui-drum.h"
 #include "gui.h"
 #include "phat-fan-slider-pix.h"
@@ -107,7 +113,7 @@ class gui:Drum from Gtk:VBox
 	   	    
 	    key=g_strconcat("/", drumname, "/", gtk_object_get_data(GTK_OBJECT(slider), "node_name"), "/", gtk_object_get_data(GTK_OBJECT(slider), "param_name"), NULL);
 	    gtk_object_set_data(GTK_OBJECT(slider), "key", key);
-	    fprintf(stderr, "add the keys is %s \n", key);  
+	    //fprintf(stderr, "add the keys is %s \n", key);  
 	    g_hash_table_insert (sliders, key, slider); 
 	    /* connect change parm to osc */
 	    g_signal_connect (slider, "value-changed", G_CALLBACK (gui_drum_osc_cb), NULL);
@@ -139,9 +145,9 @@ class gui:Drum from Gtk:VBox
 	
 	GError   *error = NULL;
 	gchar   *command;
-	
-	
-	command = g_strconcat("om_patch_loader -u osc.udp://localhost:16180/ " PKGDATADIR, "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "file_name"), NULL);
+	     
+	command = g_strconcat("om_patch_loader -p16180 ", PKGDATADIR, "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "file_name"), NULL);
+	    
 	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) /* load patch */
 	{
 	    if (!g_spawn_command_line_async(command, &error)){

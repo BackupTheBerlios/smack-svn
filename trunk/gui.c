@@ -48,7 +48,6 @@ int main(int argc, char* argv[])
     GtkWidget* drum;
     GHashTable* sliders;
     struct gengetopt_args_info args_info;
-    lo_address addr;
         
     gtk_init(&argc, &argv);
 
@@ -83,8 +82,9 @@ int main(int argc, char* argv[])
     /* setup server thread to handle responses */
     lo_server_thread st = lo_server_thread_new("16188", error);
     // debug method
-    lo_server_thread_add_method(st, NULL, NULL, generic_handler, NULL);
-    lo_server_thread_add_method(st, "/om/control_change", "sf", param_handler, sliders);
+    //lo_server_thread_add_method(st, NULL, NULL, generic_handler, NULL);
+    //lo_server_thread_add_method(st, "/om/control_change", "sf", param_handler, sliders);
+    lo_server_thread_add_method(st, "/om/new_port", "ssssfff", node_handler, sliders);
     lo_server_thread_start(st);
 
     if (lo_send(addr, "/om/engine/register_client", "is", 42, lo_server_thread_get_url(st)) == -1) {
@@ -275,6 +275,8 @@ int main(int argc, char* argv[])
 
      /* END SFM */ 
 
+    /* get value for all sliders by foreaching over the hashtable. */
+    //g_hash_table_foreach (sliders, get_slider_vals, addr);
 
     gtk_widget_show(window);
     gtk_main();
@@ -287,6 +289,15 @@ int main(int argc, char* argv[])
 void error(int num, const char *msg, const char *path)
 {
     printf("liblo server error %d in path %s: %s\n", num, path, msg);
+}
+
+/* the keys are the full paths and the values are the pointer to the sliders */
+void get_slider_vals (gpointer key, gpointer value, gpointer addr)
+{
+    if (lo_send(addr, "/om/request/port_value", "is", 4200, key) == -1)
+    {
+	printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
+    }
 }
 
 int generic_handler(const char *path, const char *types, lo_arg **argv,
@@ -325,4 +336,20 @@ int param_handler(const char *path, const char *types, lo_arg **argv,
     }
     return 0;
 }
+
+int node_handler(const char *path, const char *types, lo_arg **argv,
+		    int argc, void *data, void *user_data)
+{
+    fprintf(stderr, "\n \n #### \n found new port, checking it \n");
+    if(g_hash_table_lookup((GHashTable*) user_data, &argv[0]->s))
+    {
+	 if (lo_send(addr, "/om/request/port_value", "is", 4200, &argv[0]->s) == -1)
+	{
+	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
+	}
+
+    }
+    return 0;
+}
+
 
