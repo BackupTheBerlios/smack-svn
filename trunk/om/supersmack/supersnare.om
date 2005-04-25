@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patch>
+  <name>supersnare</name>
+  <polyphony>1</polyphony>
+  <node>
+    <name>adenv_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>adenv</plugin-label>
+    <library-name>adenv.so</library-name>
+    <module-x>1590.000000</module-x>
+    <module-y>950.000000</module-y>
+    <port>
+      <name>Attack Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Decay Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>adenv_1</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>adenv</plugin-label>
+    <library-name>adenv.so</library-name>
+    <module-x>1480.000000</module-x>
+    <module-y>1219.000000</module-y>
+    <port>
+      <name>Attack Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Decay Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>0.200000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>adenv_2</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>adenv</plugin-label>
+    <library-name>adenv.so</library-name>
+    <module-x>1478.000000</module-x>
+    <module-y>1363.000000</module-y>
+    <port>
+      <name>Attack Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Decay Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>0.300000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>audio_output_0</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_output</plugin-label>
+    <module-x>1763.000000</module-x>
+    <module-y>1292.000000</module-y>
+  </node>
+  <node>
+    <name>bodeShifter_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>bodeShifter</plugin-label>
+    <library-name>bode_shifter_1431.so</library-name>
+    <module-x>1480.000000</module-x>
+    <module-y>1119.000000</module-y>
+  </node>
+  <node>
+    <name>bodeShifter_1</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>bodeShifter</plugin-label>
+    <library-name>bode_shifter_1431.so</library-name>
+    <module-x>1475.000000</module-x>
+    <module-y>997.000000</module-y>
+  </node>
+  <node>
+    <name>lowpass_iir_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>lowpass_iir</plugin-label>
+    <library-name>lowpass_iir_1891.so</library-name>
+    <module-x>1446.000000</module-x>
+    <module-y>1498.000000</module-y>
+  </node>
+  <node>
+    <name>noise_source_white_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>noise_source_white</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>1264.000000</module-x>
+    <module-y>1506.000000</module-y>
+  </node>
+  <node>
+    <name>notch_iir_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>notch_iir</plugin-label>
+    <library-name>notch_iir_1894.so</library-name>
+    <module-x>1602.000000</module-x>
+    <module-y>1488.000000</module-y>
+    <port>
+      <name>Center Frequency (Hz)</name>
+      <user-min>4.410000</user-min>
+      <user-max>3844.998047</user-max>
+    </port>
+    <port>
+      <name>Bandwidth (Hz)</name>
+      <user-min>4.410000</user-min>
+      <user-max>844.997986</user-max>
+    </port>
+  </node>
+  <node>
+    <name>product_iaia_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>1769.000000</module-x>
+    <module-y>1500.000000</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa_1</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>1585.000000</module-x>
+    <module-y>1311.000000</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa_2</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>1625.000000</module-x>
+    <module-y>1063.000000</module-y>
+  </node>
+  <node>
+    <name>sine_fcac_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>sine_fcac</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>1315.000000</module-x>
+    <module-y>1227.000000</module-y>
+    <port>
+      <name>Amplitude</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>sine_fcac_1</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>sine_fcac</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>1317.000000</module-x>
+    <module-y>1308.000000</module-y>
+    <port>
+      <name>Amplitude</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>triangle_fcsc_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>triangle_fcsc_oa</plugin-label>
+    <library-name>triangle_1649.so</library-name>
+    <module-x>1297.000000</module-x>
+    <module-y>1084.000000</module-y>
+  </node>
+  <node>
+    <name>trigger_in_0</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>trigger_in</plugin-label>
+    <module-x>1287.000000</module-x>
+    <module-y>1005.000000</module-y>
+  </node>
+  <connection>
+    <source-node>triangle_fcsc_oa_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>bodeShifter_1</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>triangle_fcsc_oa_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>bodeShifter_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>bodeShifter_1</source-node>
+    <source-port>Up out</source-port>
+    <destination-node>product_iaia_oa_2</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>bodeShifter_0</source-node>
+    <source-port>Up out</source-port>
+    <destination-node>product_iaia_oa_2</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>adenv_0</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>product_iaia_oa_2</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>sine_fcac_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_1</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>sine_fcac_1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_1</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>adenv_1</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>product_iaia_oa_1</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>noise_source_white_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>lowpass_iir_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>adenv_2</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger_in_0</source-node>
+    <source-port>Gate</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger_in_0</source-node>
+    <source-port>Gate</source-port>
+    <destination-node>adenv_1</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger_in_0</source-node>
+    <source-port>Gate</source-port>
+    <destination-node>adenv_2</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_2</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>audio_output_0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_1</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>audio_output_0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>audio_output_0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>lowpass_iir_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>notch_iir_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>notch_iir_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <preset>
+    <name>default</name>
+    <control>
+      <node-name>adenv_0</node-name>
+      <port-name>Attack Time (s)</port-name>
+      <value>0.000400</value>
+    </control>
+    <control>
+      <node-name>adenv_0</node-name>
+      <port-name>Decay Time (s)</port-name>
+      <value>0.143400</value>
+    </control>
+    <control>
+      <node-name>adenv_1</node-name>
+      <port-name>Attack Time (s)</port-name>
+      <value>0.000400</value>
+    </control>
+    <control>
+      <node-name>adenv_1</node-name>
+      <port-name>Decay Time (s)</port-name>
+      <value>0.156525</value>
+    </control>
+    <control>
+      <node-name>adenv_2</node-name>
+      <port-name>Attack Time (s)</port-name>
+      <value>0.000400</value>
+    </control>
+    <control>
+      <node-name>adenv_2</node-name>
+      <port-name>Decay Time (s)</port-name>
+      <value>0.100928</value>
+    </control>
+    <control>
+      <node-name>bodeShifter_0</node-name>
+      <port-name>Frequency shift</port-name>
+      <value>224.000000</value>
+    </control>
+    <control>
+      <node-name>bodeShifter_0</node-name>
+      <port-name>latency</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>bodeShifter_1</node-name>
+      <port-name>Frequency shift</port-name>
+      <value>175.000000</value>
+    </control>
+    <control>
+      <node-name>bodeShifter_1</node-name>
+      <port-name>latency</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>lowpass_iir_0</node-name>
+      <port-name>Cutoff Frequency</port-name>
+      <value>10887.838867</value>
+    </control>
+    <control>
+      <node-name>lowpass_iir_0</node-name>
+      <port-name>Stages(2 poles per stage)</port-name>
+      <value>2.000000</value>
+    </control>
+    <control>
+      <node-name>noise_source_white_0</node-name>
+      <port-name>Amplitude</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>notch_iir_0</node-name>
+      <port-name>Center Frequency (Hz)</port-name>
+      <value>1166.693237</value>
+    </control>
+    <control>
+      <node-name>notch_iir_0</node-name>
+      <port-name>Bandwidth (Hz)</port-name>
+      <value>148.194763</value>
+    </control>
+    <control>
+      <node-name>notch_iir_0</node-name>
+      <port-name>Stages(2 poles per stage)</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>sine_fcac_0</node-name>
+      <port-name>Frequency</port-name>
+      <value>330.000000</value>
+    </control>
+    <control>
+      <node-name>sine_fcac_0</node-name>
+      <port-name>Amplitude</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>sine_fcac_1</node-name>
+      <port-name>Frequency</port-name>
+      <value>180.000000</value>
+    </control>
+    <control>
+      <node-name>sine_fcac_1</node-name>
+      <port-name>Amplitude</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>triangle_fcsc_oa_0</node-name>
+      <port-name>Frequency</port-name>
+      <value>111.000000</value>
+    </control>
+    <control>
+      <node-name>triangle_fcsc_oa_0</node-name>
+      <port-name>Slope</port-name>
+      <value>0.500000</value>
+    </control>
+    <control>
+      <node-name>trigger_in_0</node-name>
+      <port-name>Note Number</port-name>
+      <value>60.000000</value>
+    </control>
+  </preset>
+</patch>

@@ -8,8 +8,8 @@
     <type>LADSPA</type>
     <plugin-label>White</plugin-label>
     <library-name>caps.so</library-name>
-    <module-x>1556.000000</module-x>
-    <module-y>1166.000000</module-y>
+    <module-x>1445.000000</module-x>
+    <module-y>1129.000000</module-y>
   </node>
   <node>
     <name>dahdsr_g+t_control_0</name>
@@ -56,17 +56,22 @@
     <port>
       <name>Delay (Seconds)</name>
       <user-min>0.000000</user-min>
-      <user-max>0.100000</user-max>
+      <user-max>0.010000</user-max>
     </port>
   </node>
   <node>
-    <name>fbdelay_0.1s_0</name>
+    <name>delay_5s_1</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
-    <plugin-label>fbdelay_0.1s</plugin-label>
-    <library-name>cmt.so</library-name>
-    <module-x>1871.000000</module-x>
-    <module-y>1105.000000</module-y>
+    <plugin-label>delay_5s</plugin-label>
+    <library-name>delay.so</library-name>
+    <module-x>1877.000000</module-x>
+    <module-y>1021.000000</module-y>
+    <port>
+      <name>Delay (Seconds)</name>
+      <user-min>0.000000</user-min>
+      <user-max>0.100000</user-max>
+    </port>
   </node>
   <node>
     <name>note_in_0</name>
@@ -81,8 +86,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2054.000000</module-x>
-    <module-y>1144.000000</module-y>
+    <module-x>2351.000000</module-x>
+    <module-y>1157.000000</module-y>
   </node>
   <node>
     <name>prob_switch_cr_0</name>
@@ -90,8 +95,8 @@
     <type>LADSPA</type>
     <plugin-label>prob_switch_cr</plugin-label>
     <library-name>prob_switch_2667.so</library-name>
-    <module-x>2342.000000</module-x>
-    <module-y>1307.000000</module-y>
+    <module-x>2339.000000</module-x>
+    <module-y>1275.000000</module-y>
     <port>
       <name>Probability</name>
       <user-min>0.000000</user-min>
@@ -113,8 +118,8 @@
     <type>LADSPA</type>
     <plugin-label>ratio_nadc_oa</plugin-label>
     <library-name>ratio_2034.so</library-name>
-    <module-x>1940.000000</module-x>
-    <module-y>1267.000000</module-y>
+    <module-x>1936.000000</module-x>
+    <module-y>1255.000000</module-y>
     <port>
       <name>Denominator</name>
       <user-min>0.000000</user-min>
@@ -127,8 +132,8 @@
     <type>LADSPA</type>
     <plugin-label>ratio_nadc_oa</plugin-label>
     <library-name>ratio_2034.so</library-name>
-    <module-x>1939.000000</module-x>
-    <module-y>1353.000000</module-y>
+    <module-x>1937.000000</module-x>
+    <module-y>1340.000000</module-y>
     <port>
       <name>Denominator</name>
       <user-min>0.000000</user-min>
@@ -187,40 +192,10 @@
     <destination-port>Gate</destination-port>
   </connection>
   <connection>
-    <source-node>product_iaia_oa_0</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>fbdelay_0.1s_0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>fbdelay_0.1s_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>delay_5s_0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>prob_switch_cr_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>fbdelay_0.1s_0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>fbdelay_0.1s_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>ratio_nadc_oa_1</destination-node>
-    <destination-port>Numerator</destination-port>
-  </connection>
-  <connection>
     <source-node>delay_5s_0</source-node>
     <source-port>Output</source-port>
     <destination-node>ratio_nadc_oa_0</destination-node>
     <destination-port>Numerator</destination-port>
-  </connection>
-  <connection>
-    <source-node>fbdelay_0.1s_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>output_0</destination-node>
-    <destination-port>out</destination-port>
   </connection>
   <connection>
     <source-node>ratio_nadc_oa_0</source-node>
@@ -257,6 +232,36 @@
     <source-port>Output</source-port>
     <destination-node>prob_switch_cr_0</destination-node>
     <destination-port>Input 2</destination-port>
+  </connection>
+  <connection>
+    <source-node>delay_5s_1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>delay_5s_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>delay_5s_1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>ratio_nadc_oa_1</destination-node>
+    <destination-port>Numerator</destination-port>
+  </connection>
+  <connection>
+    <source-node>prob_switch_cr_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>delay_5s_1</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>delay_5s_1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>output_0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>delay_5s_1</destination-node>
+    <destination-port>Input</destination-port>
   </connection>
   <preset>
     <name>default</name>
@@ -298,32 +303,27 @@
     <control>
       <node-name>delay_5s_0</node-name>
       <port-name>Delay (Seconds)</port-name>
-      <value>0.001944</value>
+      <value>0.000491</value>
     </control>
     <control>
       <node-name>delay_5s_0</node-name>
       <port-name>Dry-Wet Balance</port-name>
-      <value>0.450106</value>
+      <value>0.512345</value>
     </control>
     <control>
-      <node-name>fbdelay_0.1s_0</node-name>
+      <node-name>delay_5s_1</node-name>
       <port-name>Delay (Seconds)</port-name>
-      <value>0.012316</value>
+      <value>0.011100</value>
     </control>
     <control>
-      <node-name>fbdelay_0.1s_0</node-name>
+      <node-name>delay_5s_1</node-name>
       <port-name>Dry-Wet Balance</port-name>
-      <value>0.444699</value>
-    </control>
-    <control>
-      <node-name>fbdelay_0.1s_0</node-name>
-      <port-name>Feedback</port-name>
-      <value>0.821827</value>
+      <value>0.500000</value>
     </control>
     <control>
       <node-name>prob_switch_cr_0</node-name>
       <port-name>Probability</port-name>
-      <value>0.496914</value>
+      <value>0.909575</value>
     </control>
     <control>
       <node-name>ratio_nadc_oa_0</node-name>

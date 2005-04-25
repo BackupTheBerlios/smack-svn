@@ -83,11 +83,12 @@ int main(int argc, char* argv[])
     lo_server_thread st = lo_server_thread_new("16188", error);
     // debug method
     //lo_server_thread_add_method(st, NULL, NULL, generic_handler, NULL);
-    //lo_server_thread_add_method(st, "/om/control_change", "sf", param_handler, sliders);
-    lo_server_thread_add_method(st, "/om/new_port", "ssssfff", node_handler, sliders);
+    
+    lo_server_thread_add_method(st, "/om/control_change", "sf", param_handler, sliders);
+    //lo_server_thread_add_method(st, "/om/new_port", "ssssfff", node_handler, sliders);
     lo_server_thread_start(st);
 
-    if (lo_send(addr, "/om/engine/register_client", "is", 42, lo_server_thread_get_url(st)) == -1) {
+    if (lo_send(addr, "/om/engine/register_client", "i", 42) == -1) {
 	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
     }
 
@@ -331,7 +332,7 @@ int param_handler(const char *path, const char *types, lo_arg **argv,
 	if(phat_fan_slider_get_value((PhatFanSlider *)slider) != 0)
 	{
 	    phat_fan_slider_set_value((PhatFanSlider *)slider, argv[1]->f);
-	    fprintf(stderr, "\n \n #### \n got value for slider %s %f\n ### \n", key, argv[1]->f);
+	    //fprintf(stderr, "\n \n #### \n got value for slider %s %f\n ### \n", key, argv[1]->f);
 	}
     }
     return 0;
