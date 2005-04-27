@@ -2,7 +2,7 @@ Smack Drum Synth.
 
 What is is?
 
-A drum synth ;-) 100% sample free. Written using as patches for the Om modular synth. You need the latest cvs version of Om and any recent swh-plugins, blop-plugins and cmt-plugins to use them. Maybe others too... If it does work first check your ladspa plugins. Patches currently don't all have decent presets, play with the knobs. Some patches esp 909 are heavy on cpu, i'm working on it. The plugins included are exponential envs, they can be used in other hosts or in om, more docs coming soon.
+A drum synth ;-) 100% sample free. Written using as patches for the Om modular synth. You need the latest cvs version of Om and any recent swh-plugins, omins, blop-plugins and cmt-plugins to use them. Maybe others too... If it does work first check your ladspa plugins. Patches currently don't all have decent presets, play with the knobs. Some patches such as the hihats are heavy on cpu, i'm working on it. More docs coming soon.
 
 liblo: http://plugin.org.uk/liblo/releases/
 om: http://savannah.nongnu.org/projects/om-synth
