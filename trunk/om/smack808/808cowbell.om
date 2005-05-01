@@ -22,6 +22,34 @@
     </port>
   </node>
   <node>
+    <name>amp_mono_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>amp_mono</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>1626.000000</module-x>
+    <module-y>1308.000000</module-y>
+    <port>
+      <name>Gain</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>amp_mono_1</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>amp_mono</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>2094.000000</module-x>
+    <module-y>1272.000000</module-y>
+    <port>
+      <name>Gain</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
     <name>bandpass_a_iir0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -32,12 +60,12 @@
     <port>
       <name>Center Frequency (Hz)</name>
       <user-min>4.410000</user-min>
-      <user-max>845.000000</user-max>
+      <user-max>12001.925781</user-max>
     </port>
     <port>
       <name>Bandwidth (Hz)</name>
-      <user-min>4.410000</user-min>
-      <user-max>845.000000</user-max>
+      <user-min>800.409973</user-min>
+      <user-max>8845.000000</user-max>
     </port>
   </node>
   <node>
@@ -49,21 +77,21 @@
     <module-y>1073</module-y>
   </node>
   <node>
-    <name>mixer0</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>mixer</plugin-label>
-    <library-name>cmt.so</library-name>
-    <module-x>1720.000000</module-x>
-    <module-y>1350.000000</module-y>
-  </node>
-  <node>
     <name>output0</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2130.000000</module-x>
-    <module-y>1290.000000</module-y>
+    <module-x>2234.000000</module-x>
+    <module-y>1310.000000</module-y>
+  </node>
+  <node>
+    <name>pink_interpolated_audio_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>pink_interpolated_audio</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>1409.000000</module-x>
+    <module-y>1239.000000</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
@@ -109,30 +137,6 @@
     <destination-port>Input</destination-port>
   </connection>
   <connection>
-    <source-node>mixer0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaia_oa0</destination-node>
-    <destination-port>Second Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>triangle_fcsc_oa0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>mixer0</destination-node>
-    <destination-port>Input 2</destination-port>
-  </connection>
-  <connection>
-    <source-node>triangle_fcsc_oa1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>mixer0</destination-node>
-    <destination-port>Input 1</destination-port>
-  </connection>
-  <connection>
-    <source-node>bandpass_a_iir0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <connection>
     <source-node>midi_trigger_in0</source-node>
     <source-port>Gate</source-port>
     <destination-node>adenv_0</destination-node>
@@ -144,27 +148,73 @@
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>First Input</destination-port>
   </connection>
+  <connection>
+    <source-node>triangle_fcsc_oa1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa0</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>triangle_fcsc_oa0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa0</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>pink_interpolated_audio_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa0</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>bandpass_a_iir0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>amp_mono_1</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>output0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000200</value>
+      <value>0.000700</value>
     </control>
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.099980</value>
+      <value>0.349195</value>
+    </control>
+    <control>
+      <node-name>amp_mono_0</node-name>
+      <port-name>Gain</port-name>
+      <value>0.850214</value>
+    </control>
+    <control>
+      <node-name>amp_mono_1</node-name>
+      <port-name>Gain</port-name>
+      <value>1.000000</value>
     </control>
     <control>
       <node-name>bandpass_a_iir0</node-name>
       <port-name>Center Frequency (Hz)</port-name>
-      <value>571.474609</value>
+      <value>2640.000000</value>
     </control>
     <control>
       <node-name>bandpass_a_iir0</node-name>
       <port-name>Bandwidth (Hz)</port-name>
-      <value>571.474609</value>
+      <value>4405.089844</value>
     </control>
     <control>
       <node-name>midi_trigger_in0</node-name>
@@ -172,24 +222,29 @@
       <value>60.000000</value>
     </control>
     <control>
+      <node-name>pink_interpolated_audio_0</node-name>
+      <port-name>Highest frequency</port-name>
+      <value>12165.517578</value>
+    </control>
+    <control>
       <node-name>triangle_fcsc_oa0</node-name>
       <port-name>Frequency</port-name>
-      <value>702.918762</value>
+      <value>845.000000</value>
     </control>
     <control>
       <node-name>triangle_fcsc_oa0</node-name>
       <port-name>Slope</port-name>
-      <value>0.490692</value>
+      <value>0.500000</value>
     </control>
     <control>
       <node-name>triangle_fcsc_oa1</node-name>
       <port-name>Frequency</port-name>
-      <value>487.575531</value>
+      <value>587.000000</value>
     </control>
     <control>
       <node-name>triangle_fcsc_oa1</node-name>
       <port-name>Slope</port-name>
-      <value>0.287471</value>
+      <value>0.500000</value>
     </control>
   </preset>
 </patch>

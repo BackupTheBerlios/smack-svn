@@ -145,35 +145,19 @@
     <y>1349.000000</y>
   </node>
   <node>
-    <name>product_iaic_oa0</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>product_iaic_oa</plugin-label>
-    <library-name>product_1668.so</library-name>
-    <module-x>1426.000000</module-x>
-    <module-y>1206.000000</module-y>
-    <x>1094.000000</x>
-    <y>1184.000000</y>
-    <port>
-      <name>Second Input</name>
-      <user-min>0.000000</user-min>
-      <user-max>2491.409912</user-max>
-    </port>
-  </node>
-  <node>
     <name>product_iaic_oa1</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>product_iaic_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1446.000000</module-x>
-    <module-y>1501.000000</module-y>
+    <module-x>1448.000000</module-x>
+    <module-y>1482.000000</module-y>
     <x>1094.000000</x>
     <y>1304.000000</y>
     <port>
       <name>Second Input</name>
       <user-min>0.000000</user-min>
-      <user-max>1.000000</user-max>
+      <user-max>2.000000</user-max>
     </port>
   </node>
   <node>
@@ -183,7 +167,7 @@
     <plugin-label>product_iaic_oa</plugin-label>
     <library-name>product_1668.so</library-name>
     <module-x>1429.000000</module-x>
-    <module-y>1325.000000</module-y>
+    <module-y>1332.000000</module-y>
     <x>1041.000000</x>
     <y>1441.000000</y>
     <port>
@@ -211,17 +195,6 @@
     <module-y>1496.000000</module-y>
   </node>
   <node>
-    <name>square_fa_oa0</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>square_fa_oa</plugin-label>
-    <library-name>square_1643.so</library-name>
-    <module-x>1690.000000</module-x>
-    <module-y>1230.000000</module-y>
-    <x>1392.000000</x>
-    <y>1200.000000</y>
-  </node>
-  <node>
     <name>square_fa_oa1</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -231,17 +204,6 @@
     <module-y>1348.000000</module-y>
     <x>1362.000000</x>
     <y>1460.000000</y>
-  </node>
-  <node>
-    <name>square_fc_oa0</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>square_fc_oa</plugin-label>
-    <library-name>square_1643.so</library-name>
-    <module-x>1290.000000</module-x>
-    <module-y>1203.000000</module-y>
-    <x>957.000000</x>
-    <y>1204.000000</y>
   </node>
   <node>
     <name>square_fc_oa1</name>
@@ -255,29 +217,13 @@
     <y>1442.000000</y>
   </node>
   <node>
-    <name>sum_iaic_oa0</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>sum_iaic_oa</plugin-label>
-    <library-name>sum_1665.so</library-name>
-    <module-x>1575.000000</module-x>
-    <module-y>1211.000000</module-y>
-    <x>1256.000000</x>
-    <y>1182.000000</y>
-    <port>
-      <name>Second Input</name>
-      <user-min>0.000000</user-min>
-      <user-max>1482.589966</user-max>
-    </port>
-  </node>
-  <node>
     <name>sum_iaic_oa1</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>sum_iaic_oa</plugin-label>
     <library-name>sum_1665.so</library-name>
     <module-x>1583.000000</module-x>
-    <module-y>1501.000000</module-y>
+    <module-y>1422.000000</module-y>
     <x>1262.000000</x>
     <y>1302.000000</y>
     <port>
@@ -292,8 +238,8 @@
     <type>LADSPA</type>
     <plugin-label>sum_iaic_oa</plugin-label>
     <library-name>sum_1665.so</library-name>
-    <module-x>1574.000000</module-x>
-    <module-y>1331.000000</module-y>
+    <module-x>1587.000000</module-x>
+    <module-y>1256.000000</module-y>
     <x>1213.000000</x>
     <y>1444.000000</y>
     <port>
@@ -306,42 +252,6 @@
     <source-node>sum_iaic_oa2</source-node>
     <source-port>Summed Output</source-port>
     <destination-node>square_fa_oa1</destination-node>
-    <destination-port>Frequency</destination-port>
-  </connection>
-  <connection>
-    <source-node>product_iaic_oa2</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>sum_iaic_oa2</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fc_oa1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaic_oa2</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>product_iaic_oa1</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>sum_iaic_oa1</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fc_oa0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaic_oa0</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>product_iaic_oa0</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>sum_iaic_oa0</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>sum_iaic_oa0</source-node>
-    <source-port>Summed Output</source-port>
-    <destination-node>square_fa_oa0</destination-node>
     <destination-port>Frequency</destination-port>
   </connection>
   <connection>
@@ -405,54 +315,6 @@
     <destination-port>Second Input</destination-port>
   </connection>
   <connection>
-    <source-node>sawtooth_fc_oa_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaic_oa1</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>sum_iaic_oa1</source-node>
-    <source-port>Summed Output</source-port>
-    <destination-node>sawtooth_fa_oa_0</destination-node>
-    <destination-port>Frequency</destination-port>
-  </connection>
-  <connection>
-    <source-node>sawtooth_fa_oa_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>highpass_iir_0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fa_oa0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>bandpass_a_iir_0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fa_oa1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>bandpass_a_iir_0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fa_oa1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>highpass_iir_0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>square_fa_oa0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>highpass_iir_0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>sawtooth_fa_oa_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>bandpass_a_iir_0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
     <source-node>highpass_iir_0</source-node>
     <source-port>Output</source-port>
     <destination-node>product_iaia_oa2</destination-node>
@@ -464,6 +326,48 @@
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>Second Input</destination-port>
   </connection>
+  <connection>
+    <source-node>product_iaic_oa2</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>square_fa_oa1</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaic_oa1</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>sawtooth_fa_oa_0</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>sum_iaic_oa1</source-node>
+    <source-port>Summed Output</source-port>
+    <destination-node>sawtooth_fa_oa_0</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>square_fc_oa1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaic_oa2</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>sawtooth_fc_oa_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaic_oa1</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>square_fa_oa1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>bandpass_a_iir_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>sawtooth_fa_oa_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>highpass_iir_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -474,7 +378,7 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.393809</value>
+      <value>0.322664</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
@@ -509,12 +413,12 @@
     <control>
       <node-name>bandpass_a_iir_0</node-name>
       <port-name>Bandwidth (Hz)</port-name>
-      <value>5037.309082</value>
+      <value>399.640839</value>
     </control>
     <control>
       <node-name>highpass_iir_0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>3209.566895</value>
+      <value>7251.570801</value>
     </control>
     <control>
       <node-name>highpass_iir_0</node-name>
@@ -527,14 +431,9 @@
       <value>51.000000</value>
     </control>
     <control>
-      <node-name>product_iaic_oa0</node-name>
-      <port-name>Second Input</port-name>
-      <value>1.000000</value>
-    </control>
-    <control>
       <node-name>product_iaic_oa1</node-name>
       <port-name>Second Input</port-name>
-      <value>1.000000</value>
+      <value>1.003434</value>
     </control>
     <control>
       <node-name>product_iaic_oa2</node-name>
@@ -547,19 +446,9 @@
       <value>1175.000000</value>
     </control>
     <control>
-      <node-name>square_fc_oa0</node-name>
-      <port-name>Frequency</port-name>
-      <value>1047.000000</value>
-    </control>
-    <control>
       <node-name>square_fc_oa1</node-name>
       <port-name>Frequency</port-name>
       <value>1109.000000</value>
-    </control>
-    <control>
-      <node-name>sum_iaic_oa0</node-name>
-      <port-name>Second Input</port-name>
-      <value>1481.000000</value>
     </control>
     <control>
       <node-name>sum_iaic_oa1</node-name>

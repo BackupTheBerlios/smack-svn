@@ -239,8 +239,8 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(vbox2), box, FALSE, FALSE, 0);
     gtk_widget_show(box);
  
-    label = gtk_label_new("SmackFM");
-    gtk_label_set_markup(GTK_LABEL(label), "<big><b> SmackFM </b></big>");   
+    label = gtk_label_new("SFM");
+    gtk_label_set_markup(GTK_LABEL(label), "<big><b> SFM </b></big>");   
     gtk_widget_show(label);
     gtk_box_pack_start(GTK_BOX(box), label, FALSE, FALSE, 0);
     
@@ -258,16 +258,6 @@ int main(int argc, char* argv[])
     box = gtk_hbox_new(FALSE, GUI_SPACING);
     gtk_box_pack_start(GTK_BOX(vbox2), box, FALSE, FALSE, 0);
     gtk_widget_show(box); 
-
-    /* hihat low quality*/
-    drum = gui_drum_new_drum("Hihat", "om/smackfm/sfmhihat2.om.om", "sfmhihat2", 49, sliders, addr, "Tune", 2000.0, 20000.0, "/smack/bass/tune", 0, "Tone", 2000.0, 20000.0, "/smack/bass/tone", 0, "Decay", 0.0, 4.0, "/smack/bass/decay", 0, NULL);
-    gtk_widget_show(drum);
-    gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
-
-    /*seperator*/
-    sep = gtk_vseparator_new();
-    gtk_widget_show(sep);
-    gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
     
     /* hihat high quality*/
     drum = gui_drum_new_drum("Hihat+", "om/smackfm/sfmhihatbig.om", "sfmhihatbig", 51, sliders, addr, "Tone",  2000.0, 20000.0, "/smack/snare/tone", 0, "Decay", 0.0, 4.0, "/smack/snare/decay", 0, "HPF",  2000.0, 20000.0, "/smack/snare/hpf", 0, NULL);
@@ -275,6 +265,43 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0); 
 
      /* END SFM */ 
+
+      /* Supersmack */ 
+    vbox2 = gtk_vbox_new(FALSE, GUI_SPACING);
+    gtk_box_pack_start(GTK_BOX(hbox), vbox2, FALSE, FALSE, 0);
+    gtk_widget_show(vbox2);
+    
+    box = gtk_hbox_new(FALSE, GUI_SPACING);
+    gtk_box_pack_start(GTK_BOX(vbox2), box, FALSE, FALSE, 0);
+    gtk_widget_show(box);
+ 
+    label = gtk_label_new("SuperS");
+    gtk_label_set_markup(GTK_LABEL(label), "<big><b> SuperS </b></big>");   
+    gtk_widget_show(label);
+    gtk_box_pack_start(GTK_BOX(box), label, FALSE, FALSE, 0);
+    
+    /*
+    button = phat_slider_button_new_with_range(10, 0, 16, 1, "%.0f");
+    phat_slider_button_set_threshold(PHAT_SLIDER_BUTTON(button), GUI_THRESHOLD);
+    gtk_box_pack_end(GTK_BOX(box), button, FALSE, FALSE, 0);
+    gtk_widget_show(button);
+    label = gtk_label_new("Midi Channel:");
+    gtk_box_pack_end(GTK_BOX(box), label, FALSE, FALSE, 0);
+    gtk_widget_show(label);
+     */
+
+     /* hbox for each drum */
+    box = gtk_hbox_new(FALSE, GUI_SPACING);
+    gtk_box_pack_start(GTK_BOX(vbox2), box, FALSE, FALSE, 0);
+    gtk_widget_show(box); 
+
+    /* Super snare ;-) */
+    drum = gui_drum_new_drum("Snare+", "om/supersmack/supersnare.om", "supersnare.om", 36, sliders, addr, "Tune",  5000.0, 15000.0, "lowpass_iir_0", "Cutoff Frequency", "Decay1", 0.0, 4.0, "adenv_0", "Decay Time (s)", "Decay2", 0.0, 4.0, "adenv_2", "Decay Time (s)", NULL);
+    gtk_widget_show(drum);
+    gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
+
+     /* END Supersmack */ 
+
 
     /* get value for all sliders by foreaching over the hashtable. */
     //g_hash_table_foreach (sliders, get_slider_vals, addr);

@@ -4,25 +4,45 @@
   <polyphony>1</polyphony>
   <node>
     <name>adenv_0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
     <module-x>1854</module-x>
     <module-y>1397</module-y>
+    <port>
+      <name>Attack Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Decay Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
   </node>
   <node>
     <name>adenv_1</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
     <module-x>1789</module-x>
     <module-y>979</module-y>
+    <port>
+      <name>Attack Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Decay Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
   </node>
   <node>
     <name>amp_gcia_oa0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>amp_gcia_oa</plugin-label>
     <library-name>amp_1654.so</library-name>
@@ -31,7 +51,7 @@
   </node>
   <node>
     <name>amp_gcia_oa1</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>amp_gcia_oa</plugin-label>
     <library-name>amp_1654.so</library-name>
@@ -40,7 +60,7 @@
   </node>
   <node>
     <name>amp_gcia_oa2</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>amp_gcia_oa</plugin-label>
     <library-name>amp_1654.so</library-name>
@@ -49,7 +69,7 @@
   </node>
   <node>
     <name>bandpass_a_iir0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>bandpass_a_iir</plugin-label>
     <library-name>bandpass_a_iir_1893.so</library-name>
@@ -58,7 +78,7 @@
   </node>
   <node>
     <name>highpass_iir0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>highpass_iir</plugin-label>
     <library-name>highpass_iir_1890.so</library-name>
@@ -67,7 +87,7 @@
   </node>
   <node>
     <name>highpass_iir1</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>highpass_iir</plugin-label>
     <library-name>highpass_iir_1890.so</library-name>
@@ -76,23 +96,23 @@
   </node>
   <node>
     <name>midi_trigger_in0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>Internal</type>
-    <plugin-label>midi_trigger_in</plugin-label>
+    <plugin-label>trigger_in</plugin-label>
     <module-x>1597.571411</module-x>
     <module-y>959.000000</module-y>
   </node>
   <node>
     <name>midi_trigger_in1</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>Internal</type>
-    <plugin-label>midi_trigger_in</plugin-label>
+    <plugin-label>trigger_in</plugin-label>
     <module-x>1663</module-x>
     <module-y>1466</module-y>
   </node>
   <node>
     <name>mixer0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
@@ -101,7 +121,7 @@
   </node>
   <node>
     <name>mixer1</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
@@ -110,7 +130,7 @@
   </node>
   <node>
     <name>mixer2</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
@@ -119,7 +139,7 @@
   </node>
   <node>
     <name>mixer3</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
@@ -128,7 +148,7 @@
   </node>
   <node>
     <name>mixer4</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
@@ -137,7 +157,7 @@
   </node>
   <node>
     <name>mixer5</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
@@ -146,15 +166,15 @@
   </node>
   <node>
     <name>output0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>Internal</type>
-    <plugin-label>output</plugin-label>
+    <plugin-label>audio_output</plugin-label>
     <module-x>2530</module-x>
     <module-y>1290</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
@@ -163,7 +183,7 @@
   </node>
   <node>
     <name>product_iaia_oa1</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
@@ -172,7 +192,7 @@
   </node>
   <node>
     <name>square_fc_oa0</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>square_fc_oa</plugin-label>
     <library-name>square_1643.so</library-name>
@@ -181,16 +201,21 @@
   </node>
   <node>
     <name>square_fc_oa1</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>square_fc_oa</plugin-label>
     <library-name>square_1643.so</library-name>
     <module-x>1399.999878</module-x>
     <module-y>1088.181763</module-y>
+    <port>
+      <name>Frequency</name>
+      <user-min>0.918750</user-min>
+      <user-max>12050.000000</user-max>
+    </port>
   </node>
   <node>
     <name>square_fc_oa2</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>square_fc_oa</plugin-label>
     <library-name>square_1643.so</library-name>
@@ -199,7 +224,7 @@
   </node>
   <node>
     <name>square_fc_oa3</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>square_fc_oa</plugin-label>
     <library-name>square_1643.so</library-name>
@@ -208,7 +233,7 @@
   </node>
   <node>
     <name>square_fc_oa4</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>square_fc_oa</plugin-label>
     <library-name>square_1643.so</library-name>
@@ -217,7 +242,7 @@
   </node>
   <node>
     <name>square_fc_oa5</name>
-    <polyphonic>false</polyphonic>
+    <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>square_fc_oa</plugin-label>
     <library-name>square_1643.so</library-name>
@@ -384,7 +409,7 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.287396</value>
+      <value>0.173896</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
@@ -394,7 +419,7 @@
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.783255</value>
+      <value>0.897107</value>
     </control>
     <control>
       <node-name>amp_gcia_oa0</node-name>
@@ -434,7 +459,7 @@
     <control>
       <node-name>highpass_iir1</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>8907.239258</value>
+      <value>9402.583008</value>
     </control>
     <control>
       <node-name>highpass_iir1</node-name>
@@ -459,12 +484,12 @@
     <control>
       <node-name>square_fc_oa1</node-name>
       <port-name>Frequency</port-name>
-      <value>9663.862305</value>
+      <value>9530.230469</value>
     </control>
     <control>
       <node-name>square_fc_oa2</node-name>
       <port-name>Frequency</port-name>
-      <value>17757.257812</value>
+      <value>17164.123047</value>
     </control>
     <control>
       <node-name>square_fc_oa3</node-name>
@@ -474,12 +499,12 @@
     <control>
       <node-name>square_fc_oa4</node-name>
       <port-name>Frequency</port-name>
-      <value>7913.268555</value>
+      <value>16200.244141</value>
     </control>
     <control>
       <node-name>square_fc_oa5</node-name>
       <port-name>Frequency</port-name>
-      <value>8335.623047</value>
+      <value>8874.329102</value>
     </control>
   </preset>
 </patch>

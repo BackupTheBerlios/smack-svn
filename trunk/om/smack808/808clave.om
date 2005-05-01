@@ -18,7 +18,21 @@
     <port>
       <name>Decay Time (s)</name>
       <user-min>0.000000</user-min>
-      <user-max>1.000000</user-max>
+      <user-max>0.500000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>amp_mono_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>amp_mono</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>2022.000000</module-x>
+    <module-y>1277.000000</module-y>
+    <port>
+      <name>Gain</name>
+      <user-min>0.000000</user-min>
+      <user-max>2.500000</user-max>
     </port>
   </node>
   <node>
@@ -37,7 +51,7 @@
     <port>
       <name>Bandwidth (Hz)</name>
       <user-min>4.410000</user-min>
-      <user-max>245.000000</user-max>
+      <user-max>945.000000</user-max>
     </port>
   </node>
   <node>
@@ -53,8 +67,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2015</module-x>
-    <module-y>1306</module-y>
+    <module-x>2152.000000</module-x>
+    <module-y>1308.000000</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
@@ -71,12 +85,12 @@
     <type>LADSPA</type>
     <plugin-label>triangle_fcsc_oa</plugin-label>
     <library-name>triangle_1649.so</library-name>
-    <module-x>1470</module-x>
-    <module-y>1315</module-y>
+    <module-x>1477.000000</module-x>
+    <module-y>1324.000000</module-y>
     <port>
       <name>Frequency</name>
       <user-min>0.918750</user-min>
-      <user-max>550.000000</user-max>
+      <user-max>950.000000</user-max>
     </port>
   </node>
   <connection>
@@ -92,12 +106,6 @@
     <destination-port>Input</destination-port>
   </connection>
   <connection>
-    <source-node>product_iaia_oa0</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <connection>
     <source-node>midi_trigger_in0</source-node>
     <source-port>Gate</source-port>
     <destination-node>adenv_0</destination-node>
@@ -109,6 +117,18 @@
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>First Input</destination-port>
   </connection>
+  <connection>
+    <source-node>product_iaia_oa0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>output0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -119,7 +139,12 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.047614</value>
+      <value>0.066653</value>
+    </control>
+    <control>
+      <node-name>amp_mono_0</node-name>
+      <port-name>Gain</port-name>
+      <value>1.500000</value>
     </control>
     <control>
       <node-name>bandpass_a_iir0</node-name>
@@ -129,7 +154,7 @@
     <control>
       <node-name>bandpass_a_iir0</node-name>
       <port-name>Bandwidth (Hz)</port-name>
-      <value>35.123604</value>
+      <value>790.891968</value>
     </control>
     <control>
       <node-name>midi_trigger_in0</node-name>
@@ -139,12 +164,12 @@
     <control>
       <node-name>triangle_fcsc_oa0</node-name>
       <port-name>Frequency</port-name>
-      <value>488.420715</value>
+      <value>892.000488</value>
     </control>
     <control>
       <node-name>triangle_fcsc_oa0</node-name>
       <port-name>Slope</port-name>
-      <value>0.878417</value>
+      <value>0.500000</value>
     </control>
   </preset>
 </patch>
