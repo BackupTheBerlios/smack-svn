@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <patch>
-  <name>sfm-hihat</name>
+  <name>sfmhihat</name>
   <polyphony>1</polyphony>
   <node>
     <name>adenv_0</name>

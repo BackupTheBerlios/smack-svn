@@ -68,6 +68,20 @@
     <module-y>1125</module-y>
   </node>
   <node>
+    <name>amp_mono_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>amp_mono</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>2473.000000</module-x>
+    <module-y>1268.000000</module-y>
+    <port>
+      <name>Gain</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
     <name>bandpass_a_iir0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -169,8 +183,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2530</module-x>
-    <module-y>1290</module-y>
+    <module-x>2599.000000</module-x>
+    <module-y>1294.000000</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
@@ -352,12 +366,6 @@
     <destination-port>Input</destination-port>
   </connection>
   <connection>
-    <source-node>mixer5</source-node>
-    <source-port>Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <connection>
     <source-node>mixer2</source-node>
     <source-port>Output</source-port>
     <destination-node>amp_gcia_oa1</destination-node>
@@ -399,6 +407,18 @@
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>First Input</destination-port>
   </connection>
+  <connection>
+    <source-node>mixer5</source-node>
+    <source-port>Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>output0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -435,6 +455,11 @@
       <node-name>amp_gcia_oa2</node-name>
       <port-name>Gain (dB)</port-name>
       <value>-3.368469</value>
+    </control>
+    <control>
+      <node-name>amp_mono_0</node-name>
+      <port-name>Gain</port-name>
+      <value>1.000000</value>
     </control>
     <control>
       <node-name>bandpass_a_iir0</node-name>

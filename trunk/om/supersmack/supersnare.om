@@ -60,12 +60,21 @@
     </port>
   </node>
   <node>
+    <name>amp_mono_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>amp_mono</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>1827.000000</module-x>
+    <module-y>1248.000000</module-y>
+  </node>
+  <node>
     <name>audio_output_0</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>1763.000000</module-x>
-    <module-y>1292.000000</module-y>
+    <module-x>1953.000000</module-x>
+    <module-y>1266.000000</module-y>
   </node>
   <node>
     <name>bodeShifter_0</name>
@@ -273,24 +282,6 @@
     <destination-port>Gate</destination-port>
   </connection>
   <connection>
-    <source-node>product_iaia_oa_2</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>audio_output_0</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <connection>
-    <source-node>product_iaia_oa_1</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>audio_output_0</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <connection>
-    <source-node>product_iaia_oa_0</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>audio_output_0</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <connection>
     <source-node>lowpass_iir_0</source-node>
     <source-port>Output</source-port>
     <destination-node>notch_iir_0</destination-node>
@@ -301,6 +292,30 @@
     <source-port>Output</source-port>
     <destination-node>product_iaia_oa_0</destination-node>
     <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_2</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_1</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>audio_output_0</destination-node>
+    <destination-port>out</destination-port>
   </connection>
   <preset>
     <name>default</name>
@@ -333,6 +348,11 @@
       <node-name>adenv_2</node-name>
       <port-name>Decay Time (s)</port-name>
       <value>0.100928</value>
+    </control>
+    <control>
+      <node-name>amp_mono_0</node-name>
+      <port-name>Gain</port-name>
+      <value>1.000000</value>
     </control>
     <control>
       <node-name>bodeShifter_0</node-name>

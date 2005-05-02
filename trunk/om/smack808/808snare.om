@@ -60,6 +60,20 @@
     </port>
   </node>
   <node>
+    <name>amp_mono_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>amp_mono</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>2007.000000</module-x>
+    <module-y>1358.000000</module-y>
+    <port>
+      <name>Gain</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
     <name>highpass_iir0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -80,24 +94,6 @@
     <plugin-label>trigger_in</plugin-label>
     <module-x>1335</module-x>
     <module-y>1209</module-y>
-  </node>
-  <node>
-    <name>mixer0</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>mixer</plugin-label>
-    <library-name>cmt.so</library-name>
-    <module-x>2063</module-x>
-    <module-y>1333</module-y>
-  </node>
-  <node>
-    <name>mixer1</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>mixer</plugin-label>
-    <library-name>cmt.so</library-name>
-    <module-x>1943</module-x>
-    <module-y>1238</module-y>
   </node>
   <node>
     <name>noise_source_white0</name>
@@ -182,18 +178,6 @@
     </port>
   </node>
   <connection>
-    <source-node>highpass_iir0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>mixer0</destination-node>
-    <destination-port>Input 2</destination-port>
-  </connection>
-  <connection>
-    <source-node>mixer1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>mixer0</destination-node>
-    <destination-port>Input 1</destination-port>
-  </connection>
-  <connection>
     <source-node>product_iaia_oa2</source-node>
     <source-port>Product Output</source-port>
     <destination-node>highpass_iir0</destination-node>
@@ -206,18 +190,6 @@
     <destination-port>Second Input</destination-port>
   </connection>
   <connection>
-    <source-node>product_iaia_oa1</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>mixer1</destination-node>
-    <destination-port>Input 2</destination-port>
-  </connection>
-  <connection>
-    <source-node>product_iaia_oa0</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>mixer1</destination-node>
-    <destination-port>Input 1</destination-port>
-  </connection>
-  <connection>
     <source-node>sine_fcac1</source-node>
     <source-port>Output</source-port>
     <destination-node>product_iaia_oa1</destination-node>
@@ -228,12 +200,6 @@
     <source-port>Output</source-port>
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>Second Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>mixer0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out</destination-port>
   </connection>
   <connection>
     <source-node>midi_trigger_in0</source-node>
@@ -271,6 +237,30 @@
     <destination-node>product_iaia_oa1</destination-node>
     <destination-port>First Input</destination-port>
   </connection>
+  <connection>
+    <source-node>highpass_iir0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa1</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>output0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -302,6 +292,11 @@
       <node-name>adenv_2</node-name>
       <port-name>Decay Time (s)</port-name>
       <value>0.179109</value>
+    </control>
+    <control>
+      <node-name>amp_mono_0</node-name>
+      <port-name>Gain</port-name>
+      <value>1.000000</value>
     </control>
     <control>
       <node-name>highpass_iir0</node-name>

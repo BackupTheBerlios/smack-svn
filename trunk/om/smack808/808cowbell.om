@@ -27,8 +27,8 @@
     <type>LADSPA</type>
     <plugin-label>amp_mono</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>1626.000000</module-x>
-    <module-y>1308.000000</module-y>
+    <module-x>2112.000000</module-x>
+    <module-y>1277.000000</module-y>
     <port>
       <name>Gain</name>
       <user-min>0.000000</user-min>
@@ -41,8 +41,8 @@
     <type>LADSPA</type>
     <plugin-label>amp_mono</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>2094.000000</module-x>
-    <module-y>1272.000000</module-y>
+    <module-x>1637.000000</module-x>
+    <module-y>1296.000000</module-y>
     <port>
       <name>Gain</name>
       <user-min>0.000000</user-min>
@@ -149,18 +149,6 @@
     <destination-port>First Input</destination-port>
   </connection>
   <connection>
-    <source-node>triangle_fcsc_oa1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>amp_mono_0</destination-node>
-    <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>amp_mono_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaia_oa0</destination-node>
-    <destination-port>Second Input</destination-port>
-  </connection>
-  <connection>
     <source-node>triangle_fcsc_oa0</source-node>
     <source-port>Output</source-port>
     <destination-node>product_iaia_oa0</destination-node>
@@ -175,14 +163,26 @@
   <connection>
     <source-node>bandpass_a_iir0</source-node>
     <source-port>Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>output0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>triangle_fcsc_oa1</source-node>
+    <source-port>Output</source-port>
     <destination-node>amp_mono_1</destination-node>
     <destination-port>Input</destination-port>
   </connection>
   <connection>
     <source-node>amp_mono_1</source-node>
     <source-port>Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out</destination-port>
+    <destination-node>product_iaia_oa0</destination-node>
+    <destination-port>Second Input</destination-port>
   </connection>
   <preset>
     <name>default</name>
@@ -199,12 +199,12 @@
     <control>
       <node-name>amp_mono_0</node-name>
       <port-name>Gain</port-name>
-      <value>0.850214</value>
+      <value>1.000000</value>
     </control>
     <control>
       <node-name>amp_mono_1</node-name>
       <port-name>Gain</port-name>
-      <value>1.000000</value>
+      <value>0.850000</value>
     </control>
     <control>
       <node-name>bandpass_a_iir0</node-name>

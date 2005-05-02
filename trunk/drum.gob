@@ -84,10 +84,21 @@ class gui:Drum from Gtk:VBox
 	gtk_box_pack_start(GTK_BOX(widget), button, FALSE, FALSE, 0);
 	gtk_widget_show(button); */
 
-	/* velocity sensitivity 
-	label = gtk_label_new("Vel. Sens.");  
+	/* velocity sensitivity, right now just volume */ 
+	label = gtk_label_new("Velocity");  
 	gtk_box_pack_start(GTK_BOX(widget), label, FALSE, FALSE, 0);
-	gtk_widget_show(label); */
+	gtk_misc_set_alignment(GTK_MISC(label), 0, 0.5);
+	gtk_widget_show(label);
+	slider = phat_fan_slider_pix_new_with_range(1, 0, 3, 0.1);
+	gtk_box_pack_start(GTK_BOX(widget), slider, FALSE, FALSE, 0); 
+	gtk_widget_show(slider);
+	key=g_strconcat("/", drumname, "/amp_mono_0/Gain", NULL);
+	gtk_object_set_data(GTK_OBJECT(slider), "key", key);
+	g_hash_table_insert (sliders, key, slider); 
+	/* connect change parm to osc */
+	g_signal_connect (slider, "value-changed", G_CALLBACK (gui_drum_osc_cb), NULL);
+
+	
 	    
 	while((name = va_arg(ap, char*)) != NULL)
 	{
