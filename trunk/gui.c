@@ -214,7 +214,7 @@ int main(int argc, char* argv[])
     gtk_widget_show(box); 
 
     /* bass drum */
-    drum = gui_drum_new_drum("Bass", "om/smack909/909bass.om", "909bass", 36, sliders, addr, "Tune",  30.0, 600.0, "sine_faac0", "Frequency", "Tone", 30.0, 600.0, "lowpass_iir0", "Cutoff Frequency", "Decay", 0.0, 4.0, "adenv_lvl_0", "Decay Time (s)", NULL);
+    drum = gui_drum_new_drum("Bass", "om/smack909/909bass.om", "909bass", 36, sliders, addr, "Tune",  15.0, 300.0, "adenv_lvl_0", "Decay to Level", "Tone", 30.0, 600.0, "lowpass_iir0", "Cutoff Frequency", "Decay", 0.0, 4.0, "adenv_0", "Decay Time (s)", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
@@ -224,7 +224,7 @@ int main(int argc, char* argv[])
     gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 0);
     
     /* snare drum */
-    drum = gui_drum_new_drum("Snare", "om/smack909/909snare.om", "909snare", 40, sliders, addr, "Snappy", 0.0, 1.0, "/smack/snare/snappy", 0, "Tone", 30.0, 800.0, "/smack/snare/tone", 0, "Decay", 0.0, 4.0, "/smack/snare/decay", 0, "HPF", 30.0, 800.0, "/smack/snare/hpf", 0, NULL);
+    drum = gui_drum_new_drum("Snare", "om/smack909/909snare.om", "909snare", 40, sliders, addr, "Snappy", 0.0, 3.0, "adenv_0", "Decay Time (s)", "Tone", 30.0, 800.0, "adenv_lvl_0", "Decay to Level", "Decay", 0.0, 4.0, "adenv_0", "Decay Time (s)", "HPF", 30.0, 800.0, "highpass_iir0", "Cutoff Frequency", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0); 
 
@@ -260,7 +260,7 @@ int main(int argc, char* argv[])
     gtk_widget_show(box); 
     
     /* hihat high quality*/
-    drum = gui_drum_new_drum("Hihat+", "om/smackfm/sfmhihatbig.om", "sfmhihat", 51, sliders, addr, "Tone",  2000.0, 20000.0, "/smack/snare/tone", 0, "Decay", 0.0, 4.0, "/smack/snare/decay", 0, "HPF",  2000.0, 20000.0, "/smack/snare/hpf", 0, NULL);
+    drum = gui_drum_new_drum("Hihat+", "om/smackfm/sfmhihatbig.om", "sfmhihat", 51, sliders, addr, "Tone",  300.0, 8000.0, "sawtooth_fc_oa_0", "Frequency", "Decay", 0.0, 4.0, "adenv_0", "Decay Time (s)", "HPF", 300.0, 15000.0, "highpass_iir0", "Cutoff Frequency", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0); 
 
