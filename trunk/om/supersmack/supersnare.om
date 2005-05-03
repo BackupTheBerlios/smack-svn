@@ -437,7 +437,7 @@
     <control>
       <node-name>trigger_in_0</node-name>
       <port-name>Note Number</port-name>
-      <value>60.000000</value>
+      <value>39.000000</value>
     </control>
   </preset>
 </patch>

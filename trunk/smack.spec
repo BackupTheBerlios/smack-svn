@@ -33,6 +33,7 @@ rm -rf %{buildroot}
 %{_datadir}/smack/om/smack808/*.om
 %{_datadir}/smack/om/smack909/*.om
 %{_datadir}/smack/om/smackfm/*.om
+%{_datadir}/smack/om/supersmack/*.om
 %doc AUTHORS ChangeLog COPYING NEWS README TODO
 
 

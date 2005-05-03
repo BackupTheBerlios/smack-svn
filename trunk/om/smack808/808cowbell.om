@@ -219,7 +219,7 @@
     <control>
       <node-name>midi_trigger_in0</node-name>
       <port-name>Note Number</port-name>
-      <value>60.000000</value>
+      <value>56.000000</value>
     </control>
     <control>
       <node-name>pink_interpolated_audio_0</node-name>
