@@ -156,11 +156,11 @@ class gui:Drum from Gtk:VBox
 	
 	GError   *error = NULL;
 	gchar   *command;
-	     
-	command = g_strconcat("om_patch_loader -p16180 ", PKGDATADIR, "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "file_name"), NULL);
-	    
+	     	    
 	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) /* load patch */
 	{
+	    command = g_strconcat("om_patch_loader -p16180 ", PKGDATADIR, "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "file_name"), NULL);
+
 	    if (!g_spawn_command_line_async(command, &error)){
 		g_warning("g_spawn_async_with_pipes() failed: %s\n", error->message);
 		g_error_free(error);
@@ -171,7 +171,8 @@ class gui:Drum from Gtk:VBox
 	} 
 	 else
 	{
-	    if (lo_send(addr, "/om/synth/destroy_patch", "is", 42, gtk_object_get_data(GTK_OBJECT(widget), "drum_name"))
+	    command = g_strconcat("/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "drum_name"), NULL);
+	    if (lo_send(addr, "/om/synth/destroy_patch", "is", 42, command)
 		        == -1){
 		printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
 	    }

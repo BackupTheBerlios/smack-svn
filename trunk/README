@@ -2,11 +2,14 @@ Smack Drum Synth.
 
 What is is?
 
-A drum synth ;-) 100% sample free. Written as patches for the Om modular synth. You need the latest cvs version of Om and any recent swh-plugins, omins, blop-plugins and cmt-plugins to use them. Maybe others too... If it does work first check your ladspa plugins. Patches arn't meant to be just presets, play with the knobs. Some patches such as the hihats are heavy on cpu, i'm working on it. More docs coming soon.
+A drum synth ;-) 100% sample free. Written as patches for the Om modular synth. You need Om, the phat libs and any recent swh-plugins, omins, blop-plugins and cmt-plugins to use them. Hopefully no others! If it does work first check your ladspa plugins. Patches arn't meant to be just presets, play with the knobs. Some patches such as the hihats are heavy on cpu, i'm working on it. More docs coming soon.
+
+Each of the drums should be more or less the right midi note as per the gm drum spec. Each different drum comes up as a different alsa port, and has a different jack output port. This may be annoying but it's to allow me to do cool things with AI based timing stuff, which will be in the next release hopefully. 
 
 liblo: http://plugin.org.uk/liblo/releases/
 om: http://savannah.nongnu.org/projects/om-synth
 plugins: http://plugin.org.uk/
+phat: http://www.gazuga.net/phat.php
 
 It work here for me ;-) should be sounding better everyday! Feel free to email me with improvements, new drums,etc. I REALLY want to here what drums people need, if anyone has an algorithim or anything tell me. 
 

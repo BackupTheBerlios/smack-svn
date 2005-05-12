@@ -1,5 +1,5 @@
 # configure.in for smack
-AC_INIT([smack],[0.0.2],[loki@berlios.de])
+AC_INIT([smack],[0.1.0],[loki@berlios.de])
 AC_CONFIG_SRCDIR([gui.c])
 
 AC_CONFIG_HEADER([config.h])

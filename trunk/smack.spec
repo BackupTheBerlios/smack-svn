@@ -1,6 +1,6 @@
 Summary: A Sample free drum synth
 Name: smack
-Version: 0.0.2
+Version: 0.1.0
 Release: 1
 License: GPL
 Group: Applications/Multimedia

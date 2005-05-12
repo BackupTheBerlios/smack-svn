@@ -296,7 +296,7 @@ int main(int argc, char* argv[])
     gtk_widget_show(box); 
 
     /* Super snare ;-) */
-    drum = gui_drum_new_drum("Snare+", "om/supersmack/supersnare.om", "supersnare", 36, sliders, addr, "Tune",  5000.0, 15000.0, "lowpass_iir_0", "Cutoff Frequency", "Decay1", 0.0, 4.0, "adenv_0", "Decay Time (s)", "Decay2", 0.0, 4.0, "adenv_2", "Decay Time (s)", NULL);
+    drum = gui_drum_new_drum("Snare+", "om/supersmack/supersnare.om", "supersnare", 39, sliders, addr, "Tune",  5000.0, 15000.0, "lowpass_iir_0", "Cutoff Frequency", "Decay1", 0.0, 4.0, "adenv_0", "Decay Time (s)", "Decay2", 0.0, 4.0, "adenv_2", "Decay Time (s)", NULL);
     gtk_widget_show(drum);
     gtk_box_pack_start(GTK_BOX(box), drum, FALSE, FALSE, 0);
 
