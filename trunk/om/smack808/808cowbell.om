@@ -73,16 +73,16 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1436</module-x>
-    <module-y>1073</module-y>
+    <module-x>1405.000000</module-x>
+    <module-y>1080.000000</module-y>
   </node>
   <node>
     <name>output0</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2234.000000</module-x>
-    <module-y>1310.000000</module-y>
+    <module-x>2432.000000</module-x>
+    <module-y>1317.000000</module-y>
   </node>
   <node>
     <name>pink_interpolated_audio_0</name>
@@ -101,6 +101,15 @@
     <library-name>product_1668.so</library-name>
     <module-x>1777</module-x>
     <module-y>1232</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>2249.000000</module-x>
+    <module-y>1285.000000</module-y>
   </node>
   <node>
     <name>triangle_fcsc_oa0</name>
@@ -167,12 +176,6 @@
     <destination-port>Input</destination-port>
   </connection>
   <connection>
-    <source-node>amp_mono_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>output0</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <connection>
     <source-node>triangle_fcsc_oa1</source-node>
     <source-port>Output</source-port>
     <destination-node>amp_mono_1</destination-node>
@@ -183,6 +186,30 @@
     <source-port>Output</source-port>
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>output0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Velocity</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Trigger</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Trigger</destination-port>
   </connection>
   <preset>
     <name>default</name>

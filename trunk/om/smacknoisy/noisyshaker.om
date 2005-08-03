@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patch>
+  <name>noisyshaker</name>
+  <polyphony>1</polyphony>
+  <node>
+    <name>adenv_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>adenv</plugin-label>
+    <library-name>adenv.so</library-name>
+    <module-x>1735.000000</module-x>
+    <module-y>980.000000</module-y>
+    <port>
+      <name>Attack Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Decay Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>audio_output_0</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_output</plugin-label>
+    <module-x>2054.000000</module-x>
+    <module-y>1158.000000</module-y>
+  </node>
+  <node>
+    <name>lp4pole_fcrcia_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>lp4pole_fcrcia_oa</plugin-label>
+    <library-name>lp4pole_1671.so</library-name>
+    <module-x>1641.000000</module-x>
+    <module-y>1217.000000</module-y>
+  </node>
+  <node>
+    <name>noise_source_white_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>noise_source_white</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>1309.000000</module-x>
+    <module-y>1132.000000</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>1780.000000</module-x>
+    <module-y>1123.000000</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa_1</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>1913.000000</module-x>
+    <module-y>1126.000000</module-y>
+  </node>
+  <node>
+    <name>sum_iaic_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>sum_iaic_oa</plugin-label>
+    <library-name>sum_1665.so</library-name>
+    <module-x>1347.000000</module-x>
+    <module-y>1203.000000</module-y>
+    <port>
+      <name>Second Input</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>sum_iaic_oa_1</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>sum_iaic_oa</plugin-label>
+    <library-name>sum_1665.so</library-name>
+    <module-x>1350.000000</module-x>
+    <module-y>1284.000000</module-y>
+    <port>
+      <name>Second Input</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>trigger_in_0</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>trigger_in</plugin-label>
+    <module-x>1412.000000</module-x>
+    <module-y>979.000000</module-y>
+  </node>
+  <node>
+    <name>vcf_hp_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>vcf_hp</plugin-label>
+    <library-name>vcf_cv_in.so</library-name>
+    <module-x>1490.000000</module-x>
+    <module-y>1140.000000</module-y>
+  </node>
+  <connection>
+    <source-node>trigger_in_0</source-node>
+    <source-port>Gate</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>adenv_0</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>lp4pole_fcrcia_oa_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>noise_source_white_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>vcf_hp_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>vcf_hp_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>lp4pole_fcrcia_oa_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>sum_iaic_oa_0</source-node>
+    <source-port>Summed Output</source-port>
+    <destination-node>vcf_hp_0</destination-node>
+    <destination-port>Frequency Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>sum_iaic_oa_1</source-node>
+    <source-port>Summed Output</source-port>
+    <destination-node>vcf_hp_0</destination-node>
+    <destination-port>Resonance</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger_in_0</source-node>
+    <source-port>Trigger</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>product_iaia_oa_1</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_1</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>audio_output_0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger_in_0</source-node>
+    <source-port>Velocity</source-port>
+    <destination-node>product_iaia_oa_1</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <preset>
+    <name>default</name>
+    <control>
+      <node-name>adenv_0</node-name>
+      <port-name>Attack Time (s)</port-name>
+      <value>0.000400</value>
+    </control>
+    <control>
+      <node-name>adenv_0</node-name>
+      <port-name>Decay Time (s)</port-name>
+      <value>0.172188</value>
+    </control>
+    <control>
+      <node-name>lp4pole_fcrcia_oa_0</node-name>
+      <port-name>Cutoff Frequency</port-name>
+      <value>7366.250000</value>
+    </control>
+    <control>
+      <node-name>lp4pole_fcrcia_oa_0</node-name>
+      <port-name>Resonance</port-name>
+      <value>3.999900</value>
+    </control>
+    <control>
+      <node-name>noise_source_white_0</node-name>
+      <port-name>Amplitude</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>sum_iaic_oa_0</node-name>
+      <port-name>Second Input</port-name>
+      <value>0.230507</value>
+    </control>
+    <control>
+      <node-name>sum_iaic_oa_1</node-name>
+      <port-name>Second Input</port-name>
+      <value>0.999900</value>
+    </control>
+    <control>
+      <node-name>trigger_in_0</node-name>
+      <port-name>Note Number</port-name>
+      <value>60.000000</value>
+    </control>
+    <control>
+      <node-name>vcf_hp_0</node-name>
+      <port-name>Gain</port-name>
+      <value>0.999900</value>
+    </control>
+    <control>
+      <node-name>vcf_hp_0</node-name>
+      <port-name>Frequency Offset</port-name>
+      <value>9351.318359</value>
+    </control>
+    <control>
+      <node-name>vcf_hp_0</node-name>
+      <port-name>Frequency Pitch</port-name>
+      <value>-2.000000</value>
+    </control>
+    <control>
+      <node-name>vcf_hp_0</node-name>
+      <port-name>Resonance Offset</port-name>
+      <value>0.001000</value>
+    </control>
+  </preset>
+</patch>

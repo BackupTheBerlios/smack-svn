@@ -67,8 +67,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2152.000000</module-x>
-    <module-y>1308.000000</module-y>
+    <module-x>2255.000000</module-x>
+    <module-y>1318.000000</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
@@ -78,6 +78,15 @@
     <library-name>product_1668.so</library-name>
     <module-x>1857</module-x>
     <module-y>1276</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>2125.000000</module-x>
+    <module-y>1283.000000</module-y>
   </node>
   <node>
     <name>triangle_fcsc_oa0</name>
@@ -126,8 +135,26 @@
   <connection>
     <source-node>amp_mono_0</source-node>
     <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_0</source-node>
+    <source-port>Product Output</source-port>
     <destination-node>output0</destination-node>
     <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Velocity</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Trigger</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Trigger</destination-port>
   </connection>
   <preset>
     <name>default</name>
