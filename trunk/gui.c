@@ -48,6 +48,7 @@ int main(int argc, char* argv[])
     GtkWidget* drum;
     GHashTable* sliders;
     struct gengetopt_args_info args_info;
+    char* tempurl;
         
     gtk_init(&argc, &argv);
 
@@ -87,8 +88,16 @@ int main(int argc, char* argv[])
     lo_server_thread_add_method(st, "/om/control_change", "sf", param_handler, sliders);
     //lo_server_thread_add_method(st, "/om/new_port", "ssssfff", node_handler, sliders);
     lo_server_thread_start(st);
+    
+    tempurl = lo_server_thread_get_url(st);
+    
+    if (lo_send(addr, "/om/engine/activate", "i", 42) == -1) 
+    {
+	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
+    }
 
-    if (lo_send(addr, "/om/engine/register_client", "i", 42) == -1) {
+    if (lo_send(addr, "/om/engine/register_client", "is", 42, tempurl) == -1) 
+    {
 	    printf("OSC error %d: %s\n", lo_address_errno(addr), lo_address_errstr(addr));
     }
 
@@ -310,6 +319,7 @@ int main(int argc, char* argv[])
     gtk_main();
 
     lo_server_thread_free(st);
+    free(tempurl);
     
     return 0;
 }

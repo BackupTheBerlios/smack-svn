@@ -3,6 +3,26 @@
   <name>808clave</name>
   <polyphony>1</polyphony>
   <node>
+    <name>BPF</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1615.000000</module-x>
+    <module-y>1329.000000</module-y>
+    <user-max>600.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>Tune</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1441.000000</module-x>
+    <module-y>1329.000000</module-y>
+    <user-max>950.000000</user-max>
+    <user-min>30.000000</user-min>
+  </node>
+  <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -27,8 +47,8 @@
     <type>LADSPA</type>
     <plugin-label>amp_mono</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>2022.000000</module-x>
-    <module-y>1277.000000</module-y>
+    <module-x>2016.000000</module-x>
+    <module-y>1285.000000</module-y>
     <port>
       <name>Gain</name>
       <user-min>0.000000</user-min>
@@ -42,7 +62,7 @@
     <plugin-label>bandpass_a_iir</plugin-label>
     <library-name>bandpass_a_iir_1893.so</library-name>
     <module-x>1657</module-x>
-    <module-y>1328</module-y>
+    <module-y>1329.000000</module-y>
     <port>
       <name>Center Frequency (Hz)</name>
       <user-min>100.410004</user-min>
@@ -94,13 +114,21 @@
     <type>LADSPA</type>
     <plugin-label>triangle_fcsc_oa</plugin-label>
     <library-name>triangle_1649.so</library-name>
-    <module-x>1477.000000</module-x>
-    <module-y>1324.000000</module-y>
+    <module-x>1486.000000</module-x>
+    <module-y>1329.000000</module-y>
     <port>
       <name>Frequency</name>
       <user-min>0.918750</user-min>
       <user-max>950.000000</user-max>
     </port>
+  </node>
+  <node>
+    <name>volume</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1961.000000</module-x>
+    <module-y>1196.000000</module-y>
   </node>
   <connection>
     <source-node>bandpass_a_iir0</source-node>
@@ -156,6 +184,24 @@
     <destination-node>adenv_0</destination-node>
     <destination-port>Trigger</destination-port>
   </connection>
+  <connection>
+    <source-node>volume</source-node>
+    <source-port>in</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Gain</destination-port>
+  </connection>
+  <connection>
+    <source-node>Tune</source-node>
+    <source-port>in</source-port>
+    <destination-node>triangle_fcsc_oa0</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>BPF</source-node>
+    <source-port>in</source-port>
+    <destination-node>bandpass_a_iir0</destination-node>
+    <destination-port>Center Frequency (Hz)</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -171,12 +217,12 @@
     <control>
       <node-name>amp_mono_0</node-name>
       <port-name>Gain</port-name>
-      <value>1.500000</value>
+      <value>0.636300</value>
     </control>
     <control>
       <node-name>bandpass_a_iir0</node-name>
       <port-name>Center Frequency (Hz)</port-name>
-      <value>497.703094</value>
+      <value>497.000000</value>
     </control>
     <control>
       <node-name>bandpass_a_iir0</node-name>
@@ -191,12 +237,24 @@
     <control>
       <node-name>triangle_fcsc_oa0</node-name>
       <port-name>Frequency</port-name>
-      <value>892.000488</value>
+      <value>892.000000</value>
     </control>
     <control>
       <node-name>triangle_fcsc_oa0</node-name>
       <port-name>Slope</port-name>
       <value>0.500000</value>
+    </control>
+    <control>
+      <port-name>BPF</port-name>
+      <value>497.000000</value>
+    </control>
+    <control>
+      <port-name>Tune</port-name>
+      <value>892.000000</value>
+    </control>
+    <control>
+      <port-name>volume</port-name>
+      <value>0.636300</value>
     </control>
   </preset>
 </patch>

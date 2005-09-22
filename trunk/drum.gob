@@ -159,7 +159,7 @@ class gui:Drum from Gtk:VBox
 	     	    
 	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) /* load patch */
 	{
-	    command = g_strconcat("om_patch_loader -p16180 ", PKGDATADIR, "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "file_name"), NULL);
+	    command = g_strconcat("om_patch_loader ", PKGDATADIR, "/", (gchar*) gtk_object_get_data(GTK_OBJECT(widget), "file_name"), NULL);
 
 	    if (!g_spawn_command_line_async(command, &error)){
 		g_warning("g_spawn_async_with_pipes() failed: %s\n", error->message);

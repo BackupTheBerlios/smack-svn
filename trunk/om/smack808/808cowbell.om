@@ -3,6 +3,36 @@
   <name>808cowbell</name>
   <polyphony>1</polyphony>
   <node>
+    <name>Decay</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1571.000000</module-x>
+    <module-y>1177.000000</module-y>
+    <user-max>2.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>Tune1</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1426.000000</module-x>
+    <module-y>1305.000000</module-y>
+    <user-max>3000.000000</user-max>
+    <user-min>20.000000</user-min>
+  </node>
+  <node>
+    <name>Tune2</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1417.000000</module-x>
+    <module-y>1398.000000</module-y>
+    <user-max>3000.000000</user-max>
+    <user-min>20.000000</user-min>
+  </node>
+  <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -41,8 +71,8 @@
     <type>LADSPA</type>
     <plugin-label>amp_mono</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>1637.000000</module-x>
-    <module-y>1296.000000</module-y>
+    <module-x>1629.000000</module-x>
+    <module-y>1310.000000</module-y>
     <port>
       <name>Gain</name>
       <user-min>0.000000</user-min>
@@ -73,8 +103,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1405.000000</module-x>
-    <module-y>1080.000000</module-y>
+    <module-x>1406.000000</module-x>
+    <module-y>1145.000000</module-y>
   </node>
   <node>
     <name>output0</name>
@@ -131,13 +161,21 @@
     <type>LADSPA</type>
     <plugin-label>triangle_fcsc_oa</plugin-label>
     <library-name>triangle_1649.so</library-name>
-    <module-x>1477</module-x>
-    <module-y>1304</module-y>
+    <module-x>1478.000000</module-x>
+    <module-y>1305.000000</module-y>
     <port>
       <name>Frequency</name>
       <user-min>0.918750</user-min>
       <user-max>2050.000000</user-max>
     </port>
+  </node>
+  <node>
+    <name>volume</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>2034.000000</module-x>
+    <module-y>1220.000000</module-y>
   </node>
   <connection>
     <source-node>product_iaia_oa0</source-node>
@@ -211,6 +249,30 @@
     <destination-node>adenv_0</destination-node>
     <destination-port>Trigger</destination-port>
   </connection>
+  <connection>
+    <source-node>volume</source-node>
+    <source-port>in</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Gain</destination-port>
+  </connection>
+  <connection>
+    <source-node>Tune2</source-node>
+    <source-port>in</source-port>
+    <destination-node>triangle_fcsc_oa0</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>Decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>Tune1</source-node>
+    <source-port>in</source-port>
+    <destination-node>triangle_fcsc_oa1</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -272,6 +334,22 @@
       <node-name>triangle_fcsc_oa1</node-name>
       <port-name>Slope</port-name>
       <value>0.500000</value>
+    </control>
+    <control>
+      <port-name>volume</port-name>
+      <value>0.697982</value>
+    </control>
+    <control>
+      <port-name>Tune1</port-name>
+      <value>587.000000</value>
+    </control>
+    <control>
+      <port-name>Tune2</port-name>
+      <value>845.000000</value>
+    </control>
+    <control>
+      <port-name>Decay</port-name>
+      <value>0.340000</value>
     </control>
   </preset>
 </patch>

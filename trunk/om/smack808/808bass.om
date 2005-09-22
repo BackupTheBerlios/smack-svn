@@ -3,13 +3,43 @@
   <name>808bass</name>
   <polyphony>1</polyphony>
   <node>
+    <name>Decay</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1549.000000</module-x>
+    <module-y>1195.000000</module-y>
+    <user-max>4.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>Tone</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1940.000000</module-x>
+    <module-y>1273.000000</module-y>
+    <user-max>400.000000</user-max>
+    <user-min>30.000000</user-min>
+  </node>
+  <node>
+    <name>Tune</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1483.000000</module-x>
+    <module-y>1299.000000</module-y>
+    <user-max>400.000000</user-max>
+    <user-min>30.000000</user-min>
+  </node>
+  <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1630</module-x>
-    <module-y>1144</module-y>
+    <module-x>1631.000000</module-x>
+    <module-y>1143.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -27,8 +57,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1637</module-x>
-    <module-y>920</module-y>
+    <module-x>1673.000000</module-x>
+    <module-y>965.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -60,16 +90,21 @@
     <type>LADSPA</type>
     <plugin-label>lowpass_iir</plugin-label>
     <library-name>lowpass_iir_1891.so</library-name>
-    <module-x>1991</module-x>
-    <module-y>1271</module-y>
+    <module-x>1991.000000</module-x>
+    <module-y>1270.000000</module-y>
+    <port>
+      <name>Cutoff Frequency</name>
+      <user-min>4.800000</user-min>
+      <user-max>21599.998047</user-max>
+    </port>
   </node>
   <node>
     <name>midi_trigger_in0</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1471.000000</module-x>
-    <module-y>1050.000000</module-y>
+    <module-x>1517.000000</module-x>
+    <module-y>1045.000000</module-y>
   </node>
   <node>
     <name>mixer0</name>
@@ -77,8 +112,17 @@
     <type>LADSPA</type>
     <plugin-label>mixer</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>1958</module-x>
-    <module-y>1119</module-y>
+    <module-x>1963.000000</module-x>
+    <module-y>1114.000000</module-y>
+  </node>
+  <node>
+    <name>noise_source_white_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>noise_source_white</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>1651.000000</module-x>
+    <module-y>1068.000000</module-y>
   </node>
   <node>
     <name>output0</name>
@@ -103,8 +147,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1797</module-x>
-    <module-y>1048</module-y>
+    <module-x>1825.000000</module-x>
+    <module-y>1051.000000</module-y>
   </node>
   <node>
     <name>product_iaia_oa_0</name>
@@ -121,8 +165,8 @@
     <type>LADSPA</type>
     <plugin-label>sine_fcac</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>1479</module-x>
-    <module-y>1320</module-y>
+    <module-x>1539.000000</module-x>
+    <module-y>1307.000000</module-y>
     <port>
       <name>Frequency</name>
       <user-min>0.000000</user-min>
@@ -133,6 +177,14 @@
       <user-min>0.000000</user-min>
       <user-max>1.000000</user-max>
     </port>
+  </node>
+  <node>
+    <name>volume</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>2105.000000</module-x>
+    <module-y>1203.000000</module-y>
   </node>
   <connection>
     <source-node>product_iaia_oa1</source-node>
@@ -157,12 +209,6 @@
     <source-port>Output</source-port>
     <destination-node>lowpass_iir0</destination-node>
     <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>product_iaia_oa1</destination-node>
-    <destination-port>Second Input</destination-port>
   </connection>
   <connection>
     <source-node>midi_trigger_in0</source-node>
@@ -224,6 +270,36 @@
     <destination-node>adenv_1</destination-node>
     <destination-port>Trigger</destination-port>
   </connection>
+  <connection>
+    <source-node>volume</source-node>
+    <source-port>in</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Gain</destination-port>
+  </connection>
+  <connection>
+    <source-node>Tune</source-node>
+    <source-port>in</source-port>
+    <destination-node>sine_fcac0</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>Tone</source-node>
+    <source-port>in</source-port>
+    <destination-node>lowpass_iir0</destination-node>
+    <destination-port>Cutoff Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>Decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>noise_source_white_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa1</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -234,27 +310,27 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.800000</value>
+      <value>0.703431</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000000</value>
+      <value>0.000120</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.000000</value>
+      <value>0.013700</value>
     </control>
     <control>
       <node-name>amp_mono_0</node-name>
       <port-name>Gain</port-name>
-      <value>0.583068</value>
+      <value>0.675794</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>369.529419</value>
+      <value>367.000000</value>
     </control>
     <control>
       <node-name>lowpass_iir0</node-name>
@@ -267,14 +343,35 @@
       <value>35.000000</value>
     </control>
     <control>
+      <node-name>noise_source_white_0</node-name>
+      <port-name>Amplitude</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
       <node-name>sine_fcac0</node-name>
       <port-name>Frequency</port-name>
-      <value>78.362511</value>
+      <value>78.000000</value>
     </control>
     <control>
       <node-name>sine_fcac0</node-name>
       <port-name>Amplitude</port-name>
       <value>1.000000</value>
+    </control>
+    <control>
+      <port-name>Decay</port-name>
+      <value>0.703431</value>
+    </control>
+    <control>
+      <port-name>Tone</port-name>
+      <value>367.000000</value>
+    </control>
+    <control>
+      <port-name>Tune</port-name>
+      <value>78.000000</value>
+    </control>
+    <control>
+      <port-name>volume</port-name>
+      <value>0.675794</value>
     </control>
   </preset>
 </patch>

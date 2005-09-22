@@ -3,13 +3,51 @@
   <name>808snare</name>
   <polyphony>1</polyphony>
   <node>
+    <name>Decay</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1445.000000</module-x>
+    <module-y>1416.000000</module-y>
+    <user-max>0.400000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>HPF</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1735.000000</module-x>
+    <module-y>1463.000000</module-y>
+    <user-max>4000.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>Snappy</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1400.000000</module-x>
+    <module-y>1556.000000</module-y>
+  </node>
+  <node>
+    <name>Tone</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1425.000000</module-x>
+    <module-y>1114.000000</module-y>
+    <user-max>1000.000000</user-max>
+    <user-min>20.000000</user-min>
+  </node>
+  <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1543</module-x>
-    <module-y>1438</module-y>
+    <module-x>1540.000000</module-x>
+    <module-y>1436.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -27,8 +65,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1545</module-x>
-    <module-y>1221</module-y>
+    <module-x>1542.000000</module-x>
+    <module-y>1228.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -65,8 +103,8 @@
     <type>LADSPA</type>
     <plugin-label>amp_mono</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>1938.000000</module-x>
-    <module-y>1346.000000</module-y>
+    <module-x>1934.000000</module-x>
+    <module-y>1332.000000</module-y>
     <port>
       <name>Gain</name>
       <user-min>0.000000</user-min>
@@ -123,8 +161,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1728</module-x>
-    <module-y>1284</module-y>
+    <module-x>1732.000000</module-x>
+    <module-y>1335.000000</module-y>
   </node>
   <node>
     <name>product_iaia_oa1</name>
@@ -161,6 +199,11 @@
     <library-name>cmt.so</library-name>
     <module-x>1547</module-x>
     <module-y>1350</module-y>
+    <port>
+      <name>Frequency</name>
+      <user-min>0.000000</user-min>
+      <user-max>24000.000000</user-max>
+    </port>
     <port>
       <name>Amplitude</name>
       <user-min>0.000000</user-min>
@@ -300,17 +343,47 @@
     <destination-node>adenv_0</destination-node>
     <destination-port>Trigger</destination-port>
   </connection>
+  <connection>
+    <source-node>HPF</source-node>
+    <source-port>in</source-port>
+    <destination-node>highpass_iir0</destination-node>
+    <destination-port>Cutoff Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>Snappy</source-node>
+    <source-port>in</source-port>
+    <destination-node>noise_source_white0</destination-node>
+    <destination-port>Amplitude</destination-port>
+  </connection>
+  <connection>
+    <source-node>Decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>Decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_2</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>Tone</source-node>
+    <source-port>in</source-port>
+    <destination-node>sine_fcac1</destination-node>
+    <destination-port>Frequency</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000200</value>
+      <value>0.000120</value>
     </control>
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.178664</value>
+      <value>0.178000</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
@@ -325,12 +398,12 @@
     <control>
       <node-name>adenv_2</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000200</value>
+      <value>0.000320</value>
     </control>
     <control>
       <node-name>adenv_2</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.179109</value>
+      <value>0.178000</value>
     </control>
     <control>
       <node-name>amp_mono_0</node-name>
@@ -340,7 +413,7 @@
     <control>
       <node-name>highpass_iir0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>1972.712280</value>
+      <value>1972.000000</value>
     </control>
     <control>
       <node-name>highpass_iir0</node-name>
@@ -355,7 +428,7 @@
     <control>
       <node-name>noise_source_white0</node-name>
       <port-name>Amplitude</port-name>
-      <value>0.931725</value>
+      <value>0.962049</value>
     </control>
     <control>
       <node-name>sine_fcac0</node-name>
@@ -376,6 +449,22 @@
       <node-name>sine_fcac1</node-name>
       <port-name>Amplitude</port-name>
       <value>0.900000</value>
+    </control>
+    <control>
+      <port-name>Decay</port-name>
+      <value>0.178000</value>
+    </control>
+    <control>
+      <port-name>HPF</port-name>
+      <value>1972.000000</value>
+    </control>
+    <control>
+      <port-name>Snappy</port-name>
+      <value>0.962049</value>
+    </control>
+    <control>
+      <port-name>Tone</port-name>
+      <value>151.000000</value>
     </control>
   </preset>
 </patch>

@@ -3,6 +3,34 @@
   <name>808hihat</name>
   <polyphony>1</polyphony>
   <node>
+    <name>CH Decay</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1752.000000</module-x>
+    <module-y>1430.000000</module-y>
+  </node>
+  <node>
+    <name>OH Decay</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1768.000000</module-x>
+    <module-y>1062.000000</module-y>
+    <user-max>4.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>Tune</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1864.000000</module-x>
+    <module-y>1271.000000</module-y>
+    <user-max>20000.000000</user-max>
+    <user-min>20.000000</user-min>
+  </node>
+  <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -157,6 +185,11 @@
     <library-name>bandpass_a_iir_1893.so</library-name>
     <module-x>1908.714355</module-x>
     <module-y>1271.142944</module-y>
+    <port>
+      <name>Bandwidth (Hz)</name>
+      <user-min>4.800000</user-min>
+      <user-max>21599.998047</user-max>
+    </port>
   </node>
   <node>
     <name>highpass_iir0</name>
@@ -269,8 +302,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>2088.857178</module-x>
-    <module-y>1343.714233</module-y>
+    <module-x>2064.857178</module-x>
+    <module-y>1348.714233</module-y>
   </node>
   <node>
     <name>product_iaia_oa_0</name>
@@ -366,6 +399,14 @@
     <library-name>square_1643.so</library-name>
     <module-x>1393.636353</module-x>
     <module-y>1469.999878</module-y>
+  </node>
+  <node>
+    <name>volume</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>2716.000000</module-x>
+    <module-y>1197.000000</module-y>
   </node>
   <connection>
     <source-node>product_iaia_oa1</source-node>
@@ -619,6 +660,30 @@
     <destination-node>adenv_lvl_0</destination-node>
     <destination-port>Trigger</destination-port>
   </connection>
+  <connection>
+    <source-node>volume</source-node>
+    <source-port>in</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Gain</destination-port>
+  </connection>
+  <connection>
+    <source-node>OH Decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_1</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>CH Decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>Tune</source-node>
+    <source-port>in</source-port>
+    <destination-node>bandpass_a_iir0</destination-node>
+    <destination-port>Center Frequency (Hz)</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -780,6 +845,22 @@
       <node-name>square_fc_oa5</node-name>
       <port-name>Frequency</port-name>
       <value>8874.329102</value>
+    </control>
+    <control>
+      <port-name>volume</port-name>
+      <value>0.775948</value>
+    </control>
+    <control>
+      <port-name>Tune</port-name>
+      <value>9751.000000</value>
+    </control>
+    <control>
+      <port-name>OH Decay</port-name>
+      <value>0.890000</value>
+    </control>
+    <control>
+      <port-name>CH Decay</port-name>
+      <value>0.170000</value>
     </control>
   </preset>
 </patch>
