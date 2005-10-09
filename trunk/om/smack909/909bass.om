@@ -3,6 +3,36 @@
   <name>909bass</name>
   <polyphony>1</polyphony>
   <node>
+    <name>Decay</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1853.000000</module-x>
+    <module-y>1075.000000</module-y>
+    <user-max>4.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>Tone</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1604.000000</module-x>
+    <module-y>1434.000000</module-y>
+    <user-max>8000.000000</user-max>
+    <user-min>15.000000</user-min>
+  </node>
+  <node>
+    <name>Tune</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1545.000000</module-x>
+    <module-y>982.000000</module-y>
+    <user-max>600.000000</user-max>
+    <user-min>15.000000</user-min>
+  </node>
+  <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -305,6 +335,30 @@
     <destination-node>product_iaia_oa_0</destination-node>
     <destination-port>First Input</destination-port>
   </connection>
+  <connection>
+    <source-node>Tune</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_lvl_0</destination-node>
+    <destination-port>Decay to Level</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Trigger</source-port>
+    <destination-node>adenv_lvl_0</destination-node>
+    <destination-port>Reset Level</destination-port>
+  </connection>
+  <connection>
+    <source-node>Decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>Tone</source-node>
+    <source-port>in</source-port>
+    <destination-node>lowpass_iir0</destination-node>
+    <destination-port>Cutoff Frequency</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -381,6 +435,18 @@
       <node-name>sine_faac0</node-name>
       <port-name>Amplitude</port-name>
       <value>0.999900</value>
+    </control>
+    <control>
+      <port-name>Tone</port-name>
+      <value>7000.000000</value>
+    </control>
+    <control>
+      <port-name>Tune</port-name>
+      <value>65.000000</value>
+    </control>
+    <control>
+      <port-name>Decay</port-name>
+      <value>0.860000</value>
     </control>
   </preset>
 </patch>
