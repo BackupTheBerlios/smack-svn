@@ -23,6 +23,14 @@
     <user-min>30.000000</user-min>
   </node>
   <node>
+    <name>Velocity</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>2070.000000</module-x>
+    <module-y>1176.000000</module-y>
+  </node>
+  <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -190,12 +198,6 @@
   </connection>
   <connection>
     <source-node>midi_trigger_in0</source-node>
-    <source-port>Velocity</source-port>
-    <destination-node>product_iaia_oa_0</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
     <source-port>Trigger</source-port>
     <destination-node>adenv_0</destination-node>
     <destination-port>Trigger</destination-port>
@@ -229,6 +231,18 @@
     <source-port>in</source-port>
     <destination-node>adenv_0</destination-node>
     <destination-port>Trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>Velocity</source-node>
+    <source-port>in</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Velocity</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
   </connection>
   <preset>
     <name>default</name>

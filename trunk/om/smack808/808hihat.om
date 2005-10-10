@@ -23,8 +23,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_input</plugin-label>
-    <module-x>1573.000000</module-x>
-    <module-y>1496.000000</module-y>
+    <module-x>1775.000000</module-x>
+    <module-y>1544.000000</module-y>
   </node>
   <node>
     <name>CH velocity</name>
@@ -49,16 +49,16 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_input</plugin-label>
-    <module-x>1564.000000</module-x>
-    <module-y>924.000000</module-y>
+    <module-x>1725.000000</module-x>
+    <module-y>913.000000</module-y>
   </node>
   <node>
     <name>OH trigger</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_input</plugin-label>
-    <module-x>1642.000000</module-x>
-    <module-y>920.000000</module-y>
+    <module-x>1794.000000</module-x>
+    <module-y>887.000000</module-y>
   </node>
   <node>
     <name>OH velocity</name>
@@ -84,8 +84,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1854</module-x>
-    <module-y>1397</module-y>
+    <module-x>1902.000000</module-x>
+    <module-y>1386.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -673,18 +673,6 @@
     <destination-port>Input 1</destination-port>
   </connection>
   <connection>
-    <source-node>midi_trigger_in1</source-node>
-    <source-port>Velocity</source-port>
-    <destination-node>product_iaia_oa_1</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Velocity</source-port>
-    <destination-node>product_iaia_oa_0</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
     <source-node>midi_trigger_in0</source-node>
     <source-port>Trigger</source-port>
     <destination-node>adenv_1</destination-node>
@@ -790,6 +778,30 @@
     <source-node>OH velocity</source-node>
     <source-port>in</source-port>
     <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>OH gate</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_lvl_0</destination-node>
+    <destination-port>Reset Level</destination-port>
+  </connection>
+  <connection>
+    <source-node>CH gate</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_lvl_1</destination-node>
+    <destination-port>Reset Level</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Velocity</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in1</source-node>
+    <source-port>Velocity</source-port>
+    <destination-node>product_iaia_oa_1</destination-node>
     <destination-port>First Input</destination-port>
   </connection>
   <preset>

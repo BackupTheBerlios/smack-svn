@@ -278,12 +278,6 @@
   </connection>
   <connection>
     <source-node>midi_trigger_in0</source-node>
-    <source-port>Velocity</source-port>
-    <destination-node>product_iaia_oa_0</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
     <source-port>Trigger</source-port>
     <destination-node>adenv_0</destination-node>
     <destination-port>Trigger</destination-port>
@@ -425,7 +419,7 @@
     </control>
     <control>
       <port-name>volume</port-name>
-      <value>0.675794</value>
+      <value>0.523404</value>
     </control>
   </preset>
 </patch>

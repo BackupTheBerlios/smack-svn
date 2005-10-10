@@ -100,8 +100,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1411.000000</module-x>
-    <module-y>1050.000000</module-y>
+    <module-x>1417.000000</module-x>
+    <module-y>1023.000000</module-y>
   </node>
   <node>
     <name>trigger_in_2</name>
@@ -290,6 +290,18 @@
     <source-port>output0</source-port>
     <destination-node>kitmixed</destination-node>
     <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger_in_1</source-node>
+    <source-port>Velocity</source-port>
+    <destination-node>808snare</destination-node>
+    <destination-port>velocity</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger_in_5</source-node>
+    <source-port>Velocity</source-port>
+    <destination-node>808clave</destination-node>
+    <destination-port>Velocity</destination-port>
   </connection>
   <preset>
     <name>default</name>
