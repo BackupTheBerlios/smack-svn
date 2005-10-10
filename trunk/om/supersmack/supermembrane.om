@@ -84,8 +84,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1776.000000</module-x>
-    <module-y>1217.000000</module-y>
+    <module-x>1775.000000</module-x>
+    <module-y>1218.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -98,12 +98,41 @@
     </port>
   </node>
   <node>
+    <name>amp_mono_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>amp_mono</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>2023.000000</module-x>
+    <module-y>1049.000000</module-y>
+  </node>
+  <node>
     <name>audio_output_0</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2053.000000</module-x>
-    <module-y>1071.000000</module-y>
+    <module-x>2114.000000</module-x>
+    <module-y>1076.000000</module-y>
+  </node>
+  <node>
+    <name>cutoff</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1666.000000</module-x>
+    <module-y>1410.000000</module-y>
+    <user-max>800.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>decay partials</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1788.000000</module-x>
+    <module-y>1409.000000</module-y>
+    <user-max>0.500000</user-max>
+    <user-min>0.000000</user-min>
   </node>
   <node>
     <name>highpass_iir_0</name>
@@ -284,6 +313,14 @@
     <module-x>1350.000000</module-x>
     <module-y>1005.000000</module-y>
   </node>
+  <node>
+    <name>volume</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1974.000000</module-x>
+    <module-y>987.000000</module-y>
+  </node>
   <connection>
     <source-node>sawtooth_fc_oa_1</source-node>
     <source-port>Output</source-port>
@@ -459,10 +496,34 @@
     <destination-port>Trigger</destination-port>
   </connection>
   <connection>
+    <source-node>cutoff</source-node>
+    <source-port>in</source-port>
+    <destination-node>highpass_iir_0</destination-node>
+    <destination-port>Cutoff Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>decay partials</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_4</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
     <source-node>product_iaia_oa_5</source-node>
     <source-port>Product Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_0</source-node>
+    <source-port>Output</source-port>
     <destination-node>audio_output_0</destination-node>
     <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>volume</source-node>
+    <source-port>in</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Gain</destination-port>
   </connection>
   <preset>
     <name>default</name>
@@ -515,6 +576,11 @@
       <node-name>adenv_4</node-name>
       <port-name>Decay Time (s)</port-name>
       <value>0.010000</value>
+    </control>
+    <control>
+      <node-name>amp_mono_0</node-name>
+      <port-name>Gain</port-name>
+      <value>1.000000</value>
     </control>
     <control>
       <node-name>highpass_iir_0</node-name>
@@ -585,6 +651,18 @@
       <node-name>trigger_in_0</node-name>
       <port-name>Note Number</port-name>
       <value>60.000000</value>
+    </control>
+    <control>
+      <port-name>cutoff</port-name>
+      <value>144.000000</value>
+    </control>
+    <control>
+      <port-name>decay partials</port-name>
+      <value>0.010000</value>
+    </control>
+    <control>
+      <port-name>volume</port-name>
+      <value>1.000000</value>
     </control>
   </preset>
 </patch>
