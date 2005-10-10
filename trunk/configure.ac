@@ -1,5 +1,5 @@
 # configure.in for smack
-AC_INIT([smack],[0.1.0],[loki@berlios.de])
+AC_INIT([smack],[0.2.0],[loki@berlios.de])
 AC_CONFIG_SRCDIR([gui.c])
 
 AC_CONFIG_HEADER([config.h])
@@ -33,12 +33,12 @@ PKG_CHECK_MODULES(LOSC, liblo >= 0.16)
 AC_SUBST(LOSC_LIBS)
 AC_SUBST(LOSC_CFLAGS)
 
-PKG_CHECK_MODULES(GTK, gtk+-2.0)
-AC_SUBST(GTK_CFLAGS)
-AC_SUBST(GTK_LIBS)
-PKG_CHECK_MODULES(PHAT, phat)
-AC_SUBST(PHAT_CFLAGS)
-AC_SUBST(PHAT_LIBS)
+#PKG_CHECK_MODULES(GTK, gtk+-2.0)
+#AC_SUBST(GTK_CFLAGS)
+#AC_SUBST(GTK_LIBS)
+#PKG_CHECK_MODULES(PHAT, phat)
+#AC_SUBST(PHAT_CFLAGS)
+#AC_SUBST(PHAT_LIBS)
 AC_SUBST(LIBTOOL)
 
 
@@ -46,5 +46,5 @@ PIXDIR_UNQUOTED="\$(pkgdatadir)/pixmaps/" # for pixmap/Makefile.am
 CFLAGS="-O0 -g -Wall -DNDEBUG"
 
 # Write it!
-AC_CONFIG_FILES([Makefile pixmaps/Makefile om/Makefile om/smack808/Makefile om/smack909/Makefile om/smackfm/Makefile om/supersmack/Makefile])
+AC_CONFIG_FILES([Makefile pixmaps/Makefile om/Makefile om/smack808/Makefile om/smack909/Makefile om/smackfm/Makefile om/supersmack/Makefile om/smacknoisy/Makefile])
 AC_OUTPUT

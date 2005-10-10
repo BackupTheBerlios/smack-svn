@@ -3,13 +3,23 @@
   <name>sfmhihat</name>
   <polyphony>1</polyphony>
   <node>
+    <name>Decay</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>2123.000000</module-x>
+    <module-y>1159.000000</module-y>
+    <user-max>4.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>2222.000000</module-x>
-    <module-y>1194.000000</module-y>
+    <module-x>2206.000000</module-x>
+    <module-y>1197.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -79,8 +89,33 @@
     <type>LADSPA</type>
     <plugin-label>bandpass_a_iir</plugin-label>
     <library-name>bandpass_a_iir_1893.so</library-name>
-    <module-x>1904.000000</module-x>
-    <module-y>1316.000000</module-y>
+    <module-x>1907.000000</module-x>
+    <module-y>1317.000000</module-y>
+    <port>
+      <name>Center Frequency (Hz)</name>
+      <user-min>2.205000</user-min>
+      <user-max>9938.499023</user-max>
+    </port>
+  </node>
+  <node>
+    <name>center frequency</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1726.000000</module-x>
+    <module-y>1300.000000</module-y>
+    <user-max>12000.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>cutoff</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1805.000000</module-x>
+    <module-y>1453.000000</module-y>
+    <user-max>10000.000000</user-max>
+    <user-min>0.000000</user-min>
   </node>
   <node>
     <name>highpass_iir_0</name>
@@ -96,8 +131,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1605.000000</module-x>
-    <module-y>979.000000</module-y>
+    <module-x>1710.000000</module-x>
+    <module-y>1192.000000</module-y>
     <x>1413.000000</x>
     <y>1046.000000</y>
   </node>
@@ -407,6 +442,24 @@
     <destination-node>product_iaia_oa_0</destination-node>
     <destination-port>First Input</destination-port>
   </connection>
+  <connection>
+    <source-node>Decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>cutoff</source-node>
+    <source-port>in</source-port>
+    <destination-node>highpass_iir_0</destination-node>
+    <destination-port>Cutoff Frequency</destination-port>
+  </connection>
+  <connection>
+    <source-node>center frequency</source-node>
+    <source-port>in</source-port>
+    <destination-node>bandpass_a_iir_0</destination-node>
+    <destination-port>Center Frequency (Hz)</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -417,7 +470,7 @@
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Decay Time (s)</port-name>
-      <value>0.322664</value>
+      <value>0.376611</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
@@ -447,7 +500,7 @@
     <control>
       <node-name>bandpass_a_iir_0</node-name>
       <port-name>Center Frequency (Hz)</port-name>
-      <value>18797.082031</value>
+      <value>8264.251953</value>
     </control>
     <control>
       <node-name>bandpass_a_iir_0</node-name>
@@ -457,7 +510,7 @@
     <control>
       <node-name>highpass_iir_0</node-name>
       <port-name>Cutoff Frequency</port-name>
-      <value>7251.570801</value>
+      <value>7556.571289</value>
     </control>
     <control>
       <node-name>highpass_iir_0</node-name>
@@ -498,6 +551,18 @@
       <node-name>sum_iaic_oa2</node-name>
       <port-name>Second Input</port-name>
       <value>1049.000000</value>
+    </control>
+    <control>
+      <port-name>Decay</port-name>
+      <value>0.249994</value>
+    </control>
+    <control>
+      <port-name>center frequency</port-name>
+      <value>8264.000000</value>
+    </control>
+    <control>
+      <port-name>cutoff</port-name>
+      <value>7550.000000</value>
     </control>
   </preset>
 </patch>

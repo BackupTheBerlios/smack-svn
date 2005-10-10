@@ -99,6 +99,14 @@
     </port>
   </node>
   <node>
+    <name>gate</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1432.000000</module-x>
+    <module-y>1086.000000</module-y>
+  </node>
+  <node>
     <name>midi_trigger_in0</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
@@ -168,6 +176,22 @@
       <user-min>0.918750</user-min>
       <user-max>2050.000000</user-max>
     </port>
+  </node>
+  <node>
+    <name>trigger</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1372.000000</module-x>
+    <module-y>1107.000000</module-y>
+  </node>
+  <node>
+    <name>velocity</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>2143.000000</module-x>
+    <module-y>1168.000000</module-y>
   </node>
   <node>
     <name>volume</name>
@@ -273,6 +297,24 @@
     <destination-node>triangle_fcsc_oa1</destination-node>
     <destination-port>Frequency</destination-port>
   </connection>
+  <connection>
+    <source-node>gate</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>velocity</source-node>
+    <source-port>in</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -336,8 +378,8 @@
       <value>0.500000</value>
     </control>
     <control>
-      <port-name>volume</port-name>
-      <value>0.697982</value>
+      <port-name>Decay</port-name>
+      <value>0.340000</value>
     </control>
     <control>
       <port-name>Tune1</port-name>
@@ -348,8 +390,8 @@
       <value>845.000000</value>
     </control>
     <control>
-      <port-name>Decay</port-name>
-      <value>0.340000</value>
+      <port-name>volume</port-name>
+      <value>0.697982</value>
     </control>
   </preset>
 </patch>

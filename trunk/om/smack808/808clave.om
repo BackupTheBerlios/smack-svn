@@ -75,6 +75,14 @@
     </port>
   </node>
   <node>
+    <name>gate</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1475.000000</module-x>
+    <module-y>1031.000000</module-y>
+  </node>
+  <node>
     <name>midi_trigger_in0</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
@@ -121,6 +129,14 @@
       <user-min>0.918750</user-min>
       <user-max>950.000000</user-max>
     </port>
+  </node>
+  <node>
+    <name>trigger</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1552.000000</module-x>
+    <module-y>1017.000000</module-y>
   </node>
   <node>
     <name>volume</name>
@@ -201,6 +217,18 @@
     <source-port>in</source-port>
     <destination-node>bandpass_a_iir0</destination-node>
     <destination-port>Center Frequency (Hz)</destination-port>
+  </connection>
+  <connection>
+    <source-node>gate</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Trigger</destination-port>
   </connection>
   <preset>
     <name>default</name>

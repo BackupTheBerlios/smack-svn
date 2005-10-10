@@ -47,7 +47,7 @@
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
     <module-x>1478.000000</module-x>
-    <module-y>1363.000000</module-y>
+    <module-y>1357.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -67,6 +67,11 @@
     <library-name>cmt.so</library-name>
     <module-x>1827.000000</module-x>
     <module-y>1248.000000</module-y>
+    <port>
+      <name>Gain</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
   </node>
   <node>
     <name>audio_output_0</name>
@@ -95,13 +100,33 @@
     <module-y>997.000000</module-y>
   </node>
   <node>
+    <name>cutoff</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1392.000000</module-x>
+    <module-y>1460.000000</module-y>
+    <user-max>12000.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>decay</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1407.000000</module-x>
+    <module-y>1298.000000</module-y>
+    <user-max>0.500000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
     <name>lowpass_iir_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>lowpass_iir</plugin-label>
     <library-name>lowpass_iir_1891.so</library-name>
     <module-x>1446.000000</module-x>
-    <module-y>1498.000000</module-y>
+    <module-y>1499.000000</module-y>
   </node>
   <node>
     <name>noise_source_white_0</name>
@@ -196,6 +221,16 @@
     </port>
   </node>
   <node>
+    <name>snappy</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1400.000000</module-x>
+    <module-y>1406.000000</module-y>
+    <user-max>0.500000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
     <name>triangle_fcsc_oa_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -209,8 +244,16 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1304.000000</module-x>
-    <module-y>996.000000</module-y>
+    <module-x>1335.000000</module-x>
+    <module-y>982.000000</module-y>
+  </node>
+  <node>
+    <name>volume</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1727.000000</module-x>
+    <module-y>1265.000000</module-y>
   </node>
   <connection>
     <source-node>triangle_fcsc_oa_0</source-node>
@@ -356,6 +399,30 @@
     <destination-node>product_iaia_oa_3</destination-node>
     <destination-port>First Input</destination-port>
   </connection>
+  <connection>
+    <source-node>decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_1</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>volume</source-node>
+    <source-port>in</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Gain</destination-port>
+  </connection>
+  <connection>
+    <source-node>snappy</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_2</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>cutoff</source-node>
+    <source-port>in</source-port>
+    <destination-node>lowpass_iir_0</destination-node>
+    <destination-port>Cutoff Frequency</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -399,19 +466,9 @@
       <value>224.000000</value>
     </control>
     <control>
-      <node-name>bodeShifter_0</node-name>
-      <port-name>latency</port-name>
-      <value>0.000000</value>
-    </control>
-    <control>
       <node-name>bodeShifter_1</node-name>
       <port-name>Frequency shift</port-name>
       <value>175.000000</value>
-    </control>
-    <control>
-      <node-name>bodeShifter_1</node-name>
-      <port-name>latency</port-name>
-      <value>0.000000</value>
     </control>
     <control>
       <node-name>lowpass_iir_0</node-name>
@@ -477,6 +534,22 @@
       <node-name>trigger_in_0</node-name>
       <port-name>Note Number</port-name>
       <value>39.000000</value>
+    </control>
+    <control>
+      <port-name>cutoff</port-name>
+      <value>10000.000000</value>
+    </control>
+    <control>
+      <port-name>snappy</port-name>
+      <value>0.100000</value>
+    </control>
+    <control>
+      <port-name>decay</port-name>
+      <value>0.156000</value>
+    </control>
+    <control>
+      <port-name>volume</port-name>
+      <value>0.800000</value>
     </control>
   </preset>
 </patch>

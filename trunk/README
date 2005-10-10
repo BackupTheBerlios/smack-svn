@@ -2,15 +2,17 @@ Smack Drum Synth.
 
 What is is?
 
-A drum synth ;-) 100% sample free. Written as patches for the Om modular synth. You need Om, the phat libs and any recent swh-plugins, omins, blop-plugins and cmt-plugins to use them. Hopefully no others! If it does work first check your ladspa plugins. Patches arn't meant to be just presets, play with the knobs. Some patches such as the hihats are heavy on cpu, i'm working on it. More docs coming soon.
+A drum synth ;-) 100% sample free. Written as patches for the Om modular synth. You need Om and any recent swh-plugins, omins, blop-plugins and cmt-plugins to use them. Hopefully no others! If it does work first check your ladspa plugins. Patches arn't meant to be just presets, play with the knobs. More docs coming soon.
 
-Each of the drums should be more or less the right midi note as per the gm drum spec. Each different drum comes up as a different alsa port, and has a different jack output port. This may be annoying but it's to allow me to do cool things with AI based timing stuff, which will be in the next release hopefully. 
+-------
+The gui building has been disabled, as it does not work with the latest versions of om, and om_gtk has progressed to such as level it's not really required. om_gtk was much less stable when i started this, and now it's great, use it. I'm planing on maybe fixing the gui at some time if i can be arsed. If anyone fixes it, please send me the patch.
+-------
 
-liblo: http://plugin.org.uk/liblo/releases/
+Each of the drums should be more or less the right midi note as per the gm drum spec. 808 drums can be loaded as one kit, with one midi in for all the drums, just load 808 kit for this. Otherwise each different drum comes up as a different alsa port, and has a different jack output port. 
+
 om: http://savannah.nongnu.org/projects/om-synth
 plugins: http://plugin.org.uk/
-phat: http://www.gazuga.net/phat.php
 
 It work here for me ;-) should be sounding better everyday! Feel free to email me with improvements, new drums,etc. I REALLY want to here what drums people need, if anyone has an algorithim or anything tell me. 
 
-Loki
+Loki Davison

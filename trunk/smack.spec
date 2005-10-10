@@ -1,6 +1,6 @@
 Summary: A Sample free drum synth
 Name: smack
-Version: 0.1.0
+Version: 0.2.0
 Release: 1
 License: GPL
 Group: Applications/Multimedia
@@ -27,17 +27,18 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_bindir}/smack
 %dir %{_datadir}/smack
 %{_datadir}/smack/pixmaps/*.png
+%{_datadir}/smack/om/*.om
 %{_datadir}/smack/om/smack808/*.om
 %{_datadir}/smack/om/smack909/*.om
 %{_datadir}/smack/om/smackfm/*.om
 %{_datadir}/smack/om/supersmack/*.om
+%{_datadir}/smack/om/smacknoisy/*.om
 %doc AUTHORS ChangeLog COPYING NEWS README TODO
 
 
 %changelog
 * Tue Apr 26 2005 Loki Davison <loki@berlios.de>
-- initial package, v0.0.2
-
+- initial package, v0.1
+- package v0.2, removed gui support for the moment, use om_gtk 

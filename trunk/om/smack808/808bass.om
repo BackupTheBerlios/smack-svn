@@ -85,6 +85,14 @@
     </port>
   </node>
   <node>
+    <name>gate</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1536.000000</module-x>
+    <module-y>1110.000000</module-y>
+  </node>
+  <node>
     <name>lowpass_iir0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -103,8 +111,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1517.000000</module-x>
-    <module-y>1045.000000</module-y>
+    <module-x>1470.000000</module-x>
+    <module-y>1025.000000</module-y>
   </node>
   <node>
     <name>mixer0</name>
@@ -177,6 +185,22 @@
       <user-min>0.000000</user-min>
       <user-max>1.000000</user-max>
     </port>
+  </node>
+  <node>
+    <name>trigger</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1528.000000</module-x>
+    <module-y>1147.000000</module-y>
+  </node>
+  <node>
+    <name>velocity</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>2178.000000</module-x>
+    <module-y>1204.000000</module-y>
   </node>
   <node>
     <name>volume</name>
@@ -299,6 +323,36 @@
     <source-port>Output</source-port>
     <destination-node>product_iaia_oa1</destination-node>
     <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_1</destination-node>
+    <destination-port>Trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>gate</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_1</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>gate</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>velocity</source-node>
+    <source-port>in</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
   </connection>
   <preset>
     <name>default</name>

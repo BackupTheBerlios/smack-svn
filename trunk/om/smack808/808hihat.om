@@ -11,6 +11,30 @@
     <module-y>1430.000000</module-y>
   </node>
   <node>
+    <name>CH gate</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1581.000000</module-x>
+    <module-y>1440.000000</module-y>
+  </node>
+  <node>
+    <name>CH trigger</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1573.000000</module-x>
+    <module-y>1496.000000</module-y>
+  </node>
+  <node>
+    <name>CH velocity</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>2430.000000</module-x>
+    <module-y>1468.000000</module-y>
+  </node>
+  <node>
     <name>OH Decay</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
@@ -19,6 +43,30 @@
     <module-y>1062.000000</module-y>
     <user-max>4.000000</user-max>
     <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>OH gate</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1564.000000</module-x>
+    <module-y>924.000000</module-y>
+  </node>
+  <node>
+    <name>OH trigger</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1642.000000</module-x>
+    <module-y>920.000000</module-y>
+  </node>
+  <node>
+    <name>OH velocity</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>2430.000000</module-x>
+    <module-y>1078.000000</module-y>
   </node>
   <node>
     <name>Tune</name>
@@ -284,8 +332,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2744.000000</module-x>
-    <module-y>1285.000000</module-y>
+    <module-x>2789.000000</module-x>
+    <module-y>1284.000000</module-y>
   </node>
   <node>
     <name>product_iaia_oa0</name>
@@ -684,6 +732,66 @@
     <destination-node>bandpass_a_iir0</destination-node>
     <destination-port>Center Frequency (Hz)</destination-port>
   </connection>
+  <connection>
+    <source-node>OH trigger</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_lvl_1</destination-node>
+    <destination-port>Trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>OH trigger</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_1</destination-node>
+    <destination-port>Trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>OH gate</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_1</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>OH gate</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_lvl_1</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>CH trigger</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>CH trigger</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_lvl_0</destination-node>
+    <destination-port>Trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>CH gate</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_0</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>CH gate</source-node>
+    <source-port>in</source-port>
+    <destination-node>adenv_lvl_0</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>CH velocity</source-node>
+    <source-port>in</source-port>
+    <destination-node>product_iaia_oa_1</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>OH velocity</source-node>
+    <source-port>in</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -847,20 +955,20 @@
       <value>8874.329102</value>
     </control>
     <control>
-      <port-name>volume</port-name>
-      <value>0.775948</value>
-    </control>
-    <control>
-      <port-name>Tune</port-name>
-      <value>9751.000000</value>
+      <port-name>CH Decay</port-name>
+      <value>0.170000</value>
     </control>
     <control>
       <port-name>OH Decay</port-name>
       <value>0.890000</value>
     </control>
     <control>
-      <port-name>CH Decay</port-name>
-      <value>0.170000</value>
+      <port-name>Tune</port-name>
+      <value>9751.000000</value>
+    </control>
+    <control>
+      <port-name>volume</port-name>
+      <value>0.775948</value>
     </control>
   </preset>
 </patch>
