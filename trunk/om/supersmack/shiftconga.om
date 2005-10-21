@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <patch>
-  <name>supermembrane</name>
+  <name>shiftconga</name>
   <polyphony>1</polyphony>
+  <node>
+    <name>adenv</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>adenv</plugin-label>
+    <library-name>adenv.so</library-name>
+    <module-x>2023.000000</module-x>
+    <module-y>942.000000</module-y>
+    <port>
+      <name>Attack Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Decay Time (s)</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
   <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1577.000000</module-x>
-    <module-y>858.000000</module-y>
+    <module-x>1579.000000</module-x>
+    <module-y>860.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -27,8 +46,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1580.000000</module-x>
-    <module-y>975.000000</module-y>
+    <module-x>1581.000000</module-x>
+    <module-y>973.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -46,8 +65,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1580.000000</module-x>
-    <module-y>1081.000000</module-y>
+    <module-x>1582.000000</module-x>
+    <module-y>1082.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -65,8 +84,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1586.000000</module-x>
-    <module-y>1191.000000</module-y>
+    <module-x>1589.000000</module-x>
+    <module-y>1189.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -84,11 +103,11 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1824.000000</module-x>
-    <module-y>1211.000000</module-y>
+    <module-x>1616.000000</module-x>
+    <module-y>1300.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
-      <user-min>0.000000</user-min>
+      <user-min>-0.998000</user-min>
       <user-max>1.000000</user-max>
     </port>
     <port>
@@ -107,26 +126,12 @@
     <module-y>1049.000000</module-y>
   </node>
   <node>
-    <name>amp_stereo</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>amp_stereo</plugin-label>
-    <library-name>amp.so</library-name>
-    <module-x>1471.000000</module-x>
-    <module-y>1300.000000</module-y>
-    <port>
-      <name>Gain</name>
-      <user-min>0.000000</user-min>
-      <user-max>1.000000</user-max>
-    </port>
-  </node>
-  <node>
     <name>audio_output_0</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2125.000000</module-x>
-    <module-y>1077.000000</module-y>
+    <module-x>2243.000000</module-x>
+    <module-y>1080.000000</module-y>
   </node>
   <node>
     <name>bass_f1</name>
@@ -177,12 +182,30 @@
     <module-y>987.000000</module-y>
   </node>
   <node>
+    <name>bodeShifter</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>bodeShifter</plugin-label>
+    <library-name>bode_shifter_1431.so</library-name>
+    <module-x>1499.000000</module-x>
+    <module-y>1294.000000</module-y>
+  </node>
+  <node>
+    <name>bodeShifter_2</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>bodeShifter</plugin-label>
+    <library-name>bode_shifter_1431.so</library-name>
+    <module-x>1493.000000</module-x>
+    <module-y>1398.000000</module-y>
+  </node>
+  <node>
     <name>cutoff</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>control_input</plugin-label>
-    <module-x>1750.000000</module-x>
-    <module-y>1422.000000</module-y>
+    <module-x>1756.000000</module-x>
+    <module-y>1482.000000</module-y>
     <user-max>800.000000</user-max>
     <user-min>0.000000</user-min>
   </node>
@@ -191,8 +214,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>control_input</plugin-label>
-    <module-x>1788.000000</module-x>
-    <module-y>1409.000000</module-y>
+    <module-x>1498.000000</module-x>
+    <module-y>1500.000000</module-y>
     <user-max>0.500000</user-max>
     <user-min>0.000000</user-min>
   </node>
@@ -202,13 +225,30 @@
     <type>LADSPA</type>
     <plugin-label>highpass_iir</plugin-label>
     <library-name>highpass_iir_1890.so</library-name>
-    <module-x>1748.000000</module-x>
-    <module-y>1316.000000</module-y>
+    <module-x>1872.000000</module-x>
+    <module-y>1386.000000</module-y>
     <port>
       <name>Cutoff Frequency</name>
       <user-min>4.410000</user-min>
       <user-max>844.998047</user-max>
     </port>
+  </node>
+  <node>
+    <name>lp4pole_fcrcia_oa</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>lp4pole_fcrcia_oa</plugin-label>
+    <library-name>lp4pole_1671.so</library-name>
+    <module-x>2026.000000</module-x>
+    <module-y>1387.000000</module-y>
+  </node>
+  <node>
+    <name>mute_decay</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1933.000000</module-x>
+    <module-y>853.000000</module-y>
   </node>
   <node>
     <name>mute_f1</name>
@@ -217,7 +257,7 @@
     <plugin-label>control_input</plugin-label>
     <module-x>1139.000000</module-x>
     <module-y>1013.000000</module-y>
-    <user-max>130.000000</user-max>
+    <user-max>446.000000</user-max>
     <user-min>0.000000</user-min>
   </node>
   <node>
@@ -227,7 +267,7 @@
     <plugin-label>control_input</plugin-label>
     <module-x>1017.000000</module-x>
     <module-y>1131.000000</module-y>
-    <user-max>100.000000</user-max>
+    <user-max>360.000000</user-max>
     <user-min>0.000000</user-min>
   </node>
   <node>
@@ -237,7 +277,7 @@
     <plugin-label>control_input</plugin-label>
     <module-x>1001.000000</module-x>
     <module-y>1231.000000</module-y>
-    <user-max>160.000000</user-max>
+    <user-max>450.000000</user-max>
     <user-min>0.000000</user-min>
   </node>
   <node>
@@ -264,8 +304,8 @@
     <type>LADSPA</type>
     <plugin-label>mux_ar</plugin-label>
     <library-name>multiplexer_4420.so</library-name>
-    <module-x>1419.000000</module-x>
-    <module-y>770.000000</module-y>
+    <module-x>1854.000000</module-x>
+    <module-y>847.000000</module-y>
   </node>
   <node>
     <name>mux_ar_2</name>
@@ -273,8 +313,27 @@
     <type>LADSPA</type>
     <plugin-label>mux_ar</plugin-label>
     <library-name>multiplexer_4420.so</library-name>
-    <module-x>1324.000000</module-x>
-    <module-y>777.000000</module-y>
+    <module-x>1750.000000</module-x>
+    <module-y>768.000000</module-y>
+  </node>
+  <node>
+    <name>mux_cr</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>mux_cr</plugin-label>
+    <library-name>multiplexer_4420.so</library-name>
+    <module-x>1942.000000</module-x>
+    <module-y>896.000000</module-y>
+    <port>
+      <name>Off</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>On</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
   </node>
   <node>
     <name>mux_cr_2</name>
@@ -291,8 +350,8 @@
     <type>LADSPA</type>
     <plugin-label>mux_cr</plugin-label>
     <library-name>multiplexer_4420.so</library-name>
-    <module-x>1298.000000</module-x>
-    <module-y>997.000000</module-y>
+    <module-x>1261.000000</module-x>
+    <module-y>983.000000</module-y>
   </node>
   <node>
     <name>mux_cr_4</name>
@@ -349,6 +408,23 @@
     <module-y>1289.000000</module-y>
   </node>
   <node>
+    <name>normal_decay</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1939.000000</module-x>
+    <module-y>814.000000</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>2122.000000</module-x>
+    <module-y>1048.000000</module-y>
+  </node>
+  <node>
     <name>product_iaia_oa_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -390,8 +466,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1886.000000</module-x>
-    <module-y>1312.000000</module-y>
+    <module-x>1741.000000</module-x>
+    <module-y>1393.000000</module-y>
   </node>
   <node>
     <name>product_iaia_oa_5</name>
@@ -399,40 +475,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1894.000000</module-x>
-    <module-y>1057.000000</module-y>
-  </node>
-  <node>
-    <name>ringmod_2i1o_0</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>ringmod_2i1o</plugin-label>
-    <library-name>ringmod_1188.so</library-name>
-    <module-x>1567.000000</module-x>
-    <module-y>1310.000000</module-y>
-    <port>
-      <name>Modulation depth (0=none, 1=AM, 2=RM)</name>
-      <user-min>0.000000</user-min>
-      <user-max>2.999900</user-max>
-    </port>
-  </node>
-  <node>
-    <name>sawtooth_fc_oa_0</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>sawtooth_fc_oa</plugin-label>
-    <library-name>sawtooth_1641.so</library-name>
-    <module-x>1334.000000</module-x>
-    <module-y>1371.000000</module-y>
-  </node>
-  <node>
-    <name>sawtooth_fc_oa_1</name>
-    <polyphonic>true</polyphonic>
-    <type>LADSPA</type>
-    <plugin-label>sawtooth_fc_oa</plugin-label>
-    <library-name>sawtooth_1641.so</library-name>
-    <module-x>1340.000000</module-x>
-    <module-y>1300.000000</module-y>
+    <module-x>1881.000000</module-x>
+    <module-y>1055.000000</module-y>
   </node>
   <node>
     <name>sine_fcac_0</name>
@@ -459,7 +503,7 @@
     <type>LADSPA</type>
     <plugin-label>sine_fcac</plugin-label>
     <library-name>sine.so</library-name>
-    <module-x>1459.000000</module-x>
+    <module-x>1460.000000</module-x>
     <module-y>971.000000</module-y>
     <port>
       <name>Frequency (Hz)</name>
@@ -497,8 +541,8 @@
     <type>LADSPA</type>
     <plugin-label>sine_fcac</plugin-label>
     <library-name>sine.so</library-name>
-    <module-x>1453.000000</module-x>
-    <module-y>1194.000000</module-y>
+    <module-x>1464.000000</module-x>
+    <module-y>1196.000000</module-y>
     <port>
       <name>Frequency (Hz)</name>
       <user-min>0.000000</user-min>
@@ -509,6 +553,15 @@
       <user-min>0.000000</user-min>
       <user-max>1.000000</user-max>
     </port>
+  </node>
+  <node>
+    <name>tap_pinknoise</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>tap_pinknoise</plugin-label>
+    <library-name>tap_pinknoise.so</library-name>
+    <module-x>1624.000000</module-x>
+    <module-y>1411.000000</module-y>
   </node>
   <node>
     <name>tone_f1</name>
@@ -545,8 +598,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>control_input</plugin-label>
-    <module-x>1216.000000</module-x>
-    <module-y>1189.000000</module-y>
+    <module-x>1208.000000</module-x>
+    <module-y>1398.000000</module-y>
     <user-max>480.000000</user-max>
     <user-min>0.000000</user-min>
   </node>
@@ -555,16 +608,27 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1350.000000</module-x>
-    <module-y>1175.000000</module-y>
+    <module-x>1351.000000</module-x>
+    <module-y>1180.000000</module-y>
+  </node>
+  <node>
+    <name>triangle_fcsc_oa</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>triangle_fcsc_oa</plugin-label>
+    <library-name>triangle_1649.so</library-name>
+    <module-x>1362.000000</module-x>
+    <module-y>1362.000000</module-y>
   </node>
   <node>
     <name>volume</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>control_input</plugin-label>
-    <module-x>1942.000000</module-x>
-    <module-y>987.000000</module-y>
+    <module-x>1941.000000</module-x>
+    <module-y>980.000000</module-y>
+    <user-max>1.000000</user-max>
+    <user-min>0.000000</user-min>
   </node>
   <connection>
     <source-node>adenv_4</source-node>
@@ -633,46 +697,10 @@
     <destination-port>Decay Time (s)</destination-port>
   </connection>
   <connection>
-    <source-node>amp_mono_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>audio_output_0</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <connection>
     <source-node>volume</source-node>
     <source-port>in</source-port>
     <destination-node>amp_mono_0</destination-node>
     <destination-port>Gain</destination-port>
-  </connection>
-  <connection>
-    <source-node>product_iaia_oa_2</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>product_iaia_oa_5</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>highpass_iir_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaia_oa_4</destination-node>
-    <destination-port>Second Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>product_iaia_oa_1</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>product_iaia_oa_5</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>product_iaia_oa_3</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>product_iaia_oa_5</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>product_iaia_oa_0</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>product_iaia_oa_5</destination-node>
-    <destination-port>First Input</destination-port>
   </connection>
   <connection>
     <source-node>bass_f1</source-node>
@@ -1065,37 +1093,43 @@
     <destination-port>Frequency (Hz)</destination-port>
   </connection>
   <connection>
-    <source-node>sawtooth_fc_oa_1</source-node>
+    <source-node>triangle_fcsc_oa</source-node>
     <source-port>Output</source-port>
-    <destination-node>amp_stereo</destination-node>
-    <destination-port>Input (Left)</destination-port>
-  </connection>
-  <connection>
-    <source-node>sawtooth_fc_oa_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>amp_stereo</destination-node>
-    <destination-port>Input (Right)</destination-port>
-  </connection>
-  <connection>
-    <source-node>amp_stereo</source-node>
-    <source-port>Output (Left)</source-port>
-    <destination-node>ringmod_2i1o_0</destination-node>
+    <destination-node>bodeShifter</destination-node>
     <destination-port>Input</destination-port>
   </connection>
   <connection>
-    <source-node>amp_stereo</source-node>
-    <source-port>Output (Right)</source-port>
-    <destination-node>ringmod_2i1o_0</destination-node>
-    <destination-port>Modulator</destination-port>
-  </connection>
-  <connection>
-    <source-node>ringmod_2i1o_0</source-node>
+    <source-node>triangle_fcsc_oa</source-node>
     <source-port>Output</source-port>
-    <destination-node>highpass_iir_0</destination-node>
+    <destination-node>bodeShifter_2</destination-node>
     <destination-port>Input</destination-port>
   </connection>
   <connection>
     <source-node>product_iaia_oa_4</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>highpass_iir_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>product_iaia_oa_5</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_3</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>product_iaia_oa_5</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_2</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>product_iaia_oa_5</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_1</source-node>
     <source-port>Product Output</source-port>
     <destination-node>product_iaia_oa_5</destination-node>
     <destination-port>First Input</destination-port>
@@ -1106,12 +1140,88 @@
     <destination-node>amp_mono_0</destination-node>
     <destination-port>Input</destination-port>
   </connection>
+  <connection>
+    <source-node>bodeShifter_2</source-node>
+    <source-port>Up out</source-port>
+    <destination-node>tap_pinknoise</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>tap_pinknoise</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_4</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>highpass_iir_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>lp4pole_fcrcia_oa</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>lp4pole_fcrcia_oa</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_5</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>mux_cr</source-node>
+    <source-port>Output</source-port>
+    <destination-node>adenv</destination-node>
+    <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>amp_mono_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>audio_output_0</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>adenv</source-node>
+    <source-port>Envelope Out</source-port>
+    <destination-node>product_iaia_oa</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>mute_trg</source-node>
+    <source-port>Gate</source-port>
+    <destination-node>mux_cr</destination-node>
+    <destination-port>Gate</destination-port>
+  </connection>
+  <connection>
+    <source-node>mute_decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>mux_cr</destination-node>
+    <destination-port>On</destination-port>
+  </connection>
+  <connection>
+    <source-node>normal_decay</source-node>
+    <source-port>in</source-port>
+    <destination-node>mux_cr</destination-node>
+    <destination-port>Off</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
+      <node-name>adenv</node-name>
+      <port-name>Attack Time (s)</port-name>
+      <value>0.003000</value>
+    </control>
+    <control>
+      <node-name>adenv</node-name>
+      <port-name>Decay Time (s)</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
       <node-name>adenv_0</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000020</value>
+      <value>0.030000</value>
     </control>
     <control>
       <node-name>adenv_0</node-name>
@@ -1121,7 +1231,7 @@
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000020</value>
+      <value>0.003000</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
@@ -1131,7 +1241,7 @@
     <control>
       <node-name>adenv_2</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000020</value>
+      <value>0.003000</value>
     </control>
     <control>
       <node-name>adenv_2</node-name>
@@ -1141,7 +1251,7 @@
     <control>
       <node-name>adenv_3</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000020</value>
+      <value>0.003000</value>
     </control>
     <control>
       <node-name>adenv_3</node-name>
@@ -1151,7 +1261,7 @@
     <control>
       <node-name>adenv_4</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000040</value>
+      <value>0.003000</value>
     </control>
     <control>
       <node-name>adenv_4</node-name>
@@ -1164,14 +1274,19 @@
       <value>1.000000</value>
     </control>
     <control>
-      <node-name>amp_stereo</node-name>
-      <port-name>Gain</port-name>
-      <value>0.222200</value>
-    </control>
-    <control>
       <node-name>bass_trg</node-name>
       <port-name>Note Number</port-name>
       <value>60.000000</value>
+    </control>
+    <control>
+      <node-name>bodeShifter</node-name>
+      <port-name>Frequency shift</port-name>
+      <value>192.000000</value>
+    </control>
+    <control>
+      <node-name>bodeShifter_2</node-name>
+      <port-name>Frequency shift</port-name>
+      <value>323.000000</value>
     </control>
     <control>
       <node-name>highpass_iir_0</node-name>
@@ -1184,11 +1299,31 @@
       <value>2.000000</value>
     </control>
     <control>
+      <node-name>lp4pole_fcrcia_oa</node-name>
+      <port-name>Cutoff Frequency</port-name>
+      <value>554.452148</value>
+    </control>
+    <control>
+      <node-name>lp4pole_fcrcia_oa</node-name>
+      <port-name>Resonance</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
       <node-name>mute_trg</node-name>
       <port-name>Note Number</port-name>
       <value>61.000000</value>
     </control>
     <control>
+      <node-name>mux_cr</node-name>
+      <port-name>Off</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>mux_cr</node-name>
+      <port-name>On</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
       <node-name>mux_cr_2</node-name>
       <port-name>Off</port-name>
       <value>0.000000</value>
@@ -1267,21 +1402,6 @@
       <node-name>mux_cr_9</node-name>
       <port-name>On</port-name>
       <value>0.000000</value>
-    </control>
-    <control>
-      <node-name>ringmod_2i1o_0</node-name>
-      <port-name>Modulation depth (0=none, 1=AM, 2=RM)</port-name>
-      <value>1.430317</value>
-    </control>
-    <control>
-      <node-name>sawtooth_fc_oa_0</node-name>
-      <port-name>Frequency</port-name>
-      <value>87.000000</value>
-    </control>
-    <control>
-      <node-name>sawtooth_fc_oa_1</node-name>
-      <port-name>Frequency</port-name>
-      <value>100.000000</value>
     </control>
     <control>
       <node-name>sine_fcac_0</node-name>
@@ -1291,7 +1411,7 @@
     <control>
       <node-name>sine_fcac_0</node-name>
       <port-name>Amplitude</port-name>
-      <value>0.500000</value>
+      <value>0.470000</value>
     </control>
     <control>
       <node-name>sine_fcac_1</node-name>
@@ -1301,7 +1421,7 @@
     <control>
       <node-name>sine_fcac_1</node-name>
       <port-name>Amplitude</port-name>
-      <value>0.400000</value>
+      <value>0.350000</value>
     </control>
     <control>
       <node-name>sine_fcac_2</node-name>
@@ -1311,7 +1431,7 @@
     <control>
       <node-name>sine_fcac_2</node-name>
       <port-name>Amplitude</port-name>
-      <value>0.300000</value>
+      <value>0.060000</value>
     </control>
     <control>
       <node-name>sine_fcac_3</node-name>
@@ -1321,12 +1441,37 @@
     <control>
       <node-name>sine_fcac_3</node-name>
       <port-name>Amplitude</port-name>
-      <value>0.200000</value>
+      <value>0.030000</value>
+    </control>
+    <control>
+      <node-name>tap_pinknoise</node-name>
+      <port-name>Fractal Dimension</port-name>
+      <value>0.785347</value>
+    </control>
+    <control>
+      <node-name>tap_pinknoise</node-name>
+      <port-name>Signal Level [dB]</port-name>
+      <value>-1.376599</value>
+    </control>
+    <control>
+      <node-name>tap_pinknoise</node-name>
+      <port-name>Noise Level [dB]</port-name>
+      <value>-31.214628</value>
     </control>
     <control>
       <node-name>tone_trg</node-name>
       <port-name>Note Number</port-name>
       <value>62.000000</value>
+    </control>
+    <control>
+      <node-name>triangle_fcsc_oa</node-name>
+      <port-name>Frequency</port-name>
+      <value>102.000000</value>
+    </control>
+    <control>
+      <node-name>triangle_fcsc_oa</node-name>
+      <port-name>Slope</port-name>
+      <value>0.500000</value>
     </control>
     <control>
       <port-name>bass_f1</port-name>
@@ -1342,31 +1487,31 @@
     </control>
     <control>
       <port-name>bass_f4</port-name>
-      <value>457.000000</value>
+      <value>102.000000</value>
     </control>
     <control>
       <port-name>cutoff</port-name>
-      <value>190.990967</value>
+      <value>303.893066</value>
     </control>
     <control>
       <port-name>decay partials</port-name>
-      <value>0.090072</value>
+      <value>0.370000</value>
     </control>
     <control>
       <port-name>mute_f1</port-name>
-      <value>130.000000</value>
+      <value>446.000000</value>
     </control>
     <control>
       <port-name>mute_f2</port-name>
-      <value>100.000000</value>
+      <value>360.000000</value>
     </control>
     <control>
       <port-name>mute_f3</port-name>
-      <value>160.000000</value>
+      <value>59.000000</value>
     </control>
     <control>
       <port-name>mute_f4</port-name>
-      <value>230.000000</value>
+      <value>107.000000</value>
     </control>
     <control>
       <port-name>tone_f1</port-name>
@@ -1386,7 +1531,15 @@
     </control>
     <control>
       <port-name>volume</port-name>
-      <value>0.615938</value>
+      <value>0.999900</value>
+    </control>
+    <control>
+      <port-name>normal_decay</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <port-name>mute_decay</port-name>
+      <value>0.000000</value>
     </control>
   </preset>
 </patch>

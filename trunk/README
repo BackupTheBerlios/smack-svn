@@ -10,6 +10,8 @@ The gui building has been disabled, as it does not work with the latest versions
 
 Each of the drums should be more or less the right midi note as per the gm drum spec. 808 drums can be loaded as one kit, with one midi in for all the drums, just load 808 kit for this. Otherwise each different drum comes up as a different alsa port, and has a different jack output port. 
 
+*** You need  a post 10th october 2005 cvs version of om to load the 808 kit. ***
+
 om: http://savannah.nongnu.org/projects/om-synth
 plugins: http://plugin.org.uk/
 
