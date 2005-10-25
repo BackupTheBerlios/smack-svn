@@ -33,6 +33,14 @@
     <user-min>15.000000</user-min>
   </node>
   <node>
+    <name>Volume</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>2360.000000</module-x>
+    <module-y>1188.000000</module-y>
+  </node>
+  <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -110,8 +118,8 @@
     <type>LADSPA</type>
     <plugin-label>amp_mono</plugin-label>
     <library-name>cmt.so</library-name>
-    <module-x>2409.000000</module-x>
-    <module-y>1277.000000</module-y>
+    <module-x>2415.000000</module-x>
+    <module-y>1236.000000</module-y>
     <port>
       <name>Gain</name>
       <user-min>0.000000</user-min>
@@ -359,6 +367,12 @@
     <destination-node>lowpass_iir0</destination-node>
     <destination-port>Cutoff Frequency</destination-port>
   </connection>
+  <connection>
+    <source-node>Volume</source-node>
+    <source-port>in</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Gain</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -437,6 +451,10 @@
       <value>0.999900</value>
     </control>
     <control>
+      <port-name>Decay</port-name>
+      <value>0.860000</value>
+    </control>
+    <control>
       <port-name>Tone</port-name>
       <value>7000.000000</value>
     </control>
@@ -445,8 +463,8 @@
       <value>65.000000</value>
     </control>
     <control>
-      <port-name>Decay</port-name>
-      <value>0.860000</value>
+      <port-name>Volume</port-name>
+      <value>0.644935</value>
     </control>
   </preset>
 </patch>

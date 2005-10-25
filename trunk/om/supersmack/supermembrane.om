@@ -8,8 +8,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1577.000000</module-x>
-    <module-y>858.000000</module-y>
+    <module-x>1578.000000</module-x>
+    <module-y>857.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -84,8 +84,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1824.000000</module-x>
-    <module-y>1211.000000</module-y>
+    <module-x>1707.000000</module-x>
+    <module-y>1213.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -181,8 +181,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>control_input</plugin-label>
-    <module-x>1750.000000</module-x>
-    <module-y>1422.000000</module-y>
+    <module-x>1624.000000</module-x>
+    <module-y>1436.000000</module-y>
     <user-max>800.000000</user-max>
     <user-min>0.000000</user-min>
   </node>
@@ -202,13 +202,22 @@
     <type>LADSPA</type>
     <plugin-label>highpass_iir</plugin-label>
     <library-name>highpass_iir_1890.so</library-name>
-    <module-x>1748.000000</module-x>
-    <module-y>1316.000000</module-y>
+    <module-x>1759.000000</module-x>
+    <module-y>1318.000000</module-y>
     <port>
       <name>Cutoff Frequency</name>
       <user-min>4.410000</user-min>
       <user-max>844.998047</user-max>
     </port>
+  </node>
+  <node>
+    <name>lp4pole_fcrcia_oa</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>lp4pole_fcrcia_oa</plugin-label>
+    <library-name>lp4pole_1671.so</library-name>
+    <module-x>1891.000000</module-x>
+    <module-y>1318.000000</module-y>
   </node>
   <node>
     <name>mute_f1</name>
@@ -390,8 +399,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1886.000000</module-x>
-    <module-y>1312.000000</module-y>
+    <module-x>2022.000000</module-x>
+    <module-y>1326.000000</module-y>
   </node>
   <node>
     <name>product_iaia_oa_5</name>
@@ -399,8 +408,8 @@
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
-    <module-x>1894.000000</module-x>
-    <module-y>1057.000000</module-y>
+    <module-x>1876.000000</module-x>
+    <module-y>1053.000000</module-y>
   </node>
   <node>
     <name>ringmod_2i1o_0</name>
@@ -409,7 +418,7 @@
     <plugin-label>ringmod_2i1o</plugin-label>
     <library-name>ringmod_1188.so</library-name>
     <module-x>1567.000000</module-x>
-    <module-y>1310.000000</module-y>
+    <module-y>1312.000000</module-y>
     <port>
       <name>Modulation depth (0=none, 1=AM, 2=RM)</name>
       <user-min>0.000000</user-min>
@@ -497,7 +506,7 @@
     <type>LADSPA</type>
     <plugin-label>sine_fcac</plugin-label>
     <library-name>sine.so</library-name>
-    <module-x>1453.000000</module-x>
+    <module-x>1454.000000</module-x>
     <module-y>1194.000000</module-y>
     <port>
       <name>Frequency (Hz)</name>
@@ -649,12 +658,6 @@
     <source-port>Product Output</source-port>
     <destination-node>product_iaia_oa_5</destination-node>
     <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>highpass_iir_0</source-node>
-    <source-port>Output</source-port>
-    <destination-node>product_iaia_oa_4</destination-node>
-    <destination-port>Second Input</destination-port>
   </connection>
   <connection>
     <source-node>product_iaia_oa_1</source-node>
@@ -1095,23 +1098,35 @@
     <destination-port>Input</destination-port>
   </connection>
   <connection>
+    <source-node>product_iaia_oa_5</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>amp_mono_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
     <source-node>product_iaia_oa_4</source-node>
     <source-port>Product Output</source-port>
     <destination-node>product_iaia_oa_5</destination-node>
     <destination-port>First Input</destination-port>
   </connection>
   <connection>
-    <source-node>product_iaia_oa_5</source-node>
-    <source-port>Product Output</source-port>
-    <destination-node>amp_mono_0</destination-node>
+    <source-node>highpass_iir_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>lp4pole_fcrcia_oa</destination-node>
     <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>lp4pole_fcrcia_oa</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_4</destination-node>
+    <destination-port>Second Input</destination-port>
   </connection>
   <preset>
     <name>default</name>
     <control>
       <node-name>adenv_0</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000020</value>
+      <value>0.002000</value>
     </control>
     <control>
       <node-name>adenv_0</node-name>
@@ -1121,7 +1136,7 @@
     <control>
       <node-name>adenv_1</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000020</value>
+      <value>0.002000</value>
     </control>
     <control>
       <node-name>adenv_1</node-name>
@@ -1131,7 +1146,7 @@
     <control>
       <node-name>adenv_2</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000020</value>
+      <value>0.002000</value>
     </control>
     <control>
       <node-name>adenv_2</node-name>
@@ -1141,7 +1156,7 @@
     <control>
       <node-name>adenv_3</node-name>
       <port-name>Attack Time (s)</port-name>
-      <value>0.000020</value>
+      <value>0.002000</value>
     </control>
     <control>
       <node-name>adenv_3</node-name>
@@ -1181,7 +1196,17 @@
     <control>
       <node-name>highpass_iir_0</node-name>
       <port-name>Stages(2 poles per stage)</port-name>
-      <value>2.000000</value>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>lp4pole_fcrcia_oa</node-name>
+      <port-name>Cutoff Frequency</port-name>
+      <value>1569.263428</value>
+    </control>
+    <control>
+      <node-name>lp4pole_fcrcia_oa</node-name>
+      <port-name>Resonance</port-name>
+      <value>0.050208</value>
     </control>
     <control>
       <node-name>mute_trg</node-name>
@@ -1271,7 +1296,7 @@
     <control>
       <node-name>ringmod_2i1o_0</node-name>
       <port-name>Modulation depth (0=none, 1=AM, 2=RM)</port-name>
-      <value>1.430317</value>
+      <value>2.000000</value>
     </control>
     <control>
       <node-name>sawtooth_fc_oa_0</node-name>
@@ -1291,7 +1316,7 @@
     <control>
       <node-name>sine_fcac_0</node-name>
       <port-name>Amplitude</port-name>
-      <value>0.500000</value>
+      <value>0.300000</value>
     </control>
     <control>
       <node-name>sine_fcac_1</node-name>
@@ -1301,7 +1326,7 @@
     <control>
       <node-name>sine_fcac_1</node-name>
       <port-name>Amplitude</port-name>
-      <value>0.400000</value>
+      <value>0.150000</value>
     </control>
     <control>
       <node-name>sine_fcac_2</node-name>
@@ -1311,7 +1336,7 @@
     <control>
       <node-name>sine_fcac_2</node-name>
       <port-name>Amplitude</port-name>
-      <value>0.300000</value>
+      <value>0.100000</value>
     </control>
     <control>
       <node-name>sine_fcac_3</node-name>
@@ -1321,7 +1346,7 @@
     <control>
       <node-name>sine_fcac_3</node-name>
       <port-name>Amplitude</port-name>
-      <value>0.200000</value>
+      <value>0.060000</value>
     </control>
     <control>
       <node-name>tone_trg</node-name>
