@@ -99,12 +99,12 @@
     </port>
   </node>
   <node>
-    <name>gate</name>
+    <name>cowbell trigger</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>1432.000000</module-x>
-    <module-y>1086.000000</module-y>
+    <plugin-label>midi_input</plugin-label>
+    <module-x>1303.000000</module-x>
+    <module-y>1149.000000</module-y>
   </node>
   <node>
     <name>midi_trigger_in0</name>
@@ -178,22 +178,6 @@
     </port>
   </node>
   <node>
-    <name>trigger</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>1372.000000</module-x>
-    <module-y>1107.000000</module-y>
-  </node>
-  <node>
-    <name>velocity</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>2143.000000</module-x>
-    <module-y>1168.000000</module-y>
-  </node>
-  <node>
     <name>volume</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
@@ -206,12 +190,6 @@
     <source-port>Product Output</source-port>
     <destination-node>bandpass_a_iir0</destination-node>
     <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Gate</destination-port>
   </connection>
   <connection>
     <source-node>adenv_0</source-node>
@@ -298,22 +276,10 @@
     <destination-port>Frequency</destination-port>
   </connection>
   <connection>
-    <source-node>gate</source-node>
+    <source-node>cowbell trigger</source-node>
     <source-port>in</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>velocity</source-node>
-    <source-port>in</source-port>
-    <destination-node>product_iaia_oa_0</destination-node>
-    <destination-port>First Input</destination-port>
+    <destination-node>midi_trigger_in0</destination-node>
+    <destination-port>MIDI In</destination-port>
   </connection>
   <preset>
     <name>default</name>

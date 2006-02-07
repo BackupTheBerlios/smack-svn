@@ -23,14 +23,6 @@
     <user-min>30.000000</user-min>
   </node>
   <node>
-    <name>Velocity</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>2070.000000</module-x>
-    <module-y>1176.000000</module-y>
-  </node>
-  <node>
     <name>adenv_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -83,12 +75,12 @@
     </port>
   </node>
   <node>
-    <name>gate</name>
+    <name>midi_input</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>1475.000000</module-x>
-    <module-y>1031.000000</module-y>
+    <plugin-label>midi_input</plugin-label>
+    <module-x>1394.000000</module-x>
+    <module-y>1108.000000</module-y>
   </node>
   <node>
     <name>midi_trigger_in0</name>
@@ -139,14 +131,6 @@
     </port>
   </node>
   <node>
-    <name>trigger</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>1552.000000</module-x>
-    <module-y>1017.000000</module-y>
-  </node>
-  <node>
     <name>volume</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
@@ -165,12 +149,6 @@
     <source-port>Output</source-port>
     <destination-node>bandpass_a_iir0</destination-node>
     <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Gate</destination-port>
   </connection>
   <connection>
     <source-node>adenv_0</source-node>
@@ -221,28 +199,16 @@
     <destination-port>Center Frequency (Hz)</destination-port>
   </connection>
   <connection>
-    <source-node>gate</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>Velocity</source-node>
-    <source-port>in</source-port>
-    <destination-node>product_iaia_oa_0</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
     <source-node>midi_trigger_in0</source-node>
     <source-port>Velocity</source-port>
     <destination-node>product_iaia_oa_0</destination-node>
     <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_input</source-node>
+    <source-port>in</source-port>
+    <destination-node>midi_trigger_in0</destination-node>
+    <destination-port>MIDI In</destination-port>
   </connection>
   <preset>
     <name>default</name>

@@ -141,12 +141,20 @@
     </port>
   </node>
   <node>
+    <name>midi_input</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>midi_input</plugin-label>
+    <module-x>1344.000000</module-x>
+    <module-y>1221.000000</module-y>
+  </node>
+  <node>
     <name>midi_trigger_in0</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1441.906250</module-x>
-    <module-y>1221.531250</module-y>
+    <module-x>1443.906250</module-x>
+    <module-y>1220.531250</module-y>
   </node>
   <node>
     <name>mixer0</name>
@@ -266,22 +274,10 @@
     <destination-port>Input 1</destination-port>
   </connection>
   <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
     <source-node>adenv_0</source-node>
     <source-port>Envelope Out</source-port>
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_1</destination-node>
-    <destination-port>Gate</destination-port>
   </connection>
   <connection>
     <source-node>adenv_1</source-node>
@@ -296,22 +292,10 @@
     <destination-port>Frequency</destination-port>
   </connection>
   <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_lvl_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
     <source-node>mixer1</source-node>
     <source-port>Output</source-port>
     <destination-node>amp_mono_0</destination-node>
     <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Trigger</source-port>
-    <destination-node>adenv_lvl_0</destination-node>
-    <destination-port>Trigger</destination-port>
   </connection>
   <connection>
     <source-node>midi_trigger_in0</source-node>
@@ -372,6 +356,18 @@
     <source-port>in</source-port>
     <destination-node>amp_mono_0</destination-node>
     <destination-port>Gain</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_input</source-node>
+    <source-port>in</source-port>
+    <destination-node>midi_trigger_in0</destination-node>
+    <destination-port>MIDI In</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Trigger</source-port>
+    <destination-node>adenv_lvl_0</destination-node>
+    <destination-port>Trigger</destination-port>
   </connection>
   <preset>
     <name>default</name>

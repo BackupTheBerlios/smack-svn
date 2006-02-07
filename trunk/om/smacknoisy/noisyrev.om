@@ -114,6 +114,14 @@
     </port>
   </node>
   <node>
+    <name>midi_input</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>midi_input</plugin-label>
+    <module-x>1330.000000</module-x>
+    <module-y>974.000000</module-y>
+  </node>
+  <node>
     <name>noise_source_white_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -320,12 +328,6 @@
     <destination-port>Decay Time (s)</destination-port>
   </connection>
   <connection>
-    <source-node>trigger_in_0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
     <source-node>cutoff</source-node>
     <source-port>in</source-port>
     <destination-node>lp4pole_fcrcia_oa_0</destination-node>
@@ -342,6 +344,12 @@
     <source-port>in</source-port>
     <destination-node>revdelay_0</destination-node>
     <destination-port>Delay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_input</source-node>
+    <source-port>in</source-port>
+    <destination-node>trigger_in_0</destination-node>
+    <destination-port>MIDI In</destination-port>
   </connection>
   <preset>
     <name>default</name>
@@ -423,7 +431,7 @@
     <control>
       <node-name>trigger_in_0</node-name>
       <port-name>Note Number</port-name>
-      <value>60.000000</value>
+      <value>64.000000</value>
     </control>
     <control>
       <node-name>vcf_hp_0</node-name>
@@ -447,23 +455,23 @@
     </control>
     <control>
       <port-name>cutoff</port-name>
-      <value>6786.000000</value>
+      <value>9251.991211</value>
     </control>
     <control>
       <port-name>decay</port-name>
-      <value>0.128501</value>
+      <value>0.204424</value>
     </control>
     <control>
       <port-name>delaytime</port-name>
-      <value>0.012146</value>
+      <value>0.017874</value>
     </control>
     <control>
       <port-name>shift</port-name>
-      <value>4685.000000</value>
+      <value>3960.088867</value>
     </control>
     <control>
       <port-name>volume</port-name>
-      <value>0.666600</value>
+      <value>0.595496</value>
     </control>
   </preset>
 </patch>

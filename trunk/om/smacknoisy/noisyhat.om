@@ -68,6 +68,14 @@
     <module-y>1107.000000</module-y>
   </node>
   <node>
+    <name>midi_input</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>midi_input</plugin-label>
+    <module-x>1324.000000</module-x>
+    <module-y>1008.000000</module-y>
+  </node>
+  <node>
     <name>noise_source_white_0</name>
     <polyphonic>true</polyphonic>
     <type>LADSPA</type>
@@ -110,12 +118,6 @@
     <module-x>1999.000000</module-x>
     <module-y>1071.000000</module-y>
   </node>
-  <connection>
-    <source-node>trigger_in_0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
   <connection>
     <source-node>adenv_0</source-node>
     <source-port>Envelope Out</source-port>
@@ -182,6 +184,12 @@
     <destination-node>lp4pole_fcrcia_oa_0</destination-node>
     <destination-port>Cutoff Frequency</destination-port>
   </connection>
+  <connection>
+    <source-node>midi_input</source-node>
+    <source-port>in</source-port>
+    <destination-node>trigger_in_0</destination-node>
+    <destination-port>MIDI In</destination-port>
+  </connection>
   <preset>
     <name>default</name>
     <control>
@@ -217,11 +225,7 @@
     <control>
       <node-name>trigger_in_0</node-name>
       <port-name>Note Number</port-name>
-      <value>60.000000</value>
-    </control>
-    <control>
-      <port-name>volume</port-name>
-      <value>0.500000</value>
+      <value>63.000000</value>
     </control>
     <control>
       <port-name>cutoff</port-name>
@@ -230,6 +234,10 @@
     <control>
       <port-name>decay</port-name>
       <value>0.090000</value>
+    </control>
+    <control>
+      <port-name>volume</port-name>
+      <value>0.500000</value>
     </control>
   </preset>
 </patch>

@@ -236,12 +236,20 @@
     <module-y>1183.314209</module-y>
   </node>
   <node>
+    <name>midi_input</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>midi_input</plugin-label>
+    <module-x>1204.000000</module-x>
+    <module-y>932.000000</module-y>
+  </node>
+  <node>
     <name>midi_trigger_in0</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1286.413818</module-x>
-    <module-y>962.862061</module-y>
+    <module-x>1293.413818</module-x>
+    <module-y>957.862061</module-y>
   </node>
   <node>
     <name>noise_source_white0</name>
@@ -393,28 +401,10 @@
     <destination-port>Second Input</destination-port>
   </connection>
   <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_1</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
     <source-node>adenv_1</source-node>
     <source-port>Envelope Out</source-port>
     <destination-node>product_iaia_oa0</destination-node>
     <destination-port>Second Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_lvl_1</destination-node>
-    <destination-port>Gate</destination-port>
   </connection>
   <connection>
     <source-node>adenv_lvl_1</source-node>
@@ -429,28 +419,10 @@
     <destination-port>Frequency</destination-port>
   </connection>
   <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_lvl_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
     <source-node>adenv_3</source-node>
     <source-port>Envelope Out</source-port>
     <destination-node>product_iaia_oa3</destination-node>
     <destination-port>Second Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_3</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_2</destination-node>
-    <destination-port>Gate</destination-port>
   </connection>
   <connection>
     <source-node>adenv_2</source-node>
@@ -586,15 +558,15 @@
   </connection>
   <connection>
     <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_4</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
     <source-port>Trigger</source-port>
     <destination-node>adenv_4</destination-node>
     <destination-port>Trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_input</source-node>
+    <source-port>in</source-port>
+    <destination-node>midi_trigger_in0</destination-node>
+    <destination-port>MIDI In</destination-port>
   </connection>
   <preset>
     <name>default</name>
@@ -744,14 +716,6 @@
       <value>1.000000</value>
     </control>
     <control>
-      <port-name>snappy</port-name>
-      <value>0.130000</value>
-    </control>
-    <control>
-      <port-name>Tone1</port-name>
-      <value>159.000000</value>
-    </control>
-    <control>
       <port-name>Decay</port-name>
       <value>0.296108</value>
     </control>
@@ -760,8 +724,16 @@
       <value>1670.000000</value>
     </control>
     <control>
+      <port-name>Tone1</port-name>
+      <value>159.000000</value>
+    </control>
+    <control>
       <port-name>Tone2</port-name>
       <value>300.000000</value>
+    </control>
+    <control>
+      <port-name>snappy</port-name>
+      <value>0.130000</value>
     </control>
   </preset>
 </patch>

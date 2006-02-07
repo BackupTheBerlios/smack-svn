@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <patch>
-  <name>808kit</name>
+  <name></name>
   <polyphony>1</polyphony>
-  <author>Loki Davison</author>
-  <description>Overall 808kit patch, covering the normal 808 drums, can also use the subpatches individualy.</description>
   <subpatch>
     <name>808bass</name>
     <filename>smack808/808bass.om</filename>
     <polyphony>1</polyphony>
-    <module-x>1505.000000</module-x>
-    <module-y>949.000000</module-y>
+    <module-x>1481.000000</module-x>
+    <module-y>921.000000</module-y>
   </subpatch>
   <subpatch>
     <name>808clave</name>
     <filename>smack808/808clave.om</filename>
     <polyphony>1</polyphony>
-    <module-x>1507.000000</module-x>
-    <module-y>1299.000000</module-y>
+    <module-x>1484.000000</module-x>
+    <module-y>1445.000000</module-y>
   </subpatch>
   <subpatch>
     <name>808cowbell</name>
     <filename>smack808/808cowbell.om</filename>
     <polyphony>1</polyphony>
-    <module-x>1413.000000</module-x>
-    <module-y>1188.000000</module-y>
+    <module-x>1481.000000</module-x>
+    <module-y>1192.000000</module-y>
   </subpatch>
   <subpatch>
     <name>808hihat</name>
     <filename>smack808/808hihat.om</filename>
     <polyphony>1</polyphony>
-    <module-x>1502.000000</module-x>
-    <module-y>1110.000000</module-y>
+    <module-x>1484.000000</module-x>
+    <module-y>1317.000000</module-y>
   </subpatch>
   <subpatch>
     <name>808snare</name>
     <filename>smack808/808snare.om</filename>
     <polyphony>1</polyphony>
-    <module-x>1575.000000</module-x>
-    <module-y>1047.000000</module-y>
+    <module-x>1483.000000</module-x>
+    <module-y>1036.000000</module-y>
   </subpatch>
   <node>
     <name>bass</name>
@@ -80,6 +78,14 @@
     <module-y>1256.000000</module-y>
   </node>
   <node>
+    <name>smack808</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>midi_input</plugin-label>
+    <module-x>1346.000000</module-x>
+    <module-y>1181.000000</module-y>
+  </node>
+  <node>
     <name>snare</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
@@ -87,126 +93,6 @@
     <module-x>1716.000000</module-x>
     <module-y>1047.000000</module-y>
   </node>
-  <node>
-    <name>trigger_in_0</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>trigger_in</plugin-label>
-    <module-x>1304.000000</module-x>
-    <module-y>961.000000</module-y>
-  </node>
-  <node>
-    <name>trigger_in_1</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>trigger_in</plugin-label>
-    <module-x>1417.000000</module-x>
-    <module-y>1023.000000</module-y>
-  </node>
-  <node>
-    <name>trigger_in_2</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>trigger_in</plugin-label>
-    <module-x>1305.000000</module-x>
-    <module-y>1061.000000</module-y>
-  </node>
-  <node>
-    <name>trigger_in_3</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>trigger_in</plugin-label>
-    <module-x>1302.000000</module-x>
-    <module-y>1232.000000</module-y>
-  </node>
-  <node>
-    <name>trigger_in_4</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>trigger_in</plugin-label>
-    <module-x>1301.000000</module-x>
-    <module-y>1155.000000</module-y>
-  </node>
-  <node>
-    <name>trigger_in_5</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>trigger_in</plugin-label>
-    <module-x>1305.000000</module-x>
-    <module-y>1321.000000</module-y>
-  </node>
-  <connection>
-    <source-node>trigger_in_0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>808bass</destination-node>
-    <destination-port>gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_0</source-node>
-    <source-port>Trigger</source-port>
-    <destination-node>808bass</destination-node>
-    <destination-port>trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_1</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>808snare</destination-node>
-    <destination-port>gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_1</source-node>
-    <source-port>Trigger</source-port>
-    <destination-node>808snare</destination-node>
-    <destination-port>trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_2</source-node>
-    <source-port>Trigger</source-port>
-    <destination-node>808hihat</destination-node>
-    <destination-port>CH trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_2</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>808hihat</destination-node>
-    <destination-port>CH gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_4</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>808hihat</destination-node>
-    <destination-port>OH gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_4</source-node>
-    <source-port>Trigger</source-port>
-    <destination-node>808hihat</destination-node>
-    <destination-port>OH trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_3</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>808cowbell</destination-node>
-    <destination-port>gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_3</source-node>
-    <source-port>Trigger</source-port>
-    <destination-node>808cowbell</destination-node>
-    <destination-port>trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_5</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>808clave</destination-node>
-    <destination-port>gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_5</source-node>
-    <source-port>Trigger</source-port>
-    <destination-node>808clave</destination-node>
-    <destination-port>trigger</destination-port>
-  </connection>
   <connection>
     <source-node>808bass</source-node>
     <source-port>output0</source-port>
@@ -238,30 +124,6 @@
     <destination-port>out</destination-port>
   </connection>
   <connection>
-    <source-node>trigger_in_0</source-node>
-    <source-port>Velocity</source-port>
-    <destination-node>808bass</destination-node>
-    <destination-port>velocity</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_2</source-node>
-    <source-port>Velocity</source-port>
-    <destination-node>808hihat</destination-node>
-    <destination-port>CH velocity</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_4</source-node>
-    <source-port>Velocity</source-port>
-    <destination-node>808hihat</destination-node>
-    <destination-port>OH velocity</destination-port>
-  </connection>
-  <connection>
-    <source-node>trigger_in_3</source-node>
-    <source-port>Velocity</source-port>
-    <destination-node>808cowbell</destination-node>
-    <destination-port>velocity</destination-port>
-  </connection>
-  <connection>
     <source-node>808bass</source-node>
     <source-port>output0</source-port>
     <destination-node>kitmixed</destination-node>
@@ -292,16 +154,40 @@
     <destination-port>out</destination-port>
   </connection>
   <connection>
-    <source-node>trigger_in_1</source-node>
-    <source-port>Velocity</source-port>
-    <destination-node>808snare</destination-node>
-    <destination-port>velocity</destination-port>
+    <source-node>smack808</source-node>
+    <source-port>in</source-port>
+    <destination-node>808bass</destination-node>
+    <destination-port>bass trigger</destination-port>
   </connection>
   <connection>
-    <source-node>trigger_in_5</source-node>
-    <source-port>Velocity</source-port>
+    <source-node>smack808</source-node>
+    <source-port>in</source-port>
+    <destination-node>808snare</destination-node>
+    <destination-port>snare trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>smack808</source-node>
+    <source-port>in</source-port>
+    <destination-node>808cowbell</destination-node>
+    <destination-port>cowbell trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>smack808</source-node>
+    <source-port>in</source-port>
+    <destination-node>808hihat</destination-node>
+    <destination-port>CH trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>smack808</source-node>
+    <source-port>in</source-port>
+    <destination-node>808hihat</destination-node>
+    <destination-port>OH trigger</destination-port>
+  </connection>
+  <connection>
+    <source-node>smack808</source-node>
+    <source-port>in</source-port>
     <destination-node>808clave</destination-node>
-    <destination-port>Velocity</destination-port>
+    <destination-port>midi_input</destination-port>
   </connection>
   <preset>
     <name>default</name>
@@ -404,36 +290,6 @@
       <node-name>808snare</node-name>
       <port-name>Volume</port-name>
       <value>0.036172</value>
-    </control>
-    <control>
-      <node-name>trigger_in_0</node-name>
-      <port-name>Note Number</port-name>
-      <value>35.000000</value>
-    </control>
-    <control>
-      <node-name>trigger_in_1</node-name>
-      <port-name>Note Number</port-name>
-      <value>38.000000</value>
-    </control>
-    <control>
-      <node-name>trigger_in_2</node-name>
-      <port-name>Note Number</port-name>
-      <value>60.000000</value>
-    </control>
-    <control>
-      <node-name>trigger_in_3</node-name>
-      <port-name>Note Number</port-name>
-      <value>56.000000</value>
-    </control>
-    <control>
-      <node-name>trigger_in_4</node-name>
-      <port-name>Note Number</port-name>
-      <value>42.000000</value>
-    </control>
-    <control>
-      <node-name>trigger_in_5</node-name>
-      <port-name>Note Number</port-name>
-      <value>75.000000</value>
     </control>
   </preset>
 </patch>

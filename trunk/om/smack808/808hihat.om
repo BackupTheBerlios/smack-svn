@@ -11,28 +11,12 @@
     <module-y>1430.000000</module-y>
   </node>
   <node>
-    <name>CH gate</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>1581.000000</module-x>
-    <module-y>1440.000000</module-y>
-  </node>
-  <node>
     <name>CH trigger</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>1775.000000</module-x>
-    <module-y>1544.000000</module-y>
-  </node>
-  <node>
-    <name>CH velocity</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>2430.000000</module-x>
-    <module-y>1468.000000</module-y>
+    <plugin-label>midi_input</plugin-label>
+    <module-x>1566.000000</module-x>
+    <module-y>1530.000000</module-y>
   </node>
   <node>
     <name>OH Decay</name>
@@ -45,28 +29,12 @@
     <user-min>0.000000</user-min>
   </node>
   <node>
-    <name>OH gate</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>1725.000000</module-x>
-    <module-y>913.000000</module-y>
-  </node>
-  <node>
     <name>OH trigger</name>
     <polyphonic>true</polyphonic>
     <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>1794.000000</module-x>
-    <module-y>887.000000</module-y>
-  </node>
-  <node>
-    <name>OH velocity</name>
-    <polyphonic>true</polyphonic>
-    <type>Internal</type>
-    <plugin-label>audio_input</plugin-label>
-    <module-x>2430.000000</module-x>
-    <module-y>1078.000000</module-y>
+    <plugin-label>midi_input</plugin-label>
+    <module-x>1505.000000</module-x>
+    <module-y>961.000000</module-y>
   </node>
   <node>
     <name>Tune</name>
@@ -103,8 +71,8 @@
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
-    <module-x>1869.000000</module-x>
-    <module-y>987.000000</module-y>
+    <module-x>1882.000000</module-x>
+    <module-y>975.000000</module-y>
     <port>
       <name>Attack Time (s)</name>
       <user-min>0.000000</user-min>
@@ -157,7 +125,7 @@
     <plugin-label>adenv_lvl</plugin-label>
     <library-name>adenv_lvl.so</library-name>
     <module-x>2297.000000</module-x>
-    <module-y>1409.000000</module-y>
+    <module-y>1471.000000</module-y>
     <port>
       <name>Initial Level</name>
       <user-min>0.000000</user-min>
@@ -270,8 +238,8 @@
     <polyphonic>true</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
-    <module-x>1663</module-x>
-    <module-y>1466</module-y>
+    <module-x>1669.000000</module-x>
+    <module-y>1502.000000</module-y>
   </node>
   <node>
     <name>mixer0</name>
@@ -565,22 +533,10 @@
     <destination-port>Input 1</destination-port>
   </connection>
   <connection>
-    <source-node>midi_trigger_in1</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
     <source-node>adenv_0</source-node>
     <source-port>Envelope Out</source-port>
     <destination-node>product_iaia_oa1</destination-node>
     <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_1</destination-node>
-    <destination-port>Gate</destination-port>
   </connection>
   <connection>
     <source-node>adenv_1</source-node>
@@ -625,30 +581,6 @@
     <destination-port>Second Input</destination-port>
   </connection>
   <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_lvl_1</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in0</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_lvl_0</destination-node>
-    <destination-port>Reset Level</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in1</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_lvl_1</destination-node>
-    <destination-port>Reset Level</destination-port>
-  </connection>
-  <connection>
-    <source-node>midi_trigger_in1</source-node>
-    <source-port>Gate</source-port>
-    <destination-node>adenv_lvl_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
     <source-node>product_iaia_oa_4</source-node>
     <source-port>Product Output</source-port>
     <destination-node>product_iaia_oa_1</destination-node>
@@ -691,12 +623,6 @@
     <destination-port>Trigger</destination-port>
   </connection>
   <connection>
-    <source-node>midi_trigger_in1</source-node>
-    <source-port>Trigger</source-port>
-    <destination-node>adenv_lvl_0</destination-node>
-    <destination-port>Trigger</destination-port>
-  </connection>
-  <connection>
     <source-node>volume</source-node>
     <source-port>in</source-port>
     <destination-node>amp_mono_0</destination-node>
@@ -721,78 +647,6 @@
     <destination-port>Center Frequency (Hz)</destination-port>
   </connection>
   <connection>
-    <source-node>OH trigger</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_lvl_1</destination-node>
-    <destination-port>Trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>OH trigger</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_1</destination-node>
-    <destination-port>Trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>OH gate</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_1</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>OH gate</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_lvl_1</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>CH trigger</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>CH trigger</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_lvl_0</destination-node>
-    <destination-port>Trigger</destination-port>
-  </connection>
-  <connection>
-    <source-node>CH gate</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>CH gate</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_lvl_0</destination-node>
-    <destination-port>Gate</destination-port>
-  </connection>
-  <connection>
-    <source-node>CH velocity</source-node>
-    <source-port>in</source-port>
-    <destination-node>product_iaia_oa_1</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>OH velocity</source-node>
-    <source-port>in</source-port>
-    <destination-node>product_iaia_oa_0</destination-node>
-    <destination-port>First Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>OH gate</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_lvl_0</destination-node>
-    <destination-port>Reset Level</destination-port>
-  </connection>
-  <connection>
-    <source-node>CH gate</source-node>
-    <source-port>in</source-port>
-    <destination-node>adenv_lvl_1</destination-node>
-    <destination-port>Reset Level</destination-port>
-  </connection>
-  <connection>
     <source-node>midi_trigger_in0</source-node>
     <source-port>Velocity</source-port>
     <destination-node>product_iaia_oa_0</destination-node>
@@ -803,6 +657,36 @@
     <source-port>Velocity</source-port>
     <destination-node>product_iaia_oa_1</destination-node>
     <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>OH trigger</source-node>
+    <source-port>in</source-port>
+    <destination-node>midi_trigger_in0</destination-node>
+    <destination-port>MIDI In</destination-port>
+  </connection>
+  <connection>
+    <source-node>CH trigger</source-node>
+    <source-port>in</source-port>
+    <destination-node>midi_trigger_in1</destination-node>
+    <destination-port>MIDI In</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in1</source-node>
+    <source-port>Trigger</source-port>
+    <destination-node>adenv_lvl_1</destination-node>
+    <destination-port>Reset Level</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in0</source-node>
+    <source-port>Trigger</source-port>
+    <destination-node>adenv_lvl_0</destination-node>
+    <destination-port>Reset Level</destination-port>
+  </connection>
+  <connection>
+    <source-node>midi_trigger_in1</source-node>
+    <source-port>Trigger</source-port>
+    <destination-node>adenv_lvl_0</destination-node>
+    <destination-port>Trigger</destination-port>
   </connection>
   <preset>
     <name>default</name>
