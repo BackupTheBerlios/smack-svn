@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<patch>
+  <name>panner_m_to_s</name>
+  <polyphony>1</polyphony>
+  <filename>panner_m_to_s.om</filename>
+  <node>
+    <name>1_minus_input</name>
+    <polyphonic>false</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>difference_icma_oa</plugin-label>
+    <library-name>difference_2030.so</library-name>
+    <module-x>1544.000000</module-x>
+    <module-y>1088.000000</module-y>
+    <port>
+      <name>Input</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>in</name>
+    <polyphonic>false</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1332.000000</module-x>
+    <module-y>1286.000000</module-y>
+  </node>
+  <node>
+    <name>max_left</name>
+    <polyphonic>false</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1298.000000</module-x>
+    <module-y>1092.000000</module-y>
+    <user-max>1.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>max_right</name>
+    <polyphonic>false</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1295.000000</module-x>
+    <module-y>1135.000000</module-y>
+  </node>
+  <node>
+    <name>out_l</name>
+    <polyphonic>false</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_output</plugin-label>
+    <module-x>1933.000000</module-x>
+    <module-y>1180.000000</module-y>
+  </node>
+  <node>
+    <name>out_r</name>
+    <polyphonic>false</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_output</plugin-label>
+    <module-x>1931.000000</module-x>
+    <module-y>1283.000000</module-y>
+  </node>
+  <node>
+    <name>pan</name>
+    <polyphonic>false</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1328.000000</module-x>
+    <module-y>1188.000000</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa_1</name>
+    <polyphonic>false</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>1776.000000</module-x>
+    <module-y>1154.000000</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa_2</name>
+    <polyphonic>false</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>1776.000000</module-x>
+    <module-y>1260.000000</module-y>
+  </node>
+  <node>
+    <name>range_trans_cr</name>
+    <polyphonic>false</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>range_trans_cr</plugin-label>
+    <library-name>range_trans_4210.so</library-name>
+    <module-x>1391.000000</module-x>
+    <module-y>1129.000000</module-y>
+    <port>
+      <name>Input Min</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Input Max</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Output Min</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Output Max</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <connection>
+    <source-node>in</source-node>
+    <source-port>in</source-port>
+    <destination-node>product_iaia_oa_2</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>in</source-node>
+    <source-port>in</source-port>
+    <destination-node>product_iaia_oa_1</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>pan</source-node>
+    <source-port>in</source-port>
+    <destination-node>range_trans_cr</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>max_left</source-node>
+    <source-port>in</source-port>
+    <destination-node>range_trans_cr</destination-node>
+    <destination-port>Input Min</destination-port>
+  </connection>
+  <connection>
+    <source-node>max_right</source-node>
+    <source-port>in</source-port>
+    <destination-node>range_trans_cr</destination-node>
+    <destination-port>Input Max</destination-port>
+  </connection>
+  <connection>
+    <source-node>1_minus_input</source-node>
+    <source-port>Difference Output</source-port>
+    <destination-node>product_iaia_oa_1</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>range_trans_cr</source-node>
+    <source-port>Output</source-port>
+    <destination-node>1_minus_input</destination-node>
+    <destination-port>Input to Subtract</destination-port>
+  </connection>
+  <connection>
+    <source-node>range_trans_cr</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_2</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_1</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>out_l</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_2</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>out_r</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <preset>
+    <name>default</name>
+    <control>
+      <node-name>1_minus_input</node-name>
+      <port-name>Input</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr</node-name>
+      <port-name>Input Min</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr</node-name>
+      <port-name>Input Max</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr</node-name>
+      <port-name>Output Min</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr</node-name>
+      <port-name>Output Max</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <port-name>max_left</port-name>
+      <value>0.250000</value>
+    </control>
+    <control>
+      <port-name>max_right</port-name>
+      <value>0.750000</value>
+    </control>
+  </preset>
+</patch>

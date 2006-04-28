@@ -13,7 +13,7 @@ Each of the drums should be more or less the right midi note as per the gm drum 
 *** You need  a post 10th october 2005 cvs version of om to load the 808 kit. ***
 
 om: http://savannah.nongnu.org/projects/om-synth
-plugins: http://plugin.org.uk/
+plugins: http://atte.dk/om-wiki/GettingPlugins
 
 It work here for me ;-) should be sounding better everyday! Feel free to email me with improvements, new drums,etc. I REALLY want to here what drums people need, if anyone has an algorithim or anything tell me. 
 

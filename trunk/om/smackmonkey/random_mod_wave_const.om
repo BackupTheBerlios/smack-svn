@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<patch>
+  <name>random_mod</name>
+  <polyphony>1</polyphony>
+  <filename>random_mod_wave_const.om</filename>
+  <module-x>1138.000000</module-x>
+  <module-y>1066.000000</module-y>
+  <node>
+    <name>factor</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1345.000000</module-x>
+    <module-y>1109.000000</module-y>
+  </node>
+  <node>
+    <name>const_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>const</plugin-label>
+    <library-name>const_1909.so</library-name>
+    <module-x>1609.000000</module-x>
+    <module-y>1143.000000</module-y>
+  </node>
+  <node>
+    <name>factor_max</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1316.000000</module-x>
+    <module-y>1219.000000</module-y>
+  </node>
+  <node>
+    <name>factor_min</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1320.000000</module-x>
+    <module-y>1167.000000</module-y>
+  </node>
+  <node>
+    <name>frequency</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1320.000000</module-x>
+    <module-y>1289.000000</module-y>
+  </node>
+  <node>
+    <name>out</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_output</plugin-label>
+    <module-x>1928.000000</module-x>
+    <module-y>1227.000000</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>1772.000000</module-x>
+    <module-y>1211.000000</module-y>
+  </node>
+  <node>
+    <name>random_fcsc_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>random_fcsc_oa</plugin-label>
+    <library-name>random_1661.so</library-name>
+    <module-x>1425.000000</module-x>
+    <module-y>1300.000000</module-y>
+  </node>
+  <node>
+    <name>range_trans_cr_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>range_trans_cr</plugin-label>
+    <library-name>range_trans_4210.so</library-name>
+    <module-x>1608.000000</module-x>
+    <module-y>1224.000000</module-y>
+    <port>
+      <name>Input Min</name>
+      <user-min>-1.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Input Max</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Output Min</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Output Max</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <connection>
+    <source-node>random_fcsc_oa_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>range_trans_cr_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>const_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>range_trans_cr_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>out</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>frequency</source-node>
+    <source-port>in</source-port>
+    <destination-node>random_fcsc_oa_0</destination-node>
+    <destination-port>Frequency (Hz)</destination-port>
+  </connection>
+  <connection>
+    <source-node>factor</source-node>
+    <source-port>in</source-port>
+    <destination-node>const_0</destination-node>
+    <destination-port>Signal amplitude</destination-port>
+  </connection>
+  <connection>
+    <source-node>factor_min</source-node>
+    <source-port>in</source-port>
+    <destination-node>range_trans_cr_0</destination-node>
+    <destination-port>Output Min</destination-port>
+  </connection>
+  <connection>
+    <source-node>factor_max</source-node>
+    <source-port>in</source-port>
+    <destination-node>range_trans_cr_0</destination-node>
+    <destination-port>Output Max</destination-port>
+  </connection>
+  <preset>
+    <name>default</name>
+    <control>
+      <node-name>const_0</node-name>
+      <port-name>Signal amplitude</port-name>
+      <value>7556.561035</value>
+    </control>
+    <control>
+      <node-name>random_fcsc_oa_0</node-name>
+      <port-name>Frequency (Hz)</port-name>
+      <value>5.000000</value>
+    </control>
+    <control>
+      <node-name>random_fcsc_oa_0</node-name>
+      <port-name>Wave Smoothness</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr_0</node-name>
+      <port-name>Input Min</port-name>
+      <value>-1.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr_0</node-name>
+      <port-name>Input Max</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr_0</node-name>
+      <port-name>Output Min</port-name>
+      <value>1.018592</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr_0</node-name>
+      <port-name>Output Max</port-name>
+      <value>0.990000</value>
+    </control>
+    <control>
+      <port-name>factor</port-name>
+      <value>7556.561035</value>
+    </control>
+    <control>
+      <port-name>factor_max</port-name>
+      <value>0.990000</value>
+    </control>
+    <control>
+      <port-name>factor_min</port-name>
+      <value>1.018592</value>
+    </control>
+    <control>
+      <port-name>frequency</port-name>
+      <value>5.000000</value>
+    </control>
+  </preset>
+</patch>

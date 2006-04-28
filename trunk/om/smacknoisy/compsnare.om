@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <patch>
   <name>compsnare</name>
-  <polyphony>1<module-x>1497.000000</module-x><module-y>1067.000000</module-y></polyphony>
+  <polyphony>1</polyphony>
+  <filename>/home/loki/svn/trunk/om/smacknoisy/compsnare.om</filename>
   <node>
     <name>Decay</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>control_input</plugin-label>
     <module-x>1727.000000</module-x>
@@ -12,7 +13,7 @@
   </node>
   <node>
     <name>Vowel</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>control_input</plugin-label>
     <module-x>1720.000000</module-x>
@@ -22,7 +23,7 @@
   </node>
   <node>
     <name>adenv</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>LADSPA</type>
     <plugin-label>adenv</plugin-label>
     <library-name>adenv.so</library-name>
@@ -41,7 +42,7 @@
   </node>
   <node>
     <name>amp_mono</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>LADSPA</type>
     <plugin-label>amp_mono</plugin-label>
     <library-name>cmt.so</library-name>
@@ -55,15 +56,15 @@
   </node>
   <node>
     <name>audio_output</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>audio_output</plugin-label>
-    <module-x>2406.000000</module-x>
-    <module-y>1233.000000</module-y>
+    <module-x>2465.000000</module-x>
+    <module-y>1241.000000</module-y>
   </node>
   <node>
     <name>compress_rms</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>LADSPA</type>
     <plugin-label>compress_rms</plugin-label>
     <library-name>cmt.so</library-name>
@@ -77,7 +78,7 @@
   </node>
   <node>
     <name>formant_vc</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>LADSPA</type>
     <plugin-label>formant_vc</plugin-label>
     <library-name>formant_filter_4300.so</library-name>
@@ -86,7 +87,7 @@
   </node>
   <node>
     <name>midi_input</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>midi_input</plugin-label>
     <module-x>1612.000000</module-x>
@@ -94,7 +95,7 @@
   </node>
   <node>
     <name>noise_source_white</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>LADSPA</type>
     <plugin-label>noise_source_white</plugin-label>
     <library-name>cmt.so</library-name>
@@ -108,7 +109,7 @@
   </node>
   <node>
     <name>product_iaia_oa</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>LADSPA</type>
     <plugin-label>product_iaia_oa</plugin-label>
     <library-name>product_1668.so</library-name>
@@ -116,8 +117,17 @@
     <module-y>1159.000000</module-y>
   </node>
   <node>
+    <name>product_iaia_oa_2</name>
+    <polyphonic>false</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>2311.000000</module-x>
+    <module-y>1189.000000</module-y>
+  </node>
+  <node>
     <name>sc1</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>LADSPA</type>
     <plugin-label>sc1</plugin-label>
     <library-name>sc1_1425.so</library-name>
@@ -126,7 +136,7 @@
   </node>
   <node>
     <name>threshold 1</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>control_input</plugin-label>
     <module-x>2058.000000</module-x>
@@ -136,7 +146,7 @@
   </node>
   <node>
     <name>threshold 2</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>control_input</plugin-label>
     <module-x>2038.000000</module-x>
@@ -144,7 +154,7 @@
   </node>
   <node>
     <name>trigger_in</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>trigger_in</plugin-label>
     <module-x>1704.000000</module-x>
@@ -152,7 +162,7 @@
   </node>
   <node>
     <name>volume</name>
-    <polyphonic>true</polyphonic>
+    <polyphonic>false</polyphonic>
     <type>Internal</type>
     <plugin-label>control_input</plugin-label>
     <module-x>1970.000000</module-x>
@@ -203,22 +213,10 @@
     <destination-port>Input</destination-port>
   </connection>
   <connection>
-    <source-node>sc1</source-node>
-    <source-port>Output</source-port>
-    <destination-node>audio_output</destination-node>
-    <destination-port>out</destination-port>
-  </connection>
-  <connection>
     <source-node>amp_mono</source-node>
     <source-port>Output</source-port>
     <destination-node>compress_rms</destination-node>
     <destination-port>Input</destination-port>
-  </connection>
-  <connection>
-    <source-node>compress_rms</source-node>
-    <source-port>Output</source-port>
-    <destination-node>audio_output</destination-node>
-    <destination-port>out</destination-port>
   </connection>
   <connection>
     <source-node>volume</source-node>
@@ -249,6 +247,30 @@
     <source-port>in</source-port>
     <destination-node>adenv</destination-node>
     <destination-port>Decay Time (s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>sc1</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_2</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>compress_rms</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_2</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_2</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>audio_output</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>trigger_in</source-node>
+    <source-port>Velocity</source-port>
+    <destination-node>product_iaia_oa_2</destination-node>
+    <destination-port>First Input</destination-port>
   </connection>
   <preset>
     <name>default</name>
@@ -330,11 +352,15 @@
     <control>
       <node-name>trigger_in</node-name>
       <port-name>Note Number</port-name>
-      <value>60.000000</value>
+      <value>40.000000</value>
     </control>
     <control>
-      <port-name>volume</port-name>
-      <value>6.000000</value>
+      <port-name>Decay</port-name>
+      <value>0.423538</value>
+    </control>
+    <control>
+      <port-name>Vowel</port-name>
+      <value>1.554546</value>
     </control>
     <control>
       <port-name>threshold 1</port-name>
@@ -345,12 +371,8 @@
       <value>0.013099</value>
     </control>
     <control>
-      <port-name>Vowel</port-name>
-      <value>1.554546</value>
-    </control>
-    <control>
-      <port-name>Decay</port-name>
-      <value>0.423538</value>
+      <port-name>volume</port-name>
+      <value>6.000000</value>
     </control>
   </preset>
 </patch>

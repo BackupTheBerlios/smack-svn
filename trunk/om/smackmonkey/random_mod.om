@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<patch>
+  <name>random_mod</name>
+  <polyphony>1</polyphony>
+  <filename>random_mod.om</filename>
+  <module-x>1505.000000</module-x>
+  <module-y>1099.000000</module-y>
+  <node>
+    <name>1_+_n</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>sum_icic_oc</plugin-label>
+    <library-name>sum_1665.so</library-name>
+    <module-x>1391.000000</module-x>
+    <module-y>876.000000</module-y>
+    <port>
+      <name>First Input</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Second Input</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>1_-_n</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>difference_icmc_oc</plugin-label>
+    <library-name>difference_2030.so</library-name>
+    <module-x>1389.000000</module-x>
+    <module-y>797.000000</module-y>
+    <port>
+      <name>Input</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Input to Subtract</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>halve</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>ratio_ncdc_oc</plugin-label>
+    <library-name>ratio_2034.so</library-name>
+    <module-x>1284.000000</module-x>
+    <module-y>830.000000</module-y>
+    <port>
+      <name>Numerator</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+    <port>
+      <name>Denominator</name>
+      <user-min>0.000000</user-min>
+      <user-max>2.000000</user-max>
+    </port>
+  </node>
+  <node>
+    <name>in</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1209.000000</module-x>
+    <module-y>1100.000000</module-y>
+  </node>
+  <node>
+    <name>noise_source_white_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>noise_source_white</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>1337.000000</module-x>
+    <module-y>964.000000</module-y>
+  </node>
+  <node>
+    <name>out</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_output</plugin-label>
+    <module-x>2002.000000</module-x>
+    <module-y>1108.000000</module-y>
+  </node>
+  <node>
+    <name>product_iaia_oa_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>1852.000000</module-x>
+    <module-y>1079.000000</module-y>
+  </node>
+  <node>
+    <name>range</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1201.000000</module-x>
+    <module-y>837.000000</module-y>
+  </node>
+  <node>
+    <name>range_trans_cr_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>range_trans_cr</plugin-label>
+    <library-name>range_trans_4210.so</library-name>
+    <module-x>1556.000000</module-x>
+    <module-y>928.000000</module-y>
+  </node>
+  <node>
+    <name>rate</name>
+    <polyphonic>true</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1202.000000</module-x>
+    <module-y>1041.000000</module-y>
+  </node>
+  <node>
+    <name>slew_limiter_rc_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>slew_limiter_rc</plugin-label>
+    <library-name>slew_limiter_2743.so</library-name>
+    <module-x>1721.000000</module-x>
+    <module-y>1014.000000</module-y>
+  </node>
+  <connection>
+    <source-node>in</source-node>
+    <source-port>in</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_iaia_oa_0</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>out</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <connection>
+    <source-node>noise_source_white_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>range_trans_cr_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>range_trans_cr_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>slew_limiter_rc_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>slew_limiter_rc_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_iaia_oa_0</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>rate</source-node>
+    <source-port>in</source-port>
+    <destination-node>slew_limiter_rc_0</destination-node>
+    <destination-port>Rise rate (1-s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>rate</source-node>
+    <source-port>in</source-port>
+    <destination-node>slew_limiter_rc_0</destination-node>
+    <destination-port>Fall rate (1-s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>range</source-node>
+    <source-port>in</source-port>
+    <destination-node>halve</destination-node>
+    <destination-port>Numerator</destination-port>
+  </connection>
+  <connection>
+    <source-node>halve</source-node>
+    <source-port>Ratio Output</source-port>
+    <destination-node>1_-_n</destination-node>
+    <destination-port>Input to Subtract</destination-port>
+  </connection>
+  <connection>
+    <source-node>halve</source-node>
+    <source-port>Ratio Output</source-port>
+    <destination-node>1_+_n</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>1_+_n</source-node>
+    <source-port>Summed Output</source-port>
+    <destination-node>range_trans_cr_0</destination-node>
+    <destination-port>Output Max</destination-port>
+  </connection>
+  <connection>
+    <source-node>1_-_n</source-node>
+    <source-port>Difference Output</source-port>
+    <destination-node>range_trans_cr_0</destination-node>
+    <destination-port>Output Min</destination-port>
+  </connection>
+  <preset>
+    <name>default</name>
+    <control>
+      <node-name>1_+_n</node-name>
+      <port-name>First Input</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>1_+_n</node-name>
+      <port-name>Second Input</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>1_-_n</node-name>
+      <port-name>Input</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>1_-_n</node-name>
+      <port-name>Input to Subtract</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>halve</node-name>
+      <port-name>Numerator</port-name>
+      <value>0.500000</value>
+    </control>
+    <control>
+      <node-name>halve</node-name>
+      <port-name>Denominator</port-name>
+      <value>2.000000</value>
+    </control>
+    <control>
+      <node-name>noise_source_white_0</node-name>
+      <port-name>Amplitude</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr_0</node-name>
+      <port-name>Input Min</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr_0</node-name>
+      <port-name>Input Max</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr_0</node-name>
+      <port-name>Output Min</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>range_trans_cr_0</node-name>
+      <port-name>Output Max</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>slew_limiter_rc_0</node-name>
+      <port-name>Rise rate (1-s)</port-name>
+      <value>8.000000</value>
+    </control>
+    <control>
+      <node-name>slew_limiter_rc_0</node-name>
+      <port-name>Fall rate (1-s)</port-name>
+      <value>8.000000</value>
+    </control>
+    <control>
+      <port-name>range</port-name>
+      <value>0.500000</value>
+    </control>
+    <control>
+      <port-name>rate</port-name>
+      <value>8.000000</value>
+    </control>
+  </preset>
+</patch>

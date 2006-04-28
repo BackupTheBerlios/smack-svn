@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<patch>
+  <name>random_mod</name>
+  <polyphony>4</polyphony>
+  <filename>random_mod_noise_rcac.om</filename>
+  <module-x>1632.333374</module-x>
+  <module-y>1299.666626</module-y>
+  <node>
+    <name>amount</name>
+    <polyphonic>false</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1419.000000</module-x>
+    <module-y>1102.000000</module-y>
+    <user-max>10.000000</user-max>
+    <user-min>0.000000</user-min>
+  </node>
+  <node>
+    <name>in</name>
+    <polyphonic>false</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_input</plugin-label>
+    <module-x>1422.000000</module-x>
+    <module-y>1164.000000</module-y>
+  </node>
+  <node>
+    <name>noise_source_white_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>noise_source_white</plugin-label>
+    <library-name>cmt.so</library-name>
+    <module-x>1489.000000</module-x>
+    <module-y>971.000000</module-y>
+  </node>
+  <node>
+    <name>out</name>
+    <polyphonic>false</polyphonic>
+    <type>Internal</type>
+    <plugin-label>audio_output</plugin-label>
+    <module-x>2176.000000</module-x>
+    <module-y>1193.000000</module-y>
+  </node>
+  <node>
+    <name>product_amount</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaic_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>1800.000000</module-x>
+    <module-y>1067.000000</module-y>
+  </node>
+  <node>
+    <name>product_in</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>product_iaia_oa</plugin-label>
+    <library-name>product_1668.so</library-name>
+    <module-x>2036.000000</module-x>
+    <module-y>1177.000000</module-y>
+  </node>
+  <node>
+    <name>rate</name>
+    <polyphonic>false</polyphonic>
+    <type>Internal</type>
+    <plugin-label>control_input</plugin-label>
+    <module-x>1421.000000</module-x>
+    <module-y>1041.000000</module-y>
+  </node>
+  <node>
+    <name>slew_limiter_rc_0</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>slew_limiter_rc</plugin-label>
+    <library-name>slew_limiter_2743.so</library-name>
+    <module-x>1658.000000</module-x>
+    <module-y>1001.000000</module-y>
+  </node>
+  <node>
+    <name>sum_iaic_oa</name>
+    <polyphonic>true</polyphonic>
+    <type>LADSPA</type>
+    <plugin-label>sum_iaic_oa</plugin-label>
+    <library-name>sum_1665.so</library-name>
+    <module-x>1927.000000</module-x>
+    <module-y>1120.000000</module-y>
+    <port>
+      <name>Second Input</name>
+      <user-min>0.000000</user-min>
+      <user-max>1.000000</user-max>
+    </port>
+  </node>
+  <connection>
+    <source-node>rate</source-node>
+    <source-port>in</source-port>
+    <destination-node>slew_limiter_rc_0</destination-node>
+    <destination-port>Rise rate (1-s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>rate</source-node>
+    <source-port>in</source-port>
+    <destination-node>slew_limiter_rc_0</destination-node>
+    <destination-port>Fall rate (1-s)</destination-port>
+  </connection>
+  <connection>
+    <source-node>noise_source_white_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>slew_limiter_rc_0</destination-node>
+    <destination-port>Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>slew_limiter_rc_0</source-node>
+    <source-port>Output</source-port>
+    <destination-node>product_amount</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>amount</source-node>
+    <source-port>in</source-port>
+    <destination-node>product_amount</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_amount</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>sum_iaic_oa</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>sum_iaic_oa</source-node>
+    <source-port>Summed Output</source-port>
+    <destination-node>product_in</destination-node>
+    <destination-port>First Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>in</source-node>
+    <source-port>in</source-port>
+    <destination-node>product_in</destination-node>
+    <destination-port>Second Input</destination-port>
+  </connection>
+  <connection>
+    <source-node>product_in</source-node>
+    <source-port>Product Output</source-port>
+    <destination-node>out</destination-node>
+    <destination-port>out</destination-port>
+  </connection>
+  <preset>
+    <name>default</name>
+    <control>
+      <node-name>noise_source_white_0</node-name>
+      <port-name>Amplitude</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <node-name>product_amount</node-name>
+      <port-name>Second Input</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>slew_limiter_rc_0</node-name>
+      <port-name>Rise rate (1-s)</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>slew_limiter_rc_0</node-name>
+      <port-name>Fall rate (1-s)</port-name>
+      <value>0.000000</value>
+    </control>
+    <control>
+      <node-name>sum_iaic_oa</node-name>
+      <port-name>Second Input</port-name>
+      <value>1.000000</value>
+    </control>
+    <control>
+      <port-name>amount</port-name>
+      <value>80.000000</value>
+    </control>
+    <control>
+      <port-name>rate</port-name>
+      <value>1.000000</value>
+    </control>
+  </preset>
+</patch>
