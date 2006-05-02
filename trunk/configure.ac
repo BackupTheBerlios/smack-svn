@@ -1,5 +1,5 @@
 # configure.in for smack
-AC_INIT([smack],[0.2.1],[loki@berlios.de])
+AC_INIT([smack],[0.3],[loki@berlios.de])
 #AC_CONFIG_SRCDIR([gui.c])
 
 AM_INIT_AUTOMAKE
